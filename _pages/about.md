@@ -37,7 +37,7 @@ redirect_from:
 <div class='paper-box-text' markdown="1">
 InvestLM: A Large Language Model for Investment using Financial Domain Instruction Tuning
 
-**Yixuan Tang**, Kar Yan Tam. 
+**Yixuan Tang**, Yi Yang, Kar Yan Tam. 
 
 [Project Page](https://investlm.hkust.edu.hk/) 
 
