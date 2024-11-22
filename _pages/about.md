@@ -25,7 +25,6 @@ redirect_from:
 
 # 📝 CS Publications 
 
-
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">COLM 2024</div><img src='images/rag.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 [MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries](https://arxiv.org/abs/2401.15391)
@@ -50,7 +49,7 @@ Yi Yang, **Yixuan Tang**, Kar Yan Tam.
   
 - [FinEntity: Entity-level Sentiment Classification for Financial Texts](https://arxiv.org/abs/2310.12406), **Yixuan Tang**, Yi Yang.  **(EMNLP 2023)** 
 
-# 📖 Preprint 
+# 📚 Preprint 
 
 - [Do We Need Domain-Specific Embedding Models? An Empirical Investigation](https://arxiv.org/abs/2409.18511),**Yixuan Tang**, Yi Yang.
   
