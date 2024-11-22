@@ -38,7 +38,7 @@ redirect_from:
 <div class='paper-box-text' markdown="1">
 InvestLM: A Large Language Model for Investment using Financial Domain Instruction Tuning
 
-**Yixuan Tang**, Yi Yang, Kar Yan Tam. 
+Yi Yang, **Yixuan Tang**, Kar Yan Tam. 
 
 [Project Page](https://investlm.hkust.edu.hk/) 
 
@@ -46,17 +46,18 @@ InvestLM: A Large Language Model for Investment using Financial Domain Instructi
 </div>
 </div>
 
+- [Exploring the Relationship between In-Context Learning and Instruction Tuning](https://arxiv.org/abs/2311.10367), Hanyu Duan, **Yixuan Tang**, Yi Yang, Ahmed Abbasi, Kar Yan Tam.  **(EMNLP 2024 Findings)** 
+  
+- [FinEntity: Entity-level Sentiment Classification for Financial Texts](https://arxiv.org/abs/2310.12406), **Yixuan Tang**, Yi Yang.  **(EMNLP 2023)** 
+
+# 📖 Preprint 
+
 - [Do We Need Domain-Specific Embedding Models? An Empirical Investigation](https://arxiv.org/abs/2409.18511),**Yixuan Tang**, Yi Yang.
   
 - [Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?](https://arxiv.org/abs/2409.02727),**Yixuan Tang**, Yi Yang.
 
 - [Know the Unknown: An Uncertainty-Sensitive Method for LLM Instruction Tuning](https://arxiv.org/abs/2406.10099), Jiaqi Li, **Yixuan Tang**, Yi Yang. 
-
-- [Exploring the Relationship between In-Context Learning and Instruction Tuning](https://arxiv.org/abs/2311.10367), Hanyu Duan, **Yixuan Tang**, Yi Yang, Ahmed Abbasi, Kar Yan Tam.  **(EMNLP 2024 Findings)** 
   
-- [FinEntity: Entity-level Sentiment Classification for Financial Texts](https://arxiv.org/abs/2310.12406), **Yixuan Tang**, Yi Yang.  **(EMNLP 2023)** 
-
-
 <!-- # 🎖 Honors and Awards
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
