@@ -33,6 +33,12 @@ redirect_from:
 </div>
 </div>
 
+- [Exploring the Relationship between In-Context Learning and Instruction Tuning](https://arxiv.org/abs/2311.10367), Hanyu Duan, **Yixuan Tang**, Yi Yang, Ahmed Abbasi, Kar Yan Tam.  **(EMNLP 2024 Findings)** 
+  
+- [FinEntity: Entity-level Sentiment Classification for Financial Texts](https://arxiv.org/abs/2310.12406), **Yixuan Tang**, Yi Yang.  **(EMNLP 2023)** 
+
+# 📚 Preprint 
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Project</div><img src='images/investlm.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 InvestLM: A Large Language Model for Investment using Financial Domain Instruction Tuning
@@ -44,12 +50,6 @@ Yi Yang, **Yixuan Tang**, Kar Yan Tam.
 [Paper Link](https://arxiv.org/abs/2309.13064)
 </div>
 </div>
-
-- [Exploring the Relationship between In-Context Learning and Instruction Tuning](https://arxiv.org/abs/2311.10367), Hanyu Duan, **Yixuan Tang**, Yi Yang, Ahmed Abbasi, Kar Yan Tam.  **(EMNLP 2024 Findings)** 
-  
-- [FinEntity: Entity-level Sentiment Classification for Financial Texts](https://arxiv.org/abs/2310.12406), **Yixuan Tang**, Yi Yang.  **(EMNLP 2023)** 
-
-# 📚 Preprint 
 
 - [Do We Need Domain-Specific Embedding Models? An Empirical Investigation](https://arxiv.org/abs/2409.18511),**Yixuan Tang**, Yi Yang.
   
