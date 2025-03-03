@@ -88,24 +88,87 @@
 
         .profile {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 3rem;
+            grid-template-columns: 150px 1fr; /* 减小图片列宽 */
+            gap: 2rem; /* 减小间距 */
             background: var(--bg-primary);
-            padding: 2rem;
+            padding: 1.5rem; /* 减小内边距 */
             border-radius: 12px;
             box-shadow: var(--card-shadow);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             transition: transform 0.2s;
+            max-width: 1200px; /* 限制最大宽度 */
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .profile:hover {
-            transform: translateY(-5px);
-        }
-
+        
         .profile-image img {
-            width: 100%;
-            border-radius: 12px;
-            border: 3px solid #e5e7eb;
+            width: 150px; /* 减小图片尺寸 */
+            height: 150px; /* 保持图片为方形 */
+            border-radius: 50%; /* 改为圆形 */
+            object-fit: cover; /* 确保图片填充得当 */
+            border: 2px solid #e5e7eb;
+            margin-right: 2rem;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;  /* 垂直居中 */
+            gap: 1.5rem; /* 垂直居中内容 */
+        }
+
+        .profile-info h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .profile-info .title {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+
+        .profile-info p {
+            margin: 0.2rem 0; /* 减小段落间距 */
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-left: auto;  /* 推到最右侧 */
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            margin-right: 1rem; /* 减小图标间距 */
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+
+        @media (max-width: 768px) {
+            .profile {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .profile-image {
+                margin: 0 auto;
+                width: 120px; /* 移动端更小的图片 */
+            }
+
+            .profile-image img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .social-links {
+                justify-content: center;
+                display: flex;
+            }
         }
 
         section {
@@ -162,12 +225,15 @@
             margin-bottom: 1rem;
         }
 
-        .social-links a {
+        .basic-info {
+                margin-right: 2rem;
+            }
+        /* .social-links a {
             color: var(--text-secondary);
             margin-right: 1.5rem;
             font-size: 1.2rem;
             transition: color 0.2s;
-        }
+        } */
 
         .social-links a:hover {
             color: var(--primary-blue);
@@ -217,14 +283,17 @@
     </nav>
     <div class="container">
         <div class="profile">
+            
             <div class="profile-image">
                 <img src="images/IMG.png" alt="Yixuan Tang">
             </div>
             <div class="profile-info">
-                <h1 class="name">Yixuan Tang</h1>
-                <div class="title">MPhil Student at HKUST</div>
-                <p>🎓 Information Systems</p>
-                <p>📍 Hong Kong</p>
+                <div class="basic-info">
+                    <h1 class="name">Yixuan Tang</h1>
+                    <div class="title">MPhil Student at HKUST</div>
+                    <p>🎓 Information Systems</p>
+                    <p>📍 Hong Kong</p>
+                </div>
                 <div class="social-links">
                     <a href="mailto:ytangch@connect.ust.hk" title="Email"><i class="fas fa-envelope"></i></a>
                     <a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
