@@ -3,16 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yixuan Tang - NLP/IS</title>
+    <title>Yixuan Tang - Academic Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="index.css">
-</head>
+    <style>
+        :root {
+            --primary-blue: #10a37f;
+            --text-primary: #202123;
+            --text-secondary: #565869;
+            --bg-primary: #ffffff;
+            --nav-height: 64px;
+            --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin: 0;
+            padding-top: var(--nav-height);
+            background: linear-gradient(-45deg, #e1f5ff63, #fffcda58, #78a9bb4e, #23d5ab3d);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* 为了确保内容可读性，增加卡片的背景透明度 */
+        .profile, section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        /* 导航栏样式 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background: var(--bg-primary);
+            box-shadow: var(--card-shadow);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-links {
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .profile {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 3rem;
+            transition: transform 0.2s;
+        }
+
+        .profile:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-image img {
+            width: 100%;
+            border-radius: 12px;
+            border: 3px solid #e5e7eb;
+        }
+
+        section {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            transition: transform 0.2s;
+        }
+
+        section:hover {
+            transform: translateY(-3px);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .paper-box {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s;
+            background: #fafafa;
+        }
+
+        .paper-box:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .badge {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            margin-right: 1.5rem;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .publication-list {
+            list-style: none;
+        }
+
+        .publication-list li {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .publication-list li:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .profile {
+                grid-template-columns: 1fr;
+            }
+            
+            .paper-box {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .nav-links a {
+                margin-left: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#about-me">About</a>
+            <a href="#publications">Publications</a>
+            <a href="#preprints">Preprints</a>
+            <a href="#education">Education</a>
+        </div>
+    </nav>
     <div class="container">
         <div class="profile">
             <div class="profile-image">
-                <img src="images/mine.png" alt="Yixuan Tang">
+                <img src="images/IMG.png" alt="Yixuan Tang">
             </div>
             <div class="profile-info">
                 <h1 class="name">Yixuan Tang</h1>
@@ -106,17 +312,17 @@
             <h2>📖 Education</h2>
             <div class="education-item">
                 <p><strong>2024.09 - Present</strong></p>
-                <p>MPhil in Information System</p>
+                <p>* MPhil in Information System</p>
                 <p>Hong Kong University of Science and Technology (HKUST)</p>
             </div>
             <div class="education-item">
                 <p><strong>2021.09 - 2022.11</strong></p>
-                <p>Master in BigData Technology</p>
+                <p>* Master in BigData Technology</p>
                 <p>Hong Kong University of Science and Technology (HKUST)</p>
             </div>
             <div class="education-item">
                 <p><strong>2017.09 - 2021.06</strong></p>
-                <p>Bachelor in Computer Science and Technology</p>
+                <p>* Bachelor in Computer Science and Technology</p>
                 <p>Chongqing University</p>
             </div>
         </section>
