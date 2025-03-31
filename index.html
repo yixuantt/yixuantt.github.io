@@ -3,447 +3,921 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yixuan Tang - Academic Profile</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Yixuan Tang | MPhil Researcher in NLP & Information Systems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-:root {
-            --primary-blue: #10a37f;
-            --text-primary: #202123;
-            --text-secondary: #565869;
-            --bg-primary: rgba(255, 255, 255, 0.98);
-            --nav-height: 70px;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            --section-spacing: 3rem;
+        :root {
+            --primary-color: #10a37f;
+            --secondary-color: #1a73e8;
+            --text-dark: #202123;
+            --text-medium: #565869;
+            --text-light: #6c757d;
+            --bg-white: rgba(255, 255, 255, 0.98);
+            --bg-light: #f8f9fa;
+            --bg-card: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 6px 18px rgba(0,0,0,0.12);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --section-gap: 4rem;
+            --nav-height: 80px;
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.65;
-            color: var(--text-primary);
-            padding-top: var(--nav-height);
-            background: linear-gradient(-45deg, #e1f5ffe6, #fffcdaeb);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4f0fb 100%);
             background-attachment: fixed;
+            padding-top: var(--nav-height);
         }
-        /* 改进的导航栏 */
+
+        /* Modern navigation */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
             height: var(--nav-height);
-            background: var(--bg-primary);
-            backdrop-filter: blur(8px);
-            box-shadow: var(--card-shadow);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
             z-index: 1000;
             display: flex;
             align-items: center;
-            padding: 0 2.5rem;
+            justify-content: space-between;
+            padding: 0 5%;
+            transition: var(--transition);
         }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .nav-links {
-            margin-left: auto;
             display: flex;
             gap: 2rem;
         }
+
         .nav-links a {
-            color: var(--text-secondary);
+            color: var(--text-medium);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            padding: 0.5rem 0;
             position: relative;
+            transition: var(--transition);
         }
+
         .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-blue);
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        /* 优化个人资料区域 */
-        .profile {
-            display: grid;
-            grid-template-columns: 160px 1fr;
-            gap: 3rem;
-            background: var(--bg-primary);
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: var(--card-shadow);
-            margin: 2rem auto;
-            max-width: 1200px;
-            position: relative;
-            overflow: hidden;
-        }
-        .profile::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 200px;
-            height: 200px;
-            background: var(--primary-blue);
-            opacity: 0.08;
-            border-radius: 50%;
-        }
-        .profile-image img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #f0f4f8;
-            box-shadow: 0 4px 12px rgba(16, 163, 127, 0.15);
-        }
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .name {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-        .title {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-        .publication-list {
-            list-style: none;
-        }
-
-        .publication-list li {
-            padding: 1rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .publication-list li:last-child {
-            border-bottom: none;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.25rem;
-            margin-top: 1rem;
-        }
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: #f5f7f9;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-        }
-        .social-links a:hover {
-            background: var(--primary-blue);
-            color: white;
-            transform: translateY(-2px);
-        }
-        /* 改进内容区块 */
-        section {
-            background: var(--bg-primary);
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: var(--card-shadow);
-            margin: 2rem auto;
-            max-width: 1200px;
-            transition: transform 0.3s ease;
-        }
-        section:hover {
-            transform: translateY(-5px);
-        }
-        h2 {
-            font-size: 1.8rem;
-            color: var(--text-primary);
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-        h2::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-blue);
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
         }
-        /* 增强论文展示 */
-        .paper-box {
+
+        .nav-links a:hover, 
+        .nav-links a:focus {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Enhanced profile section */
+        .profile {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
-            padding: 1.75rem;
-            border-radius: 12px;
-            margin-bottom: 1.75rem;
-            background: #f9fbfd;
-            border: 1px solid #e8ecef;
-            transition: all 0.3s ease;
-        }
-        .paper-box:hover {
-            box-shadow: 0 6px 16px rgba(16, 163, 127, 0.1);
-            border-color: var(--primary-blue);
-        }
-        .paper-box-image {
+            grid-template-columns: 180px 1fr;
+            gap: 3rem;
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            margin: 3rem 0;
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
         }
-        .paper-box-image img {
-            width: 100%;
+
+        .profile::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(16,163,127,0.1) 0%, rgba(16,163,127,0) 70%);
+            z-index: 0;
+        }
+
+        .profile-image {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image img {
+            width: 180px;
             height: 180px;
+            border-radius: 50%;
             object-fit: cover;
-            border-radius: 8px;
+            border: 3px solid white;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
         }
+
+        .profile-image:hover img {
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(16, 163, 127, 0.2);
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .title i {
+            font-size: 1.1rem;
+        }
+
+        .bio {
+            color: var(--text-medium);
+            max-width: 700px;
+        }
+
+        .location, .contact {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+
+        .advisor {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            color: var(--text-medium);
+        }
+
+        .advisor a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .advisor a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--bg-light);
+            color: var(--text-medium);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(16, 163, 127, 0.25);
+        }
+
+        /* Section styling */
+        section {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--section-gap);
+            transition: var(--transition);
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        /* Publication cards */
+        .paper-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .paper-card {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            background: var(--bg-card);
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: var(--transition);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .paper-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .paper-image {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f2f5;
+        }
+
+        .paper-image img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .paper-card:hover .paper-image img {
+            transform: scale(1.03);
+        }
+
         .badge {
             position: absolute;
             top: 12px;
             left: 12px;
-            background: var(--primary-blue);
+            background: var(--primary-color);
             color: white;
-            padding: 0.4rem 1rem;
+            padding: 0.35rem 1rem;
             border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        .paper-title a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 1.25rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            transition: color 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+
+        .paper-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .paper-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .paper-title a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
         .paper-title a:hover {
-            color: var(--primary-blue);
+            color: var(--primary-color);
+            text-decoration: underline;
         }
+
         .paper-authors {
-            color: var(--text-secondary);
-            margin: 0.75rem 0;
+            color: var(--text-medium);
+            font-size: 0.95rem;
         }
+
+        .paper-venue {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .paper-abstract {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0.5rem 0;
+        }
+
         .paper-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
-        .paper-links a {
-            padding: 0.5rem 1.25rem;
+
+        .paper-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 6px;
-            background: #f0f4f8;
-            color: var(--text-secondary);
+            background: var(--bg-light);
+            color: var(--text-medium);
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
         }
-        .paper-links a:hover {
-            background: var(--primary-blue);
+
+        .paper-link i {
+            font-size: 0.8rem;
+        }
+
+        .paper-link:hover {
+            background: var(--primary-color);
             color: white;
         }
-        /* 改进教育时间线 */
-        .education-item {
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 3px solid var(--primary-blue);
-            position: relative;
-            background: #f9fbfd;
-            border-radius: 8px;
+
+        .paper-link.primary {
+            background: var(--primary-color);
+            color: white;
         }
-        .education-item::before {
+
+        .paper-link.primary:hover {
+            background: var(--secondary-color);
+            opacity: 0.9;
+        }
+
+        /* Publication list */
+        .publication-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .publication-item {
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+
+        .publication-item:hover {
+            background: var(--bg-light);
+            transform: translateX(5px);
+        }
+
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-title a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .publication-title a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .publication-authors {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-venue {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Education timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
             content: '';
             position: absolute;
-            left: -8px;
-            top: 24px;
-            width: 14px;
-            height: 14px;
-            background: var(--bg-primary);
-            border: 3px solid var(--primary-blue);
-            border-radius: 50%;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+            opacity: 0.2;
         }
-        /* 响应式优化 */
+
+        .timeline-item {
+            position: relative;
+            padding: 2rem 1.5rem;
+            margin-bottom: 1rem;
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 2.5rem;
+            width: 16px;
+            height: 16px;
+            border: 4px solid var(--bg-card);
+            background: var(--primary-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-degree {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-degree i {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        .timeline-university {
+            color: var(--text-medium);
+            font-style: italic;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* Responsive design */
         @media (max-width: 1024px) {
             .profile {
                 grid-template-columns: 1fr;
                 text-align: center;
                 padding: 2rem;
             }
+            
             .profile-image {
                 margin: 0 auto;
             }
+            
+            .profile-info {
+                align-items: center;
+            }
+            
             .social-links {
                 justify-content: center;
             }
+        }
+
+        @media (max-width: 768px) {
+            .paper-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .paper-image {
+                height: 160px;
+            }
+            
             .nav-links {
                 gap: 1.5rem;
             }
-        }
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0 1.5rem;
-            }
-            .paper-box {
-                grid-template-columns: 1fr;
-            }
-            .paper-box-image img {
-                height: 200px;
-            }
+            
             section {
                 padding: 2rem;
             }
-            .education-item {
-                margin-left: 1rem;
-            }
         }
-        @media (max-width: 480px) {
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 0 1.5rem;
+            }
+            
             .nav-links {
                 gap: 1rem;
                 font-size: 0.9rem;
             }
-            .profile {
-                padding: 1.5rem;
-            }
+            
             .name {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
+            
             section {
                 padding: 1.5rem;
             }
+            
+            .paper-links {
+                flex-wrap: wrap;
+            }
+            
+            .paper-link {
+                flex: 1;
+                justify-content: center;
+                min-width: 120px;
+            }
         }
-
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- Navigation -->
     <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <i class="fas fa-code"></i>
+            <span>Yixuan Tang</span>
+        </a>
         <div class="nav-links">
-            <a href="#about-me">About</a>
+            <a href="#about">About</a>
             <a href="#publications">Publications</a>
             <a href="#preprints">Preprints</a>
             <a href="#education">Education</a>
         </div>
     </nav>
+
     <div class="container">
-        <div class="profile">
-            
+        <!-- Profile Section -->
+        <div class="profile fade-in">
             <div class="profile-image">
                 <img src="images/IMG.png" alt="Yixuan Tang">
             </div>
             <div class="profile-info">
-                <div class="basic-info">
-                    <h1 class="name">Yixuan Tang</h1>
-                    <div class="title">MPhil Student at HKUST</div>
-                    <p>🎓 Information Systems</p>
-                    <p>📍 Hong Kong</p>
+                <h1 class="name">Yixuan Tang</h1>
+                <div class="title">
+                    <i class="fas fa-user-graduate"></i>
+                    MPhil Student in Information Systems
+                </div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Hong Kong University of Science and Technology (HKUST)
+                </div>
+                <p class="bio">
+                    Researcher specializing in Natural Language Processing (NLP) with a focus on adapting NLP technology 
+                    in Information Systems domains. Passionate about advancing language models and their practical applications.
+                </p>
+                <div class="advisor">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    Advisor: <a href="https://yya518.github.io/index">Prof. Yi Yang</a>
                 </div>
                 <div class="social-links">
-                    <a href="mailto:ytangch@connect.ust.hk" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                    <a href="https://github.com/yixuantt" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:ytangch@connect.ust.hk" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" class="social-link" title="Google Scholar">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="https://github.com/yixuantt" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <section id="about-me">
-            <h2>About Me</h2>
-            <p>I am an MPhil student in Information Systems at the Hong Kong University of Science and Technology. My research interests include Natural language processing (NLP), and I am particularly passionate about adapting NLP technology in the IS domain.</p>
-            <p>Advisor: <a href="https://yya518.github.io/index">Prof. Yi Yang</a></p>
+        <!-- About Section -->
+        <section id="about" class="fade-in delay-1">
+            <h2>About My Research</h2>
+            <div class="paper-content">
+                <p>My research focuses on advancing natural language processing technologies and their applications in information systems. I'm particularly interested in:</p>
+                <ul style="margin: 1rem 0 1rem 2rem; list-style-type: disc;">
+                    <li>Retrieval-augmented generation (RAG) for knowledge-intensive tasks</li>
+                    <li>Domain adaptation of large language models</li>
+                    <li>Financial NLP applications</li>
+                    <li>Instruction fine-tuning and in-context learning</li>
+                    <li>Efficient model architectures for embedding generation</li>
+                </ul>
+                <p>I aim to bridge the gap between cutting-edge NLP research and practical applications in business and finance contexts.</p>
+                <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16, 163, 127, 0.05); border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                    <strong>Current Focus:</strong> Investigating how to improve the efficiency and reliability of LLM-based embedding models. I am also exploring the potential of finance-adapted LLMs.
+                </div>
+            </div>
         </section>
 
-        <section id="publications">
-            <h2>📝 CS Publications</h2>
-            <div class="paper-box">
-                <div class="paper-box-image">
-                    <div class="badge">COLM 2024</div>
-                    <img src='images/rag.png' alt="MultiHop-RAG" width="100%">
-                </div>
-                <div class="paper-box-text">
-                    <h3 class="paper-title">
-                        <a href="https://arxiv.org/abs/2401.15391">MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries</a>
-                    </h3>
-                    <p class="paper-authors"><strong>Yixuan Tang</strong>, Yi Yang.</p>
-                    <p class="paper-venue"><strong>COLM 2024</strong></p>
-                </div>
-            </div>
-        
-            <div class="publication-list">
-                <li>
-                    <a href="https://openreview.net/pdf?id=GcbhbZsgiu">Adversarial Mixup Unlearning</a>
-                    <p>Zhuoyi PENG, <strong>Yixuan Tang</strong>, Yi Yang.</p>
-                    <p><strong>ICLR 2025</strong></p>
-                </li>
-                <li>
-                    <a href="https://arxiv.org/abs/2311.10367">Exploring the Relationship between In-Context Learning and Instruction Tuning</a>
-                    <p>Hanyu Duan, <strong>Yixuan Tang</strong>, Yi Yang, Ahmed Abbasi, Kar Yan Tam.</p>
-                    <p><strong>EMNLP 2024 Findings</strong></p>
-                </li>
-                <li>
-                    <a href="https://arxiv.org/abs/2310.12406">FinEntity: Entity-level Sentiment Classification for Financial Texts</a>
-                    <p><strong>Yixuan Tang</strong>, Yi Yang.</p>
-                    <p><strong>EMNLP 2023</strong></p>
-                </li>
-            </div>
-        </section>
-        
-        <section id="preprints">
-            <h2>📚 Preprint</h2>
-            <div class="paper-box">
-                <div class="paper-box-image">
-                    <div class="badge">Project</div>
-                    <img src='images/investlm.png' alt="InvestLM" width="100%">
-                </div>
-                <div class="paper-box-text">
-                    <h3 class="paper-title">InvestLM: A Large Language Model for Investment using Financial Domain Instruction Tuning</h3>
-                    <p class="paper-authors">Yi Yang, <strong>Yixuan Tang</strong>, Kar Yan Tam.</p>
-                    <div class="paper-links">
-                        <a href="https://investlm.hkust.edu.hk/">Project Page</a>
-                        <a href="https://arxiv.org/abs/2309.13064">Paper Link</a>
+        <!-- Publications Section -->
+        <section id="publications" class="fade-in delay-2">
+            <h2>Selected Publications</h2>
+            <div class="paper-grid">
+                <div class="paper-card" onclick="window.open('https://arxiv.org/abs/2401.15391', '_blank')" style="cursor: pointer;">
+                    <div class="paper-image">
+                        <div class="badge">COLM 2024</div>
+                        <img src='images/rag.png' alt="MultiHop-RAG">
+                    </div>
+                    <div class="paper-content">
+                        <h3 class="paper-title">
+                            <a href="https://arxiv.org/abs/2401.15391">MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries</a>
+                        </h3>
+                        <div class="paper-authors">
+                            <strong>Yixuan Tang</strong>, Yi Yang
+                        </div>
+                        <div class="paper-venue">
+                            Conference on Language Modeling (COLM) 2024
+                        </div>
+                        <p class="paper-abstract">
+                            Introduces a comprehensive benchmark for evaluating retrieval-augmented generation systems on complex multi-hop queries, 
+                            providing standardized datasets and metrics.
+                        </p>
+                        <div class="paper-links">
+                            <a href="https://arxiv.org/abs/2401.15391" class="paper-link primary">
+                                <i class="fas fa-file-alt"></i> PDF
+                            </a>
+                            <a href="#" class="paper-link">
+                                <i class="fas fa-quote-right"></i> Cite
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        
+
             <div class="publication-list">
-                <li>
-                    <a href="https://arxiv.org/abs/2409.18511">Do We Need Domain-Specific Embedding Models? An Empirical Investigation</a>
-                    <p><strong>Yixuan Tang</strong>, Yi Yang.</p>
-                </li>
-                <li>
-                    <a href="https://arxiv.org/abs/2409.02727">Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?</a>
-                    <p><strong>Yixuan Tang</strong>, Yi Yang.</p>
-                </li>
-                <li>
-                    <a href="https://arxiv.org/abs/2406.10099">Know the Unknown: An Uncertainty-Sensitive Method for LLM Instruction Tuning</a>
-                    <p>Jiaqi Li, <strong>Yixuan Tang</strong>, Yi Yang.</p>
-                </li>
+                <div class="publication-item">
+                    <h4 class="publication-title">
+                        <a href="https://openreview.net/pdf?id=GcbhbZsgiu">Adversarial Mixup Unlearning</a>
+                    </h4>
+                    <div class="publication-authors">
+                        Zhuoyi PENG, <strong>Yixuan Tang</strong>, Yi Yang
+                    </div>
+                    <div class="publication-venue">
+                        International Conference on Learning Representations (ICLR) 2025
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <h4 class="publication-title">
+                        <a href="https://arxiv.org/abs/2311.10367">Exploring the Relationship between In-Context Learning and Instruction Tuning</a>
+                    </h4>
+                    <div class="publication-authors">
+                        Hanyu Duan, <strong>Yixuan Tang</strong>, Yi Yang, Ahmed Abbasi, Kar Yan Tam
+                    </div>
+                    <div class="publication-venue">
+                        Empirical Methods in Natural Language Processing (EMNLP) 2024 Findings
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <h4 class="publication-title">
+                        <a href="https://arxiv.org/abs/2310.12406">FinEntity: Entity-level Sentiment Classification for Financial Texts</a>
+                    </h4>
+                    <div class="publication-authors">
+                        <strong>Yixuan Tang</strong>, Yi Yang
+                    </div>
+                    <div class="publication-venue">
+                        Empirical Methods in Natural Language Processing (EMNLP) 2023
+                    </div>
+                </div>
             </div>
         </section>
-        
-        <section id="education">
-            <h2>📖 Education</h2>
-            <div class="education-item">
-                <p><strong>2024.09 - Present</strong></p>
-                <p>* MPhil in Information System</p>
-                <p>Hong Kong University of Science and Technology (HKUST)</p>
+
+        <!-- Preprints Section -->
+        <section id="preprints" class="fade-in delay-3">
+            <h2>Preprints & Projects</h2>
+            <div class="paper-grid">
+                <div class="paper-card">
+                    <div class="paper-image">
+                        <div class="badge">Project</div>
+                        <img src='images/investlm.png' alt="InvestLM">
+                    </div>
+                    <div class="paper-content">
+                        <h3 class="paper-title">InvestLM: A Large Language Model for Investment using Financial Domain Instruction Tuning</h3>
+                        <div class="paper-authors">
+                            Yi Yang, <strong>Yixuan Tang</strong>, Kar Yan Tam
+                        </div>
+                        <p class="paper-abstract">
+                            Domain-specific LLM trained on carefully curated financial datasets for investment analysis tasks, 
+                            demonstrating strong performance on financial NLP benchmarks.
+                        </p>
+                        <div class="paper-links">
+                            <a href="https://investlm.hkust.edu.hk/" class="paper-link primary">
+                                <i class="fas fa-external-link-alt"></i> Project Page
+                            </a>
+                            <a href="https://arxiv.org/abs/2309.13064" class="paper-link">
+                                <i class="fas fa-file-alt"></i> Preprint
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="education-item">
-                <p><strong>2021.09 - 2022.11</strong></p>
-                <p>* Master in BigData Technology</p>
-                <p>Hong Kong University of Science and Technology (HKUST)</p>
+
+            <div class="publication-list">
+                <div class="publication-item">
+                    <h4 class="publication-title">
+                        <a href="https://arxiv.org/abs/2409.18511">Do We Need Domain-Specific Embedding Models? An Empirical Investigation</a>
+                    </h4>
+                    <div class="publication-authors">
+                        <strong>Yixuan Tang</strong>, Yi Yang
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <h4 class="publication-title">
+                        <a href="https://arxiv.org/abs/2409.02727">Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?</a>
+                    </h4>
+                    <div class="publication-authors">
+                        <strong>Yixuan Tang</strong>, Yi Yang
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <h4 class="publication-title">
+                        <a href="https://arxiv.org/abs/2406.10099">Know the Unknown: An Uncertainty-Sensitive Method for LLM Instruction Tuning</a>
+                    </h4>
+                    <div class="publication-authors">
+                        Jiaqi Li, <strong>Yixuan Tang</strong>, Yi Yang
+                    </div>
+                </div>
             </div>
-            <div class="education-item">
-                <p><strong>2017.09 - 2021.06</strong></p>
-                <p>* Bachelor in Computer Science and Technology</p>
-                <p>Chongqing University</p>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="fade-in delay-4">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <i class="far fa-calendar-alt"></i>
+                        2024.09 - Present
+                    </div>
+                    <div class="timeline-degree">
+                        <i class="fas fa-graduation-cap"></i>
+                        MPhil in Information Systems
+                    </div>
+                    <div class="timeline-university">
+                        Hong Kong University of Science and Technology (HKUST)
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <i class="far fa-calendar-alt"></i>
+                        2021.09 - 2022.11
+                    </div>
+                    <div class="timeline-degree">
+                        <i class="fas fa-graduation-cap"></i>
+                        Master in Big Data Technology
+                    </div>
+                    <div class="timeline-university">
+                        Hong Kong University of Science and Technology (HKUST)
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <i class="far fa-calendar-alt"></i>
+                        2017.09 - 2021.06
+                    </div>
+                    <div class="timeline-degree">
+                        <i class="fas fa-graduation-cap"></i>
+                        Bachelor in Computer Science and Technology
+                    </div>
+                    <div class="timeline-university">
+                        Chongqing University
+                    </div>
+                </div>
             </div>
         </section>
     </div>
+
+    <script>
+        // Scroll to sections with smooth behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.style.color = '';
+                });
+                this.style.color = 'var(--primary-color)';
+            });
+        });
+
+        // Add animation on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // Change navbar style on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                navbar.style.background = 'rgba(255,255,255,0.98)';
+            } else {
+                navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+                navbar.style.background = 'rgba(255,255,255,0.96)';
+            }
+        });
+    </script>
 </body>
 </html>
