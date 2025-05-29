@@ -10,7 +10,8 @@
     "tags": ["NLP", "Retrieval", "Benchmarking"],
     "featured": true,
     "image_url": "https://yixuantt.github.io/images/rag.png",
-    "status": "COLM 2024"
+    "status": "COLM 2024",
+    "bibtex": "@inproceedings{tang2024multihop,\n  title={MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries},\n  author={Tang, Yixuan and Yang, Yi},\n  booktitle={Conference on Language Modeling (COLM)},\n  year={2024}\n}"
   },
   {
     "title": "InvestLM: A Large Language Model for Investment",
@@ -24,7 +25,8 @@
     "tags": ["Finance", "LLM", "Domain Adaptation"],
     "featured": true,
     "image_url": "https://yixuantt.github.io/images/investlm.png",
-    "status": "Ongoing"
+    "status": "Ongoing",
+    "bibtex": "@article{yang2023investlm,\n  title={InvestLM: A Large Language Model for Investment},\n  author={Yang, Yi and Tang, Yixuan and Tam, Kar Yan},\n  journal={arXiv preprint arXiv:2309.13064},\n  year={2023}\n}"
   },
   {
     "title": "Know the Unknown: An Uncertainty-Sensitive Method for LLM Instruction Tuning",
@@ -34,7 +36,8 @@
     "year": 2025,
     "url": "https://arxiv.org/abs/2406.10099",
     "code_url": null,
-    "tags": ["NLP", "LLM", "Instruction Tuning"]
+    "tags": ["NLP", "LLM", "Instruction Tuning"],
+    "bibtex": "@inproceedings{li2025know,\n  title={Know the Unknown: An Uncertainty-Sensitive Method for LLM Instruction Tuning},\n  author={Li, Jiaqi and Tang, Yixuan and Yang, Yi},\n  booktitle={Annual Meeting of the Association for Computational Linguistics (ACL)},\n  year={2025}\n}"
   },
   {
     "title": "Adversarial Mixup Unlearning",
@@ -44,7 +47,8 @@
     "year": 2025,
     "url": "https://openreview.net/pdf?id=GcbhbZsgiu",
     "code_url": null,
-    "tags": ["Machine Unlearning", "Adversarial Training"]
+    "tags": ["Machine Unlearning", "Adversarial Training"],
+    "bibtex": "@inproceedings{peng2025adversarial,\n  title={Adversarial Mixup Unlearning},\n  author={Peng, Zhuoyi and Tang, Yixuan and Yang, Yi},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2025}\n}"
   },
   {
     "title": "Exploring the Relationship between In-Context Learning and Instruction Tuning",
@@ -54,7 +58,8 @@
     "year": 2024,
     "url": "https://arxiv.org/abs/2311.10367",
     "code_url": null,
-    "tags": ["NLP", "ICL", "Instruction Tuning"]
+    "tags": ["NLP", "ICL", "Instruction Tuning"],
+    "bibtex": "@inproceedings{duan2024exploring,\n  title={Exploring the Relationship between In-Context Learning and Instruction Tuning},\n  author={Duan, Hanyu and Tang, Yixuan and Yang, Yi and Abbasi, Ahmed and Tam, Kar Yan},\n  booktitle={Empirical Methods in Natural Language Processing (EMNLP)},\n  year={2024}\n}"
   },
   {
     "title": "FinEntity: Entity-level Sentiment Classification for Financial Texts",
@@ -64,7 +69,8 @@
     "year": 2023,
     "url": "https://arxiv.org/abs/2310.12406",
     "code_url": "https://github.com/yixuantt/FinEntity",
-    "tags": ["NLP", "Finance", "Sentiment Analysis"]
+    "tags": ["NLP", "Finance", "Sentiment Analysis"],
+    "bibtex": "@inproceedings{tang2023finentity,\n  title={FinEntity: Entity-level Sentiment Classification for Financial Texts},\n  author={Tang, Yixuan and Yang, Yi},\n  booktitle={Empirical Methods in Natural Language Processing (EMNLP)},\n  year={2023}\n}"
   },
   {
     "title": "Do We Need Domain-Specific Embedding Models? An Empirical Investigation",
@@ -74,7 +80,8 @@
     "year": 2024,
     "url": "https://arxiv.org/abs/2409.18511",
     "code_url": "https://github.com/yixuantt/FinMTEB",
-    "tags": ["NLP", "Embeddings", "Domain Adaptation"]
+    "tags": ["NLP", "Embeddings", "Domain Adaptation"],
+    "bibtex": "@article{tang2024domain,\n  title={Do We Need Domain-Specific Embedding Models? An Empirical Investigation},\n  author={Tang, Yixuan and Yang, Yi},\n  journal={arXiv preprint arXiv:2409.18511},\n  year={2024}\n}"
   },
   {
     "title": "Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?",
@@ -84,6 +91,7 @@
     "year": 2024,
     "url": "https://arxiv.org/abs/2409.02727",
     "code_url": "https://github.com/yixuantt/PoolingAndAttn",
-    "tags": ["NLP", "Embeddings", "LLM"]
+    "tags": ["NLP", "Embeddings", "LLM"],
+    "bibtex": "@article{tang2024pooling,\n  title={Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?},\n  author={Tang, Yixuan and Yang, Yi},\n  journal={arXiv preprint arXiv:2409.02727},\n  year={2024}\n}"
   }
 ]

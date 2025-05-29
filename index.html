@@ -327,16 +327,27 @@
         <div class="max-w-7xl mx-auto px-6"><div class="flex flex-col md:flex-row justify-between items-center"><div class="mb-6 md:mb-0"><a href="#" class="text-2xl font-bold flex items-center"><i class="fas fa-atom mr-2"></i> Yixuan Tang</a><p class="mt-2 text-blue-200">PhD Student in NLP & Information Systems</p></div><div class="flex space-x-6"><a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="Google Scholar"><i class="fab fa-graduation-cap"></i></a><a href="https://github.com/yixuantt" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="GitHub"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="Twitter"><i class="fab fa-twitter"></i></a></div></div><div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-300"><p>&copy; 2025 Yixuan Tang. All rights reserved.</p></div></div>
     </footer>
 
+    <div id="cite-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-11/12 md:w-1/2 lg:w-1/3 relative">
+            <h3 class="text-xl font-bold text-blue-900 mb-4">BibTeX Citation</h3>
+            <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto text-sm"><code id="bibtex-content"></code></pre>
+            <div class="mt-4 flex justify-end">
+                <button id="copy-bibtex-btn" class="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Copy</button>
+            </div>
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // --- State Management ---
             let allPublications = [];
             let filteredPublications = [];
             let currentPage = 1;
-            const itemsPerPage = 5; // Increased items per page for the full list
+            const itemsPerPage = 5;
 
-            // --- DOM Element References ---
             const featuredContainer = document.getElementById('featured-projects-container');
             const listContainer = document.getElementById('publication-list-container');
             const paginationInfo = document.getElementById('pagination-info');
@@ -344,10 +355,12 @@
             const yearFilter = document.getElementById('filter-year');
             const typeFilter = document.getElementById('filter-type');
             const topicFilter = document.getElementById('filter-topic');
+            
+            const citeModal = document.getElementById('cite-modal');
+            const bibtexContent = document.getElementById('bibtex-content');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const copyBibtexBtn = document.getElementById('copy-bibtex-btn');
 
-            /**
-             * Main initialization function
-             */
             async function initialize() {
                 try {
                     const response = await fetch('publications.json');
@@ -362,22 +375,19 @@
                     applyFiltersAndRender();
                 } catch (error) {
                     console.error("Could not load data:", error);
-                    featuredContainer.innerHTML = `<p class="p-6 text-red-500">Failed to load featured projects.</p>`;
-                    listContainer.innerHTML = `<p class="p-6 text-red-500">Failed to load publications.</p>`;
+                    if(featuredContainer) featuredContainer.innerHTML = `<p class="p-6 text-red-500">Failed to load featured projects.</p>`;
+                    if(listContainer) listContainer.innerHTML = `<p class="p-6 text-red-500">Failed to load publications.</p>`;
                 }
             }
             
-            /**
-             * Renders the featured projects section.
-             */
             function renderFeaturedProjects() {
+                if (!featuredContainer) return;
                 const featured = allPublications.filter(p => p.featured);
-                featuredContainer.innerHTML = ''; // Clear loading message
+                featuredContainer.innerHTML = '';
 
                 featured.forEach(proj => {
                     const tagsHTML = proj.tags.map(tag => `<span class="bg-blue-50 text-blue-800 text-xs px-3 py-1 rounded-full">${tag}</span>`).join(' ');
                     
-                    // Create links based on what's available
                     let linksHTML = `<a href="${proj.url}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-medium flex items-center"><i class="fas fa-file-pdf mr-1"></i> ${proj.type === 'Project' ? 'Preprint' : 'Paper'}</a>`;
                     if (proj.code_url) {
                         linksHTML += `<a href="${proj.code_url}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-medium flex items-center"><i class="fas fa-code mr-1"></i> Code</a>`;
@@ -405,9 +415,6 @@
                 });
             }
 
-            /**
-             * Populates filter dropdowns based on data.
-             */
             function populateFilters() {
                 const years = [...new Set(allPublications.map(p => p.year))].sort((a,b)=>b-a);
                 const topics = [...new Set(allPublications.flatMap(p => p.tags))].sort();
@@ -416,9 +423,6 @@
                 topics.forEach(topic => topicFilter.add(new Option(topic, topic)));
             }
 
-            /**
-             * Applies filters and re-renders the main publications list.
-             */
             function applyFiltersAndRender() {
                 const selectedYear = yearFilter.value;
                 const selectedType = typeFilter.value;
@@ -435,10 +439,8 @@
                 renderPage();
             }
 
-            /**
-             * Renders a single page of the filtered publications.
-             */
             function renderPage() {
+                if (!listContainer) return;
                 listContainer.innerHTML = '';
                 
                 if (filteredPublications.length === 0) {
@@ -453,6 +455,9 @@
                     const authorsHTML = pub.authors.map(author => author === 'Yixuan Tang' ? `<strong>${author}</strong>` : author).join(', ');
                     const tagsHTML = pub.tags.map(tag => `<span class="bg-blue-50 text-blue-800 text-xs px-3 py-1 rounded-full">${tag}</span>`).join(' ');
                     const codeButtonHTML = pub.code_url ? `<a href="${pub.code_url}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 hover:bg-blue-200 transition" title="Code"><i class="fas fa-code"></i></a>` : `<a class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-400 cursor-not-allowed" title="Code not available"><i class="fas fa-code"></i></a>`;
+                    const citeButtonHTML = pub.bibtex ? 
+                        `<button onclick="showCiteModal(decodeURIComponent('${encodeURIComponent(pub.bibtex)}'))" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 hover:bg-blue-200 transition" title="Cite"><i class="fas fa-quote-right"></i></button>` :
+                        `<button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-400 cursor-not-allowed" title="Citation not available"><i class="fas fa-quote-right"></i></button>`;
 
                     const publicationHTML = `
                         <div class="p-6 hover:bg-blue-50 transition">
@@ -465,7 +470,7 @@
                                 </div>
                                 <div class="flex space-x-3">
                                     <a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 hover:bg-blue-200 transition" title="PDF"><i class="fas fa-file-pdf"></i></a>
-                                    <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 hover:bg-blue-200 transition" title="Cite"><i class="fas fa-quote-right"></i></a>
+                                    ${citeButtonHTML}
                                     ${codeButtonHTML}
                                 </div>
                             </div>
@@ -476,10 +481,8 @@
                 renderPagination();
             }
 
-            /**
-             * Renders pagination controls.
-             */
             function renderPagination() {
+                if (!paginationControls || !paginationInfo) return;
                 const totalItems = filteredPublications.length;
                 const totalPages = Math.ceil(totalItems / itemsPerPage);
                 paginationControls.innerHTML = '';
@@ -494,13 +497,12 @@
                 const endItem = Math.min(currentPage * itemsPerPage, totalItems);
                 paginationInfo.innerText = `Showing ${startItem}-${endItem} of ${totalItems} publications`;
 
-                if (totalPages <= 1) return; // Don't show controls if only one page
+                if (totalPages <= 1) return;
 
                 const createButton = (content, page, enabled = true) => {
                     const button = document.createElement('button');
                     button.innerHTML = content;
-                    button.className = "w-10 h-10 rounded flex items-center justify-center transition " + 
-                                       (page === currentPage ? "bg-blue-700 text-white" : "bg-white border border-blue-200 text-blue-700 hover:bg-blue-100");
+                    button.className = "w-10 h-10 rounded flex items-center justify-center transition " + (page === currentPage ? "bg-blue-700 text-white" : "bg-white border border-blue-200 text-blue-700 hover:bg-blue-100");
                     if (!enabled) {
                         button.disabled = true;
                         button.classList.add('cursor-not-allowed', 'opacity-50');
@@ -516,45 +518,73 @@
                 }
                 paginationControls.appendChild(createButton('<i class="fas fa-chevron-right"></i>', currentPage + 1, currentPage < totalPages));
             }
+
+            window.showCiteModal = function(bibtex) {
+                bibtexContent.textContent = bibtex;
+                citeModal.classList.remove('hidden');
+                citeModal.classList.add('flex');
+            }
+
+            function hideCiteModal() {
+                citeModal.classList.add('hidden');
+                citeModal.classList.remove('flex');
+            }
+
+            function copyBibtex() {
+                navigator.clipboard.writeText(bibtexContent.textContent).then(() => {
+                    copyBibtexBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyBibtexBtn.textContent = 'Copy';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            }
             
-            /**
-             * Attaches event listeners to controls.
-             */
             function addEventListeners() {
                 yearFilter.addEventListener('change', applyFiltersAndRender);
                 typeFilter.addEventListener('change', applyFiltersAndRender);
                 topicFilter.addEventListener('change', applyFiltersAndRender);
-            }
-
-            // --- Initialize Everything ---
-            initialize();
-
-            // --- Other Page Scripts (Menu, Scroll, etc.) ---
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(this.getAttribute('href'));
-                    if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
-                    if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
-                });
-            });
-            const fadeElements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('opacity-100');
-                        observer.unobserve(entry.target);
+                
+                closeModalBtn.addEventListener('click', hideCiteModal);
+                copyBibtexBtn.addEventListener('click', copyBibtex);
+                citeModal.addEventListener('click', (e) => {
+                    if (e.target.id === 'cite-modal') {
+                        hideCiteModal();
                     }
                 });
-            }, { threshold: 0.1 });
-            fadeElements.forEach(element => observer.observe(element));
-            window.addEventListener('scroll', () => {
-                const navbar = document.querySelector('nav');
-                navbar.classList.toggle('shadow-md', window.scrollY > 50);
-            });
+
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+                
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(this.getAttribute('href'));
+                        if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
+                        if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+                    });
+                });
+
+                const fadeElements = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('opacity-100');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                fadeElements.forEach(element => observer.observe(element));
+
+                window.addEventListener('scroll', () => {
+                    const navbar = document.querySelector('nav');
+                    navbar.classList.toggle('shadow-md', window.scrollY > 50);
+                });
+            }
+
+            initialize();
         });
     </script>
 </body>
