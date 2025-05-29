@@ -1,0 +1,89 @@
+[
+  {
+    "title": "MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries",
+    "authors": ["Yixuan Tang", "Yi Yang"],
+    "venue": "Conference on Language Modeling (COLM) 2024",
+    "type": "Conference",
+    "year": 2024,
+    "url": "https://arxiv.org/abs/2401.15391",
+    "code_url": "https://github.com/yixuantt/MultiHop-RAG",
+    "tags": ["NLP", "Retrieval", "Benchmarking"],
+    "featured": true,
+    "image_url": "https://yixuantt.github.io/images/rag.png",
+    "status": "COLM 2024"
+  },
+  {
+    "title": "InvestLM: A Large Language Model for Investment",
+    "authors": ["Yi Yang", "Yixuan Tang", "Kar Yan Tam"],
+    "venue": "Financial Domain Instruction Tuning",
+    "type": "Project",
+    "year": 2023,
+    "url": "https://arxiv.org/abs/2309.13064",
+    "code_url": "https://github.com/AbaciNLP/InvestLM",
+    "project_url": "https://investlm.hkust.edu.hk/",
+    "tags": ["Finance", "LLM", "Domain Adaptation"],
+    "featured": true,
+    "image_url": "https://yixuantt.github.io/images/investlm.png",
+    "status": "Ongoing"
+  },
+  {
+    "title": "Know the Unknown: An Uncertainty-Sensitive Method for LLM Instruction Tuning",
+    "authors": ["Jiaqi Li", "Yixuan Tang", "Yi Yang"],
+    "venue": "Annual Meeting of the Association for Computational Linguistics (ACL) 2025 Findings",
+    "type": "Conference",
+    "year": 2025,
+    "url": "https://arxiv.org/abs/2406.10099",
+    "code_url": null,
+    "tags": ["NLP", "LLM", "Instruction Tuning"]
+  },
+  {
+    "title": "Adversarial Mixup Unlearning",
+    "authors": ["Zhuoyi PENG", "Yixuan Tang", "Yi Yang"],
+    "venue": "International Conference on Learning Representations (ICLR) 2025",
+    "type": "Conference",
+    "year": 2025,
+    "url": "https://openreview.net/pdf?id=GcbhbZsgiu",
+    "code_url": null,
+    "tags": ["Machine Unlearning", "Adversarial Training"]
+  },
+  {
+    "title": "Exploring the Relationship between In-Context Learning and Instruction Tuning",
+    "authors": ["Hanyu Duan", "Yixuan Tang", "Yi Yang", "Ahmed Abbasi", "Kar Yan Tam"],
+    "venue": "Empirical Methods in Natural Language Processing (EMNLP) 2024 Findings",
+    "type": "Conference",
+    "year": 2024,
+    "url": "https://arxiv.org/abs/2311.10367",
+    "code_url": null,
+    "tags": ["NLP", "ICL", "Instruction Tuning"]
+  },
+  {
+    "title": "FinEntity: Entity-level Sentiment Classification for Financial Texts",
+    "authors": ["Yixuan Tang", "Yi Yang"],
+    "venue": "Empirical Methods in Natural Language Processing (EMNLP) 2023",
+    "type": "Conference",
+    "year": 2023,
+    "url": "https://arxiv.org/abs/2310.12406",
+    "code_url": "https://github.com/yixuantt/FinEntity",
+    "tags": ["NLP", "Finance", "Sentiment Analysis"]
+  },
+  {
+    "title": "Do We Need Domain-Specific Embedding Models? An Empirical Investigation",
+    "authors": ["Yixuan Tang", "Yi Yang"],
+    "venue": "Preprint",
+    "type": "Preprint",
+    "year": 2024,
+    "url": "https://arxiv.org/abs/2409.18511",
+    "code_url": "https://github.com/yixuantt/FinMTEB",
+    "tags": ["NLP", "Embeddings", "Domain Adaptation"]
+  },
+  {
+    "title": "Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?",
+    "authors": ["Yixuan Tang", "Yi Yang"],
+    "venue": "Preprint",
+    "type": "Preprint",
+    "year": 2024,
+    "url": "https://arxiv.org/abs/2409.02727",
+    "code_url": "https://github.com/yixuantt/PoolingAndAttn",
+    "tags": ["NLP", "Embeddings", "LLM"]
+  }
+]

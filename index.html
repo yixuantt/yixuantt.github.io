@@ -3,919 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yixuan Tang | MPhil Researcher in NLP & Information Systems</title>
+    <title>Yixuan Tang | NLP & Information Systems Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
         :root {
-            --primary-color: #10a37f;
-            --secondary-color: #1a73e8;
-            --text-dark: #202123;
-            --text-medium: #565869;
-            --text-light: #6c757d;
-            --bg-white: rgba(255, 255, 255, 0.98);
-            --bg-light: #f8f9fa;
-            --bg-card: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 6px 18px rgba(0,0,0,0.12);
-            --border-radius: 12px;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --section-gap: 4rem;
-            --nav-height: 80px;
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --light-blue: #eff6ff;
+            --dark-blue: #1e3a8a;
+            --accent-blue: #60a5fa;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4f0fb 100%);
-            background-attachment: fixed;
-            padding-top: var(--nav-height);
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1f2937;
+            padding-top: 80px; 
         }
-
-        /* Modern navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
+        
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif', serif;
+            color: #1e3a8a;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .paper-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.1);
+        }
+        
+        .nav-link:hover::after {
             width: 100%;
-            height: var(--nav-height);
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-sm);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-            transition: var(--transition);
         }
-
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-medium);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .nav-links a::after {
+        
+        .nav-link::after {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
+            display: block;
             width: 0;
             height: 2px;
-            background: var(--primary-color);
-            transition: var(--transition);
+            background: var(--primary-blue);
+            transition: width 0.3s;
         }
-
-        .nav-links a:hover, 
-        .nav-links a:focus {
-            color: var(--primary-color);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-
-        /* Enhanced profile section */
-        .profile {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 3rem;
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            margin: 3rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(16,163,127,0.1) 0%, rgba(16,163,127,0) 70%);
-            z-index: 0;
-        }
-
-        .profile-image {
-            position: relative;
-            z-index: 1;
-        }
-
-        .profile-image img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid white;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
-        }
-
-        .profile-image:hover img {
-            transform: scale(1.03);
-            box-shadow: 0 8px 24px rgba(16, 163, 127, 0.2);
-        }
-
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .name {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            line-height: 1.2;
-        }
-
-        .title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .title i {
-            font-size: 1.1rem;
-        }
-
-        .bio {
-            color: var(--text-medium);
-            max-width: 700px;
-        }
-
-        .location, .contact {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-medium);
-            font-size: 0.95rem;
-        }
-
-        .advisor {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-            color: var(--text-medium);
-        }
-
-        .advisor a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .advisor a:hover {
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: var(--bg-light);
-            color: var(--text-medium);
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(16, 163, 127, 0.25);
-        }
-
-        /* Section styling */
-        section {
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            margin-bottom: var(--section-gap);
-            transition: var(--transition);
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
-        }
-
-        /* Publication cards */
-        .paper-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        .paper-card {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 2rem;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            background: var(--bg-card);
-            border: 1px solid rgba(0,0,0,0.1);
-            transition: var(--transition);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .paper-card:hover {
-            border-color: var(--primary-color);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        .paper-image {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f0f2f5;
-        }
-
-        .paper-image img {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .paper-card:hover .paper-image img {
-            transform: scale(1.03);
-        }
-
-        .badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: var(--primary-color);
-            color: white;
-            padding: 0.35rem 1rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .paper-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .paper-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        .paper-title a {
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .paper-title a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
-
-        .paper-authors {
-            color: var(--text-medium);
-            font-size: 0.95rem;
-        }
-
-        .paper-venue {
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .paper-abstract {
-            color: var(--text-medium);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin: 0.5rem 0;
-        }
-
-        .paper-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .paper-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.2rem;
-            border-radius: 6px;
-            background: var(--bg-light);
-            color: var(--text-medium);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .paper-link i {
-            font-size: 0.8rem;
-        }
-
-        .paper-link:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .paper-link.primary {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .paper-link.primary:hover {
-            background: var(--secondary-color);
-            opacity: 0.9;
-        }
-
-        /* Publication list */
-        .publication-list {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .publication-item {
-            padding: 1.5rem 1rem;
-            border-bottom: 1px solid #eee;
-            transition: var(--transition);
-        }
-
-        .publication-item:last-child {
-            border-bottom: none;
-        }
-
-        .publication-item:hover {
-            background: var(--bg-light);
-            transform: translateX(5px);
-        }
-
-        .publication-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-title a {
-            color: var(--text-dark);
-            text-decoration: none;
-        }
-
-        .publication-title a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
-
-        .publication-authors {
-            color: var(--text-medium);
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .publication-venue {
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Education timeline */
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 6px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary-color);
-            opacity: 0.2;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding: 2rem 1.5rem;
-            margin-bottom: 1rem;
-            background: var(--bg-light);
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(5px);
-            box-shadow: var(--shadow-sm);
-        }
-
+        
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -27px;
-            top: 2.5rem;
+            left: -38px;
+            top: 0;
             width: 16px;
             height: 16px;
-            border: 4px solid var(--bg-card);
-            background: var(--primary-color);
             border-radius: 50%;
-            z-index: 1;
+            border: 3px solid white;
+            background: var(--primary-blue);
         }
-
-        .timeline-date {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
         }
-
-        .timeline-degree {
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .timeline-degree i {
-            color: var(--text-medium);
-            font-size: 0.9rem;
-        }
-
-        .timeline-university {
-            color: var(--text-medium);
-            font-style: italic;
-        }
-
-        /* Animations */
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-
-        /* Responsive design */
-        @media (max-width: 1024px) {
-            .profile {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 2rem;
-            }
-            
-            .profile-image {
-                margin: 0 auto;
-            }
-            
-            .profile-info {
-                align-items: center;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .paper-card {
-                grid-template-columns: 1fr;
-            }
-            
-            .paper-image {
-                height: 160px;
-            }
-            
-            .nav-links {
-                gap: 1.5rem;
-            }
-            
-            section {
-                padding: 2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .navbar {
-                padding: 0 1.5rem;
-            }
-            
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .name {
-                font-size: 2rem;
-            }
-            
-            section {
-                padding: 1.5rem;
-            }
-            
-            .paper-links {
-                flex-wrap: wrap;
-            }
-            
-            .paper-link {
-                flex: 1;
-                justify-content: center;
-                min-width: 120px;
-            }
+        
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out;
         }
     </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <a href="#" class="nav-logo">
-            <i class="fas fa-code"></i>
-            <span>Yixuan Tang</span>
-        </a>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#publications">Publications</a>
-            <a href="#preprints">Preprints</a>
-            <a href="#education">Education</a>
+<body class="antialiased">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 top-0">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="text-2xl font-bold text-blue-900 flex items-center">
+                    <i class="fas fa-atom mr-2 text-blue-600"></i>
+                    Yixuan Tang
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-blue-900 font-medium hover:text-blue-700 transition">About</a>
+                    <a href="#research" class="nav-link text-blue-900 font-medium hover:text-blue-700 transition">Research</a>
+                    <a href="#publications" class="nav-link text-blue-900 font-medium hover:text-blue-700 transition">Publications</a>
+                    <a href="#education" class="nav-link text-blue-900 font-medium hover:text-blue-700 transition">Education</a>
+                    <a href="#contact" class="nav-link text-blue-900 font-medium hover:text-blue-700 transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-blue-900 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden overflow-hidden">
+                <div class="pt-2 pb-3 space-y-1">
+                    <a href="#about" class="block py-2 px-4 text-blue-900 font-medium hover:bg-blue-50 rounded">About</a>
+                    <a href="#research" class="block py-2 px-4 text-blue-900 font-medium hover:bg-blue-50 rounded">Research</a>
+                    <a href="#publications" class="block py-2 px-4 text-blue-900 font-medium hover:bg-blue-50 rounded">Publications</a>
+                    <a href="#education" class="block py-2 px-4 text-blue-900 font-medium hover:bg-blue-50 rounded">Education</a>
+                    <a href="#contact" class="block py-2 px-4 text-blue-900 font-medium hover:bg-blue-50 rounded">Contact</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <div class="container">
-        <!-- Profile Section -->
-        <div class="profile fade-in">
-            <div class="profile-image">
-                <img src="images/IMG.png" alt="Yixuan Tang">
-            </div>
-            <div class="profile-info">
-                <h1 class="name">Yixuan Tang</h1>
-                <div class="title">
-                    <i class="fas fa-user-graduate"></i>
-                    MPhil Student in Information Systems
-                </div>
-                <div class="location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Hong Kong University of Science and Technology (HKUST)
-                </div>
-                <p class="bio">
-                    I am a first-year MPhil student in Information Systems at The Hong Kong University of Science and Technology, with a research focus on Natural Language Processing (NLP).
+    <header class="gradient-bg pt-16 pb-20">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0 fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Yixuan Tang</h1>
+                <h2 class="text-2xl md:text-3xl text-blue-700 mb-6">PhD Student in NLP & Information Systems</h2>
+                <p class="text-lg text-gray-700 mb-8 max-w-2xl">
+                    Unlocking deep insights in financial markets with Language Models.
+                    Currently at Hong Kong University of Science and Technology (HKUST).
                 </p>
-                <div class="advisor">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    Advisor: <a href="https://yya518.github.io/index">Prof. Yi Yang</a>
+                <div class="flex space-x-4">
+                    <a href="#research" class="px-6 py-3 bg-blue-700 text-white rounded-lg font-medium hover:bg-blue-800 transition shadow-md">
+                        Explore Research
+                    </a>
+                    <a href="#publications" class="px-6 py-3 border border-blue-700 text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition">
+                        View Publications
+                    </a>
                 </div>
-                <div class="social-links">
-                    <a href="mailto:ytangch@connect.ust.hk" class="social-link" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" class="social-link" title="Google Scholar">
-                        <i class="fas fa-graduation-cap"></i>
-                    </a>
-                    <a href="https://github.com/yixuantt" class="social-link" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" class="social-link" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
+            </div>
+            <div class="md:w-1/2 flex justify-center fade-in delay-100">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                        <img src="images/profile.png" 
+                             alt="Yixuan Tang" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-blue-700 text-white px-4 py-2 rounded-lg shadow-lg">
+                        <i class="fas fa-graduation-cap mr-2"></i> HKUST
+                    </div>
                 </div>
             </div>
         </div>
+    </header>
 
-        <!-- About Section -->
-        <section id="about" class="fade-in delay-1">
-            <h2>About My Research</h2>
-            <div class="paper-content">
-                <p>My research focuses on advancing natural language processing technologies and their applications in information systems. I'm particularly interested in:</p>
-                <ul style="margin: 1rem 0 1rem 2rem; list-style-type: disc;">
-                    <li>Retrieval-augmented generation (RAG) for knowledge-intensive tasks</li>
-                    <li>Domain adaptation of large language models</li>
-                    <li>Financial NLP applications</li>
-                    <li>LLM Post-training</li>
-                    <li>Efficient model architectures</li>
-                </ul>
-                <p>Aim to bridge the gap between cutting-edge NLP research and practical applications in business and finance contexts.</p>
-            </div>
-        </section>
-
-        <!-- Publications Section -->
-        <section id="publications" class="fade-in delay-2">
-            <h2>Selected Publications</h2>
-            <div class="paper-grid">
-                <div class="paper-card" onclick="window.open('https://arxiv.org/abs/2401.15391', '_blank')" style="cursor: pointer;">
-                    <div class="paper-image">
-                        <div class="badge">COLM 2024</div>
-                        <img src='images/rag.png' alt="MultiHop-RAG">
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <section id="about" class="mb-20 fade-in">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/3 bg-blue-900 p-8 text-white">
+                        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-blue-200 font-medium mb-2">Research Focus</h3>
+                                <p class="text-blue-100">NLP, Information Systems, Financial Applications</p>
+                            </div>
+                            <div>
+                                <h3 class="text-blue-200 font-medium mb-2">Advisor</h3>
+                                <p class="text-blue-100"><a href="https://yya518.github.io/index" target="_blank" rel="noopener noreferrer" class="hover:underline">Prof. Yi Yang</a></p>
+                            </div>
+                            <div>
+                                <h3 class="text-blue-200 font-medium mb-2">Institution</h3>
+                                <p class="text-blue-100">Hong Kong University of Science and Technology</p>
+                            </div>
+                            <div class="pt-4">
+                                <h3 class="text-blue-200 font-medium mb-4">Connect</h3>
+                                <div class="flex space-x-4">
+                                    <a href="mailto:ytangch@connect.ust.hk" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition" title="Email"><i class="fas fa-envelope"></i></a>
+                                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                                    <a href="https://github.com/yixuantt" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition" title="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="paper-content">
-                        <h3 class="paper-title">
-                            <a href="https://arxiv.org/abs/2401.15391">MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries</a>
-                        </h3>
-                        <div class="paper-authors">
-                            <strong>Yixuan Tang</strong>, Yi Yang
-                        </div>
-                        <div class="paper-venue">
-                            Conference on Language Modeling (COLM) 2024
-                        </div>
-                        <p class="paper-abstract">
-                            Introduces a comprehensive benchmark for evaluating retrieval-augmented generation systems on complex multi-hop queries, 
-                            providing standardized datasets and metrics.
+                    <div class="md:w-2/3 p-8">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-4">Research Interests</h3>
+                        <p class="text-gray-700 mb-6">
+                            My research focuses on advancing natural language processing technologies and their applications in information systems. 
+                            I'm particularly interested in embedding models, domain adaptation of 
+                            large language models, and financial NLP applications.
                         </p>
-                        <div class="paper-links">
-                            <a href="https://arxiv.org/abs/2401.15391" class="paper-link primary">
-                                <i class="fas fa-file-alt"></i> PDF
-                            </a>
-                            <a href="#" class="paper-link">
-                                <i class="fas fa-quote-right"></i> Cite
-                            </a>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                                <div class="text-blue-700 mb-3"><i class="fas fa-search-dollar text-2xl"></i></div>
+                                <h4 class="font-bold text-blue-900 mb-2">Financial NLP</h4>
+                                <p class="text-gray-700">Developing specialized NLP models for financial text analysis, sentiment detection, and market prediction.</p>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                                <div class="text-blue-700 mb-3"><i class="fas fa-robot text-2xl"></i></div>
+                                <h4 class="font-bold text-blue-900 mb-2">LLM Adaptation</h4>
+                                <p class="text-gray-700">Techniques for efficiently adapting large language models to specialized domains with limited data.</p>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                                <div class="text-blue-700 mb-3"><i class="fas fa-database text-2xl"></i></div>
+                                <h4 class="font-bold text-blue-900 mb-2">Embedding Models</h4>
+                                <p class="text-gray-700"> Dedicated to designing and optimizing text embedding models for professional domains like finance.</p>
+                            </div>
+                            <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                                <div class="text-blue-700 mb-3"><i class="fas fa-chart-line text-2xl"></i></div>
+                                <h4 class="font-bold text-blue-900 mb-2">Business Applications</h4>
+                                <p class="text-gray-700">Practical implementations of NLP in business intelligence, decision support, and customer service.</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="publication-list">
-                <div class="publication-item">
-                    <h4 class="publication-title">
-                        <a href="https://arxiv.org/abs/2406.10099">Know the Unknown: An Uncertainty-Sensitive Method for LLM Instruction Tuning</a>
-                    </h4>
-                    <div class="publication-authors">
-                        Jiaqi Li, <strong>Yixuan Tang</strong>, Yi Yang
-                    </div>
-                    <div class="publication-venue">
-                         Annual Meeting of the Association for Computational Linguistics (ACL) 2025 Findings
-                    </div>
-                </div>
-                <div class="publication-item">
-                    <h4 class="publication-title">
-                        <a href="https://openreview.net/pdf?id=GcbhbZsgiu">Adversarial Mixup Unlearning</a>
-                    </h4>
-                    <div class="publication-authors">
-                        Zhuoyi PENG, <strong>Yixuan Tang</strong>, Yi Yang
-                    </div>
-                    <div class="publication-venue">
-                        International Conference on Learning Representations (ICLR) 2025
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <h4 class="publication-title">
-                        <a href="https://arxiv.org/abs/2311.10367">Exploring the Relationship between In-Context Learning and Instruction Tuning</a>
-                    </h4>
-                    <div class="publication-authors">
-                        Hanyu Duan, <strong>Yixuan Tang</strong>, Yi Yang, Ahmed Abbasi, Kar Yan Tam
-                    </div>
-                    <div class="publication-venue">
-                        Empirical Methods in Natural Language Processing (EMNLP) 2024 Findings
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <h4 class="publication-title">
-                        <a href="https://arxiv.org/abs/2310.12406">FinEntity: Entity-level Sentiment Classification for Financial Texts</a>
-                    </h4>
-                    <div class="publication-authors">
-                        <strong>Yixuan Tang</strong>, Yi Yang
-                    </div>
-                    <div class="publication-venue">
-                        Empirical Methods in Natural Language Processing (EMNLP) 2023
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Preprints Section -->
-        <section id="preprints" class="fade-in delay-3">
-            <h2>Preprints & Projects</h2>
-            <div class="paper-grid">
-                <div class="paper-card">
-                    <div class="paper-image">
-                        <div class="badge">Project</div>
-                        <img src='images/investlm.png' alt="InvestLM">
-                    </div>
-                    <div class="paper-content">
-                        <h3 class="paper-title">InvestLM: A Large Language Model for Investment using Financial Domain Instruction Tuning</h3>
-                        <div class="paper-authors">
-                            Yi Yang, <strong>Yixuan Tang</strong>, Kar Yan Tam
-                        </div>
-                        <p class="paper-abstract">
-                            Domain-specific LLM trained on carefully curated financial datasets for investment analysis tasks, 
-                            demonstrating strong performance on financial NLP benchmarks.
-                        </p>
-                        <div class="paper-links">
-                            <a href="https://investlm.hkust.edu.hk/" class="paper-link primary">
-                                <i class="fas fa-external-link-alt"></i> Project Page
-                            </a>
-                            <a href="https://arxiv.org/abs/2309.13064" class="paper-link">
-                                <i class="fas fa-file-alt"></i> Preprint
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <section id="research" class="mb-20 fade-in delay-100">
+            <h2 class="text-3xl font-bold text-blue-900 mb-8">Featured Research Projects</h2>
+            
+            <div id="featured-projects-container" class="grid md:grid-cols-2 gap-8">
+                <p class="p-6 text-center text-gray-500">Loading featured projects...</p>
             </div>
-
-            <div class="publication-list">
-                <div class="publication-item">
-                    <h4 class="publication-title">
-                        <a href="https://arxiv.org/abs/2409.18511">Do We Need Domain-Specific Embedding Models? An Empirical Investigation</a>
-                    </h4>
-                    <div class="publication-authors">
-                        <strong>Yixuan Tang</strong>, Yi Yang
-                    </div>
-                </div>
-
-                <div class="publication-item">
-                    <h4 class="publication-title">
-                        <a href="https://arxiv.org/abs/2409.02727">Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?</a>
-                    </h4>
-                    <div class="publication-authors">
-                        <strong>Yixuan Tang</strong>, Yi Yang
-                    </div>
-                </div>
-
+            
+            <div class="mt-8 text-center">
+                <a href="#publications" class="inline-flex items-center text-blue-700 hover:text-blue-900 font-medium">
+                    View all publications
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section id="education" class="fade-in delay-4">
-            <h2>Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">
-                        <i class="far fa-calendar-alt"></i>
-                        2024.09 - Present
-                    </div>
-                    <div class="timeline-degree">
-                        <i class="fas fa-graduation-cap"></i>
-                        MPhil in Information Systems
-                    </div>
-                    <div class="timeline-university">
-                        Hong Kong University of Science and Technology (HKUST)
+        <section id="publications" class="mb-20 fade-in delay-200">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-blue-900">Publications</h2>
+                <div class="flex space-x-2">
+                    <button class="px-4 py-2 bg-gray-500 text-white rounded-lg cursor-not-allowed" title="Functionality handled by dropdowns"><i class="fas fa-filter mr-2"></i> Filter</button>
+                    <button class="px-4 py-2 border border-gray-500 text-gray-500 rounded-lg cursor-not-allowed" title="Search functionality not implemented"><i class="fas fa-search mr-2"></i> Search</button>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="bg-blue-50 px-6 py-4 border-b border-blue-100">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <div class="flex items-center">
+                            <label for="filter-year" class="mr-2 text-blue-900 font-medium">Year:</label>
+                            <select id="filter-year" class="bg-white border border-blue-200 text-blue-900 rounded px-3 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                                <option>All</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center">
+                            <label for="filter-type" class="mr-2 text-blue-900 font-medium">Type:</label>
+                            <select id="filter-type" class="bg-white border border-blue-200 text-blue-900 rounded px-3 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                                <option>All</option>
+                                <option>Conference</option>
+                                <option>Project</option>
+                                <option>Preprint</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center">
+                            <label for="filter-topic" class="mr-2 text-blue-900 font-medium">Topic:</label>
+                            <select id="filter-topic" class="bg-white border border-blue-200 text-blue-900 rounded px-3 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                                <option>All</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
+                
+                <div id="publication-list-container" class="divide-y divide-blue-100">
+                    <p class="p-6 text-center text-gray-500">Loading publications...</p>
+                </div>
+                
+                <div class="bg-blue-50 px-6 py-4 flex justify-between items-center">
+                    <div id="pagination-info" class="text-blue-900"></div>
+                    <div id="pagination-controls" class="flex space-x-2"></div>
+                </div>
+            </div>
+        </section>
 
-                <div class="timeline-item">
-                    <div class="timeline-date">
-                        <i class="far fa-calendar-alt"></i>
-                        2021.09 - 2022.11
-                    </div>
-                    <div class="timeline-degree">
-                        <i class="fas fa-graduation-cap"></i>
-                        Master in Big Data Technology
-                    </div>
-                    <div class="timeline-university">
-                        Hong Kong University of Science and Technology (HKUST)
+        <section id="education" class="mb-20 fade-in delay-300">
+            <h2 class="text-3xl font-bold text-blue-900 mb-8">Education</h2>
+            <div class="relative">
+                <div class="border-l-2 border-blue-200 absolute h-full left-4 md:left-6 top-0"></div>
+                <div class="relative pl-12 md:pl-16 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-bold text-blue-900">MPhil in Information Systems</h3>
+                            <span class="text-blue-700 font-medium mt-2 md:mt-0"><i class="far fa-calendar-alt mr-1"></i> 2024 - Present</span>
+                        </div>
+                        <p class="text-gray-700 mb-3">Hong Kong University of Science and Technology (HKUST)</p>
                     </div>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">
-                        <i class="far fa-calendar-alt"></i>
-                        2017.09 - 2021.06
+                <div class="relative pl-12 md:pl-16 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-bold text-blue-900">Master in Big Data Technology</h3>
+                            <span class="text-blue-700 font-medium mt-2 md:mt-0"><i class="far fa-calendar-alt mr-1"></i> 2021 - 2022</span>
+                        </div>
+                        <p class="text-gray-700 mb-3">Hong Kong University of Science and Technology (HKUST)</p>
                     </div>
-                    <div class="timeline-degree">
-                        <i class="fas fa-graduation-cap"></i>
-                        Bachelor in Computer Science and Technology
-                    </div>
-                    <div class="timeline-university">
-                        Chongqing University
+                </div>
+                <div class="relative pl-12 md:pl-16">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                            <h3 class="text-xl font-bold text-blue-900">Bachelor in Computer Science</h3>
+                            <span class="text-blue-700 font-medium mt-2 md:mt-0"><i class="far fa-calendar-alt mr-1"></i> 2017 - 2021</span>
+                        </div>
+                        <p class="text-gray-700 mb-3">Chongqing University</p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
+
+        <section id="contact" class="fade-in delay-400">
+            <div class="bg-blue-900 rounded-xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 md:p-12 text-white">
+                        <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+                        <p class="text-blue-100 mb-8">Interested in collaborating or learning more about my research? Feel free to reach out through any of the channels below.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center"><div class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center mr-4"><i class="fas fa-envelope text-xl"></i></div><div><h4 class="font-medium text-blue-200">Email</h4><a href="mailto:ytangch@connect.ust.hk" class="text-white hover:underline">ytangch@connect.ust.hk</a></div></div>
+                            <div class="flex items-center"><div class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center mr-4"><i class="fas fa-map-marker-alt text-xl"></i></div><div><h4 class="font-medium text-blue-200">Location</h4><p class="text-white">HKUST, Clear Water Bay, Hong Kong</p></div></div>
+                        </div>
+                    </div>
+                    <!-- <div class="md:w-1/2 bg-white p-8 md:p-12">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-6">Send a Message</h3>
+                        <form><div class="mb-4"><label for="name" class="block text-blue-900 font-medium mb-2">Name</label><input type="text" id="name" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></div><div class="mb-4"><label for="email" class="block text-blue-900 font-medium mb-2">Email</label><input type="email" id="email" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></div><div class="mb-6"><label for="message" class="block text-blue-900 font-medium mb-2">Message</label><textarea id="message" rows="4" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea></div><button type="submit" class="w-full bg-blue-700 text-white py-3 rounded-lg font-medium hover:bg-blue-800 transition shadow-md">Send Message</button></form>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6"><div class="flex flex-col md:flex-row justify-between items-center"><div class="mb-6 md:mb-0"><a href="#" class="text-2xl font-bold flex items-center"><i class="fas fa-atom mr-2"></i> Yixuan Tang</a><p class="mt-2 text-blue-200">PhD Student in NLP & Information Systems</p></div><div class="flex space-x-6"><a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="Google Scholar"><i class="fab fa-google-scholar"></i></a><a href="https://github.com/yixuantt" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="GitHub"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="Twitter"><i class="fab fa-twitter"></i></a></div></div><div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-300"><p>&copy; 2025 Yixuan Tang. All rights reserved.</p></div></div>
+    </footer>
 
     <script>
-        // Scroll to sections with smooth behavior
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Update active nav link
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.style.color = '';
-                });
-                this.style.color = 'var(--primary-color)';
-            });
-        });
-
-        // Add animation on scroll
         document.addEventListener('DOMContentLoaded', () => {
+
+            // --- State Management ---
+            let allPublications = [];
+            let filteredPublications = [];
+            let currentPage = 1;
+            const itemsPerPage = 5; // Increased items per page for the full list
+
+            // --- DOM Element References ---
+            const featuredContainer = document.getElementById('featured-projects-container');
+            const listContainer = document.getElementById('publication-list-container');
+            const paginationInfo = document.getElementById('pagination-info');
+            const paginationControls = document.getElementById('pagination-controls');
+            const yearFilter = document.getElementById('filter-year');
+            const typeFilter = document.getElementById('filter-type');
+            const topicFilter = document.getElementById('filter-topic');
+
+            /**
+             * Main initialization function
+             */
+            async function initialize() {
+                try {
+                    const response = await fetch('publications.json');
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    allPublications = await response.json();
+                    
+                    allPublications.sort((a, b) => b.year - a.year);
+
+                    renderFeaturedProjects();
+                    populateFilters();
+                    addEventListeners();
+                    applyFiltersAndRender();
+                } catch (error) {
+                    console.error("Could not load data:", error);
+                    featuredContainer.innerHTML = `<p class="p-6 text-red-500">Failed to load featured projects.</p>`;
+                    listContainer.innerHTML = `<p class="p-6 text-red-500">Failed to load publications.</p>`;
+                }
+            }
+            
+            /**
+             * Renders the featured projects section.
+             */
+            function renderFeaturedProjects() {
+                const featured = allPublications.filter(p => p.featured);
+                featuredContainer.innerHTML = ''; // Clear loading message
+
+                featured.forEach(proj => {
+                    const tagsHTML = proj.tags.map(tag => `<span class="bg-blue-50 text-blue-800 text-xs px-3 py-1 rounded-full">${tag}</span>`).join(' ');
+                    
+                    // Create links based on what's available
+                    let linksHTML = `<a href="${proj.url}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-medium flex items-center"><i class="fas fa-file-pdf mr-1"></i> ${proj.type === 'Project' ? 'Preprint' : 'Paper'}</a>`;
+                    if (proj.code_url) {
+                        linksHTML += `<a href="${proj.code_url}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-medium flex items-center"><i class="fas fa-code mr-1"></i> Code</a>`;
+                    }
+                    if (proj.project_url) {
+                         linksHTML += `<a href="${proj.project_url}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-medium flex items-center"><i class="fas fa-globe mr-1"></i> Project</a>`;
+                    }
+
+                    const projectHTML = `
+                        <div class="paper-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                            <div class="h-48 bg-blue-100 overflow-hidden">
+                                <img src="${proj.image_url}" alt="${proj.title}" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">${proj.status || proj.type}</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-blue-900 mb-2">${proj.title.split(':')[0]}</h3>
+                                <p class="text-gray-700 mb-4">${proj.venue}</p>
+                                <div class="flex flex-wrap gap-2 mb-4">${tagsHTML}</div>
+                                <div class="mt-4 flex space-x-4">${linksHTML}</div>
+                            </div>
+                        </div>`;
+                    featuredContainer.innerHTML += projectHTML;
+                });
+            }
+
+            /**
+             * Populates filter dropdowns based on data.
+             */
+            function populateFilters() {
+                const years = [...new Set(allPublications.map(p => p.year))].sort((a,b)=>b-a);
+                const topics = [...new Set(allPublications.flatMap(p => p.tags))].sort();
+
+                years.forEach(year => yearFilter.add(new Option(year, year)));
+                topics.forEach(topic => topicFilter.add(new Option(topic, topic)));
+            }
+
+            /**
+             * Applies filters and re-renders the main publications list.
+             */
+            function applyFiltersAndRender() {
+                const selectedYear = yearFilter.value;
+                const selectedType = typeFilter.value;
+                const selectedTopic = topicFilter.value;
+
+                filteredPublications = allPublications.filter(pub => {
+                    const yearMatch = (selectedYear === 'All') || (pub.year == selectedYear);
+                    const typeMatch = (selectedType === 'All') || (pub.type === selectedType);
+                    const topicMatch = (selectedTopic === 'All') || pub.tags.includes(selectedTopic);
+                    return yearMatch && typeMatch && topicMatch;
+                });
+
+                currentPage = 1;
+                renderPage();
+            }
+
+            /**
+             * Renders a single page of the filtered publications.
+             */
+            function renderPage() {
+                listContainer.innerHTML = '';
+                
+                if (filteredPublications.length === 0) {
+                    listContainer.innerHTML = '<p class="p-6 text-center text-gray-500">No publications match the current filter.</p>';
+                    renderPagination();
+                    return;
+                }
+                
+                const paginatedItems = filteredPublications.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+                paginatedItems.forEach(pub => {
+                    const authorsHTML = pub.authors.map(author => author === 'Yixuan Tang' ? `<strong>${author}</strong>` : author).join(', ');
+                    const tagsHTML = pub.tags.map(tag => `<span class="bg-blue-50 text-blue-800 text-xs px-3 py-1 rounded-full">${tag}</span>`).join(' ');
+                    const codeButtonHTML = pub.code_url ? `<a href="${pub.code_url}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 hover:bg-blue-200 transition" title="Code"><i class="fas fa-code"></i></a>` : `<a class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-400 cursor-not-allowed" title="Code not available"><i class="fas fa-code"></i></a>`;
+
+                    const publicationHTML = `
+                        <div class="p-6 hover:bg-blue-50 transition">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                                <div class="mb-4 md:mb-0 md:w-3/4">
+                                    <h3 class="text-xl font-bold text-blue-900 mb-1"><a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="hover:underline">${pub.title}</a></h3>
+                                    <p class="text-blue-700 mb-2">${authorsHTML}</p>
+                                    <p class="text-gray-700 mb-3">${pub.venue}<span class="ml-3 px-2 py-0.5 bg-blue-100 text-blue-800 text-xs rounded-full">${pub.type}</span></p>
+                                    <div class="flex flex-wrap gap-2 mb-3">${tagsHTML}</div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 hover:bg-blue-200 transition" title="PDF"><i class="fas fa-file-pdf"></i></a>
+                                    <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 hover:bg-blue-200 transition" title="Cite"><i class="fas fa-quote-right"></i></a>
+                                    ${codeButtonHTML}
+                                </div>
+                            </div>
+                        </div>`;
+                    listContainer.innerHTML += publicationHTML;
+                });
+
+                renderPagination();
+            }
+
+            /**
+             * Renders pagination controls.
+             */
+            function renderPagination() {
+                const totalItems = filteredPublications.length;
+                const totalPages = Math.ceil(totalItems / itemsPerPage);
+                paginationControls.innerHTML = '';
+                paginationInfo.innerHTML = '';
+
+                if (totalItems === 0) {
+                    paginationInfo.innerText = 'Showing 0-0 of 0 publications';
+                    return;
+                }
+                
+                const startItem = (currentPage - 1) * itemsPerPage + 1;
+                const endItem = Math.min(currentPage * itemsPerPage, totalItems);
+                paginationInfo.innerText = `Showing ${startItem}-${endItem} of ${totalItems} publications`;
+
+                if (totalPages <= 1) return; // Don't show controls if only one page
+
+                const createButton = (content, page, enabled = true) => {
+                    const button = document.createElement('button');
+                    button.innerHTML = content;
+                    button.className = "w-10 h-10 rounded flex items-center justify-center transition " + 
+                                       (page === currentPage ? "bg-blue-700 text-white" : "bg-white border border-blue-200 text-blue-700 hover:bg-blue-100");
+                    if (!enabled) {
+                        button.disabled = true;
+                        button.classList.add('cursor-not-allowed', 'opacity-50');
+                    } else {
+                        button.onclick = () => { currentPage = page; renderPage(); };
+                    }
+                    return button;
+                };
+
+                paginationControls.appendChild(createButton('<i class="fas fa-chevron-left"></i>', currentPage - 1, currentPage > 1));
+                for (let i = 1; i <= totalPages; i++) {
+                    paginationControls.appendChild(createButton(i, i));
+                }
+                paginationControls.appendChild(createButton('<i class="fas fa-chevron-right"></i>', currentPage + 1, currentPage < totalPages));
+            }
+            
+            /**
+             * Attaches event listeners to controls.
+             */
+            function addEventListeners() {
+                yearFilter.addEventListener('change', applyFiltersAndRender);
+                typeFilter.addEventListener('change', applyFiltersAndRender);
+                topicFilter.addEventListener('change', applyFiltersAndRender);
+            }
+
+            // --- Initialize Everything ---
+            initialize();
+
+            // --- Other Page Scripts (Menu, Scroll, etc.) ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
+                    if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+                });
+            });
+            const fadeElements = document.querySelectorAll('.fade-in');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
+                        entry.target.classList.add('opacity-100');
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, {
-                threshold: 0.1
+            }, { threshold: 0.1 });
+            fadeElements.forEach(element => observer.observe(element));
+            window.addEventListener('scroll', () => {
+                const navbar = document.querySelector('nav');
+                navbar.classList.toggle('shadow-md', window.scrollY > 50);
             });
-
-            document.querySelectorAll('section').forEach(section => {
-                observer.observe(section);
-            });
-        });
-
-        // Change navbar style on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                navbar.style.background = 'rgba(255,255,255,0.98)';
-            } else {
-                navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
-                navbar.style.background = 'rgba(255,255,255,0.96)';
-            }
         });
     </script>
 </body>
