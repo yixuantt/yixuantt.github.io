@@ -1,5 +1,27 @@
 [
   {
+    "title": "Evaluating and Aligning Human Economic Risk Preferences in LLMs",
+    "authors": ["Jiaxin Liu", "Yixuan Tang", "Yi Yang", "Kar Yan Tam"],
+    "venue": "The 2025 Conference on Empirical Methods in Natural Language Processing",
+    "type": "Conference",
+    "year": 2025,
+    "url": "https://openreview.net/forum?id=xHSVEC7D4n",
+    "code_url": "",
+    "tags": ["NLP", "Finance", "LLM"],
+    "bibtex": "@inproceedings{\nliu2025evaluating,\ntitle={Evaluating and Aligning Human Economic Risk Preferences in {LLM}s},\nauthor={Jiaxin Liu and Yixuan Tang and Yi Yang and KAR YAN TAM},\nbooktitle={The 2025 Conference on Empirical Methods in Natural Language Processing},\nyear={2025},\nurl={https://openreview.net/forum?id=xHSVEC7D4n}\n}"
+  },
+  {
+    "title": "FinMTEB: Finance Massive Text Embedding Benchmark",
+    "authors": ["Yixuan Tang", "Yi Yang"],
+    "venue": "The 2025 Conference on Empirical Methods in Natural Language Processing",
+    "type": "Conference",
+    "year": 2025,
+    "url": "https://arxiv.org/pdf/2502.10990",
+    "code_url": "https://github.com/yixuantt/FinMTEB",
+    "tags": ["NLP", "Embeddings", "LLM"],
+    "bibtex": "@inproceedings{\n  tang2025finmteb,\n  title={Fin{MTEB}: Finance Massive Text Embedding Benchmark},\n  author={Yixuan Tang and Yi Yang},\n  booktitle={The 2025 Conference on Empirical Methods in Natural Language Processing},\n  year={2025},\n  url={https://openreview.net/forum?id=uO4mJyFWAq}\n}"
+  },
+  {
     "title": "MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries",
     "authors": ["Yixuan Tang", "Yi Yang"],
     "venue": "Conference on Language Modeling (COLM) 2024",
@@ -11,7 +33,7 @@
     "featured": true,
     "image_url": "https://yixuantt.github.io/images/rag.png",
     "status": "COLM 2024",
-    "bibtex": "@inproceedings{tang2024multihop,\n  title={MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries},\n  author={Tang, Yixuan and Yang, Yi},\n  booktitle={Conference on Language Modeling (COLM)},\n  year={2024}\n}"
+    "bibtex": "@inproceedings{tang2024multihop,\n  title={MultiHop-RAG: Benchmarking Retrieval-Augmented Generation for Multi-Hop Queries},\n  author={Yixuan Tang and Yi Yang},\n  booktitle={Conference on Language Modeling (COLM)},\n  year={2024}\n}"
   },
   {
     "title": "InvestLM: A Large Language Model for Investment",
@@ -37,7 +59,7 @@
     "url": "https://arxiv.org/abs/2406.10099",
     "code_url": null,
     "tags": ["NLP", "LLM", "Instruction Tuning"],
-    "bibtex": "@inproceedings{li2025know,\n  title={Know the Unknown: An Uncertainty-Sensitive Method for LLM Instruction Tuning},\n  author={Li, Jiaqi and Tang, Yixuan and Yang, Yi},\n  booktitle={Annual Meeting of the Association for Computational Linguistics (ACL)},\n  year={2025}\n}"
+    "bibtex": "@inproceedings{li2025know,\n  title={Know the Unknown: An Uncertainty-Sensitive Method for LLM Instruction Tuning},\n  author={Jiaqi Li and Yixuan Tang and Yi Yang},\n  booktitle={Annual Meeting of the Association for Computational Linguistics (ACL)},\n  year={2025}\n}"
   },
   {
     "title": "Adversarial Mixup Unlearning",
@@ -48,7 +70,7 @@
     "url": "https://openreview.net/pdf?id=GcbhbZsgiu",
     "code_url": null,
     "tags": ["Machine Unlearning", "Adversarial Training"],
-    "bibtex": "@inproceedings{peng2025adversarial,\n  title={Adversarial Mixup Unlearning},\n  author={Peng, Zhuoyi and Tang, Yixuan and Yang, Yi},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2025}\n}"
+    "bibtex": "@inproceedings{peng2025adversarial,\n  title={Adversarial Mixup Unlearning},\n  author={Zhuoyi Peng and Yixuan Tang and Yi Yang},\n  booktitle={International Conference on Learning Representations (ICLR)},\n  year={2025}\n}"
   },
   {
     "title": "Exploring the Relationship between In-Context Learning and Instruction Tuning",
@@ -59,7 +81,7 @@
     "url": "https://arxiv.org/abs/2311.10367",
     "code_url": null,
     "tags": ["NLP", "ICL", "Instruction Tuning"],
-    "bibtex": "@inproceedings{duan2024exploring,\n  title={Exploring the Relationship between In-Context Learning and Instruction Tuning},\n  author={Duan, Hanyu and Tang, Yixuan and Yang, Yi and Abbasi, Ahmed and Tam, Kar Yan},\n  booktitle={Empirical Methods in Natural Language Processing (EMNLP)},\n  year={2024}\n}"
+    "bibtex": "@inproceedings{duan2024exploring,\n  title={Exploring the Relationship between In-Context Learning and Instruction Tuning},\n  author={Hanyu Duan and Yixuan Tang and Yi Yang and Ahmed Abbasi and Kar Yan Tam},\n  booktitle={Empirical Methods in Natural Language Processing (EMNLP)},\n  year={2024}\n}"
   },
   {
     "title": "FinEntity: Entity-level Sentiment Classification for Financial Texts",
@@ -70,7 +92,7 @@
     "url": "https://arxiv.org/abs/2310.12406",
     "code_url": "https://github.com/yixuantt/FinEntity",
     "tags": ["NLP", "Finance", "Sentiment Analysis"],
-    "bibtex": "@inproceedings{tang2023finentity,\n  title={FinEntity: Entity-level Sentiment Classification for Financial Texts},\n  author={Tang, Yixuan and Yang, Yi},\n  booktitle={Empirical Methods in Natural Language Processing (EMNLP)},\n  year={2023}\n}"
+    "bibtex": "@inproceedings{tang2023finentity,\n  title={FinEntity: Entity-level Sentiment Classification for Financial Texts},\n  author={Yixuan Tang and Yi Yang},\n  booktitle={Empirical Methods in Natural Language Processing (EMNLP)},\n  year={2023}\n}"
   },
   {
     "title": "Do We Need Domain-Specific Embedding Models? An Empirical Investigation",
@@ -81,7 +103,7 @@
     "url": "https://arxiv.org/abs/2409.18511",
     "code_url": "https://github.com/yixuantt/FinMTEB",
     "tags": ["NLP", "Embeddings", "Domain Adaptation"],
-    "bibtex": "@article{tang2024domain,\n  title={Do We Need Domain-Specific Embedding Models? An Empirical Investigation},\n  author={Tang, Yixuan and Yang, Yi},\n  journal={arXiv preprint arXiv:2409.18511},\n  year={2024}\n}"
+    "bibtex": "@article{tang2024domain,\n  title={Do We Need Domain-Specific Embedding Models? An Empirical Investigation},\n  author={Yixuan Tang and Yi Yang},\n  journal={arXiv preprint arXiv:2409.18511},\n  year={2024}\n}"
   },
   {
     "title": "Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?",
@@ -92,6 +114,6 @@
     "url": "https://arxiv.org/abs/2409.02727",
     "code_url": "https://github.com/yixuantt/PoolingAndAttn",
     "tags": ["NLP", "Embeddings", "LLM"],
-    "bibtex": "@article{tang2024pooling,\n  title={Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?},\n  author={Tang, Yixuan and Yang, Yi},\n  journal={arXiv preprint arXiv:2409.02727},\n  year={2024}\n}"
+    "bibtex": "@article{tang2024pooling,\n  title={Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?},\n  author={Yixuan Tang and Yi Yang},\n  journal={arXiv preprint arXiv:2409.02727},\n  year={2024}\n}"
   }
 ]
