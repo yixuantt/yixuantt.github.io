@@ -6,525 +6,1576 @@
     <title>Yixuan Tang | NLP & Information Systems Researcher</title>
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Charter:ital,wght@0,400;0,700;1,400&display=swap" as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
     <link rel="preload" href="images/profile.png" as="image">
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Charter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- MathJax -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
-        
         :root {
-            --primary-blue: #1e40af;
-            --secondary-blue: #3b82f6;
-            --light-blue: #eff6ff;
-            --dark-blue: #1e3a8a;
-            --accent-blue: #60a5fa;
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #2c3e50;
+            --light-gray: #f8f9fa;
+            --border-color: #e9ecef;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f8fafc;
-            color: #1f2937;
-            padding-top: 80px;
-            font-size: 16px; /* 确保基础字体大小一致 */
-        }
-        
-        /* 防止字体加载时的布局偏移 */
-        .font-loading {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .font-loaded {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Noto Serif', serif;
-            color: #1e3a8a;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        }
-        
-        .paper-card {
-            will-change: transform;
-            transform: translateZ(0); /* Hardware acceleration */
-        }
-        
-        .paper-card:hover {
-            transform: translateY(-5px) translateZ(0);
-            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.1);
-        }
-        
-        /* 确保页面尺寸一致性 */
-        html {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #ffffff;
             font-size: 16px;
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
         }
         
-        /* 防止移动端缩放问题 */
-        @media screen and (max-width: 768px) {
-            html {
-                font-size: 16px;
-            }
+        /* Typography System */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Charter', Georgia, serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
         
-        /* 确保图片尺寸一致 */
-        img {
-            max-width: 100%;
-            height: auto;
+        h1 { font-size: 2.2rem; }
+        h2 { font-size: 1.8rem; }
+        h3 { font-size: 1.4rem; }
+        h4 { font-size: 1.2rem; }
+        h5 { font-size: 1.1rem; }
+        h6 { font-size: 1rem; }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
         }
         
-        .nav-link:hover::after {
+        /* Text Size Classes */
+        .text-xs { font-size: 0.75rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-base { font-size: 1rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-3xl { font-size: 1.875rem; }
+        
+        /* Container System */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .container-main {
+            max-width: 800px;
+        }
+        
+        .container-large {
+            max-width: 1000px;
+        }
+        
+        .container-extra-large {
+            max-width: 1400px;
+        }
+        
+        
+        /* Navigation */
+        .nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .nav-brand {
+            flex-shrink: 0;
+        }
+        
+        .brand-link {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .brand-link:hover {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
             width: 100%;
         }
         
-        .nav-link::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: var(--primary-blue);
-            transition: width 0.3s;
+        /* Main Content */
+        .main {
+            padding: 2rem 0;
         }
         
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -38px;
-            top: 0;
-            width: 16px;
-            height: 16px;
+        .main-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            left: 0;
+        }
+        
+        .sidebar-content {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+        
+        .sidebar-profile {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .sidebar-profile .profile-image {
+            margin-bottom: 1rem;
+        }
+        
+        .sidebar-profile .profile-image img {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 3px solid white;
-            background: var(--primary-blue);
+            object-fit: cover;
+            box-shadow: var(--shadow);
         }
         
+        .sidebar-profile h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .profile-subtitle {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .sidebar-profile .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .sidebar-profile .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--light-gray);
+            color: var(--primary-color);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .sidebar-profile .social-links a:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .sidebar-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .sidebar-section h4 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 1rem 0;
+            color: var(--primary-color);
+        }
+        
+        .sidebar-section p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .research-areas {
+            margin: 1.5rem 0;
+        }
+        
+        .research-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: var(--light-gray);
+            border-radius: 8px;
+        }
+        
+        .research-icon {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-top: 0.25rem;
+        }
+        
+        .research-item strong {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+        
+        .research-item p {
+            font-size: 0.8rem;
+            color: #666;
+            margin: 0;
+        }
+        
+        .supervisor-info {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .supervisor-info p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        .supervisor-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .supervisor-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .sidebar-stats {
+            margin-top: 1.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            grid-template-rows: 1fr;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 0.5rem;
+            background: var(--light-gray);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 60px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .stat-number {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.2rem;
+            flex-shrink: 0;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            color: #666;
+            font-weight: 500;
+            line-height: 1.2;
+            word-wrap: break-word;
+            hyphens: auto;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .content-area {
+            min-width: 0; /* Prevent grid overflow */
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        /* Research Focus Cards */
+        .research-focus {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .focus-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .focus-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .focus-card .icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .focus-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Publications */
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .featured-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .featured-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .publication-image {
+            height: 200px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .publication-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .publication-content {
+            padding: 1.2rem;
+        }
+        
+        .publication-badge {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        /* Featured Research badges container */
+        .publication-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .publication-badges .publication-badge {
+            margin-bottom: 0;
+        }
+        
+        .publication-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--primary-color);
+        }
+        
+        .publication-authors {
+            color: #666;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+        }
+        
+        .publication-venue {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+        }
+        
+        .publication-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .tag {
+            background: var(--light-gray);
+            color: var(--primary-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        
+        .publication-links {
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .publication-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        
+        .publication-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Compact Publication List */
+        .publication-list {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .publication-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .publication-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .publication-card-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            flex: 1;
+        }
+        
+        .publication-card-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .publication-card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .publication-card-title:hover {
+            color: var(--secondary-color);
+        }
+        
+        .publication-card-badge {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .publication-card-meta {
+            color: #666;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        
+        .publication-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-card-tag {
+            background: var(--light-gray);
+            color: var(--primary-color);
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        
+        .publication-card-links {
+            display: flex;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            background: var(--light-gray);
+            margin-top: auto;
+        }
+        
+        .publication-card-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .publication-card-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Conference/Journal Label */
+        .venue-label {
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+        
+        /* Venue-specific colors with low saturation */
+        .venue-label.emnlp { background: #6B73FF !important; }
+        .venue-label.acl { background: #4ECDC4 !important; }
+        .venue-label.iclr { background: #45B7D1 !important; }
+        .venue-label.colm { background: #96CEB4 !important; }
+        .venue-label.neurips { background: #FFEAA7 !important; color: #2D3436 !important; }
+        .venue-label.icml { background: #DDA0DD !important; }
+        .venue-label.aaai { background: #98D8C8 !important; }
+        .venue-label.ijcai { background: #F7DC6F !important; color: #2D3436 !important; }
+        .venue-label.misq { background: #A8E6CF !important; color: #2D3436 !important; }
+        .venue-label.isr { background: #B8E6B8 !important; color: #2D3436 !important; }
+        .venue-label.jmis { background: #DDA0DD !important; }
+        .venue-label.i-m { background: #87CEEB !important; color: #2D3436 !important; }
+        .venue-label.dss { background: #E6E6FA !important; color: #2D3436 !important; }
+        .venue-label.ejis { background: #B19CD9 !important; }
+        .venue-label.jais { background: #D2B48C !important; color: #2D3436 !important; }
+        .venue-label.isj { background: #98FB98 !important; color: #2D3436 !important; }
+        .venue-label.cacm { background: #F5DEB3 !important; color: #2D3436 !important; }
+        .venue-label.tois { background: #E6E6FA !important; color: #2D3436 !important; }
+        .venue-label.tkde { background: #D3D3D3 !important; color: #2D3436 !important; }
+        .venue-label.tit { background: #F0F8FF !important; color: #2D3436 !important; }
+        .venue-label.preprint { background: #D3D3D3 !important; color: #2D3436 !important; }
+        .venue-label.project { background: #E6F3FF !important; color: #2D3436 !important; }
+        
+        /* Default fallback color */
+        .venue-label.default { background: var(--primary-color) !important; }
+        
+        /* Updated colors - no red tones */
+        .venue-label.emnlp { background: #6B73FF !important; }
+        .venue-label.acl { background: #4ECDC4 !important; }
+        .venue-label.iclr { background: #45B7D1 !important; }
+        
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .education-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .education-card .icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.75rem;
+        }
+        
+        .education-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Contact */
+        .contact {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .contact p {
+            color: #e9ecef;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: #e9ecef;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-layout {
+                grid-template-columns: 320px 1fr;
+                gap: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 300px 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+            
+            .content-area {
+                order: 1;
+            }
+            
+            .sidebar-content {
+                padding: 1.5rem;
+            }
+            
+            .sidebar-profile {
+                margin-bottom: 1.5rem;
+                padding-bottom: 1.5rem;
+            }
+            
+            .sidebar-profile .profile-image img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.4rem;
+            }
+            
+            .stat-item {
+                padding: 0.4rem;
+                min-height: 50px;
+            }
+            
+            .stat-number {
+                font-size: 1rem;
+            }
+            
+            .stat-label {
+                font-size: 0.65rem;
+                line-height: 1.1;
+            }
+            
+            .publications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .publication-gallery {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .research-focus {
+                grid-template-columns: 1fr;
+            }
+            
+            .education-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .education-card {
+                padding: 1rem;
+            }
+            
+            .education-card .icon {
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .education-card h3 {
+                font-size: 1.1rem;
+            }
+            
+            .education-card p {
+                font-size: 0.85rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 0.4rem;
+            }
+            
+            .stat-item {
+                padding: 0.4rem;
+            }
+            
+            .stat-number {
+                font-size: 1.1rem;
+            }
+            
+            .stat-label {
+                font-size: 0.7rem;
+            }
+            
+            .research-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .research-icon {
+                align-self: center;
+            }
+        }
+        
+        /* Code blocks */
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .code-block pre {
+            margin: 0;
+        }
+        
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            background: var(--light-gray);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+        
+        /* Filter Controls */
+        .filter-controls {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-group label {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        .filter-group select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: white;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .filter-group select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .pagination button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination button:hover {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+        
+        .pagination button.active {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+        
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal.show {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .modal-close:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Loading states */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+        
+        /* Animations */
         .fade-in {
-            animation: fadeIn 0.8s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+        }
         }
         
-        #mobile-menu {
-            transition: max-height 0.3s ease-in-out;
+        .fade-in:nth-child(2) { animation-delay: 0.1s; }
+        .fade-in:nth-child(3) { animation-delay: 0.2s; }
+        .fade-in:nth-child(4) { animation-delay: 0.3s; }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .back-to-top.show {
+            display: flex;
         }
     </style>
 </head>
-<body class="antialiased font-loading">
-    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 top-0">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center h-20">
-                <a href="#" class="text-2xl font-bold text-blue-900 flex items-center">
-                    <i class="fas fa-atom mr-2 text-blue-600"></i>
-                    Yixuan Tang
-                </a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="nav-link text-blue-900 font-medium hover:text-blue-700 transition">About</a>
-                    <a href="#research" class="nav-link text-blue-900 font-medium hover:text-blue-700 transition">Research</a>
-                    <a href="#publications" class="nav-link text-blue-900 font-medium hover:text-blue-700 transition">Publications</a>
-                    <a href="#education" class="nav-link text-blue-900 font-medium hover:text-blue-700 transition">Education</a>
-                    <a href="#contact" class="nav-link text-blue-900 font-medium hover:text-blue-700 transition">Contact</a>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#" class="brand-link">Yixuan Tang</a>
                 </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-blue-900 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-            <div id="mobile-menu" class="hidden md:hidden overflow-hidden">
-                <div class="pt-2 pb-3 space-y-1">
-                    <a href="#about" class="block py-2 px-4 text-blue-900 font-medium hover:bg-blue-50 rounded">About</a>
-                    <a href="#research" class="block py-2 px-4 text-blue-900 font-medium hover:bg-blue-50 rounded">Research</a>
-                    <a href="#publications" class="block py-2 px-4 text-blue-900 font-medium hover:bg-blue-50 rounded">Publications</a>
-                    <a href="#education" class="block py-2 px-4 text-blue-900 font-medium hover:bg-blue-50 rounded">Education</a>
-                    <a href="#contact" class="block py-2 px-4 text-blue-900 font-medium hover:bg-blue-50 rounded">Contact</a>
-                </div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <header class="gradient-bg pt-12 pb-12">
-        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-8">
-            <div class="md:w-2/3 fade-in">
-                <h1 class="text-3xl md:text-4xl font-bold text-blue-900 mb-3">Yixuan Tang</h1>
-                <h2 class="text-lg md:text-xl text-blue-700 mb-4">PhD Student in NLP & Information Systems at HKUST</h2>
-                
-                <!-- Research Stats -->
-                <!-- <div class="grid grid-cols-2 gap-8 mb-8 max-w-md mx-auto">
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-blue-900" id="publication-count">10</div>
-                        <div class="text-sm text-blue-700">Publications</div>
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container container-extra-large">
+            <div class="main-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-content">
+                        <!-- Profile Section -->
+                        <div class="sidebar-profile">
+                            <div class="profile-image">
+                                <img src="images/profile.png" alt="Yixuan Tang">
                     </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-blue-900">5</div>
-                        <div class="text-sm text-blue-700">Top Venues</div>
+                            <h2>Yixuan Tang</h2>
+                            <p class="profile-subtitle">PhD Student in NLP & Information Systems at HKUST</p>
+                            <div class="social-links">
+                                <a href="mailto:ytangch@connect.ust.hk" title="Email"><i class="fas fa-envelope"></i></a>
+                                <a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="https://github.com/yixuantt" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                </div> -->
-                
-                <p class="text-sm text-gray-700 mb-5 max-w-xl">
-                    I'm passionate about advancing natural language processing research to solve complex real-world problems. 
-                    My work focuses on developing novel methods and models that push the frontiers of what's possible with AI.
-                </p>
-                
-                <div class="flex space-x-3">
-                    <a href="#publications" class="px-5 py-2 bg-blue-700 text-white rounded-lg font-medium hover:bg-blue-800 transition shadow-md text-sm">
-                        View Publications
-                    </a>
-                    <a href="mailto:ytangch@connect.ust.hk" class="px-5 py-2 border border-blue-700 text-blue-700 rounded-lg font-medium hover:bg-blue-50 transition text-sm">
-                        Contact
-                    </a>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <h3>About Me</h3>
+                            <p>I'm passionate about advancing natural language processing research to solve complex real-world problems. My work focuses on developing novel methods and models that push the frontiers of what's possible with AI.</p>
+                            
+                            <div class="research-areas">
+                                <h4>Research Focus</h4>
+                                <div class="research-item">
+                                    <div class="research-icon"><i class="fas fa-search-dollar"></i></div>
+                                    <div>
+                                        <strong>Financial NLP</strong>
+                                        <p>Specialized models for financial text analysis and market prediction</p>
                 </div>
             </div>
-            <div class="md:w-1/3 flex justify-center fade-in delay-100">
-                <div class="relative">
-                    <div class="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                        <img src="images/profile.png" 
-                             alt="Yixuan Tang" class="w-full h-full object-cover">
+                                <div class="research-item">
+                                    <div class="research-icon"><i class="fas fa-robot"></i></div>
+                                    <div>
+                                        <strong>Large Language Models</strong>
+                                        <p>Domain adaptation and optimization techniques for LLMs</p>
                     </div>
-                    <div class="absolute -bottom-3 -right-3 bg-blue-700 text-white px-3 py-2 rounded-lg shadow-lg text-sm">
-                        <i class="fas fa-graduation-cap mr-1"></i> HKUST
                     </div>
+                                <div class="research-item">
+                                    <div class="research-icon"><i class="fas fa-database"></i></div>
+                                    <div>
+                                        <strong>Embedding Systems</strong>
+                                        <p>Advanced text embedding models for domain-specific applications</p>
                 </div>
             </div>
         </div>
-    </header>
+                            
+                            <div class="supervisor-info">
+                                <p><strong>Supervisor:</strong><br>
+                                <a href="https://yya518.github.io/index" target="_blank" rel="noopener noreferrer">Prof. Yi Yang</a><br>
+                                HKUST</p>
+                    </div>
+                            
+                            <div class="sidebar-stats">
+                                <h4>Research Stats</h4>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <div class="stat-number" id="total-papers">10</div>
+                                        <div class="stat-label">Publications</div>
+                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number" id="conference-papers">7</div>
+                                        <div class="stat-label">Conference</div>
+                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-number" id="first-author">5</div>
+                                        <div class="stat-label">First Author</div>
+                </div>
+                    </div>
+                </div>
+            </div>
+                    </div>
+                </aside>
+                
+                <!-- Main Content Area -->
+                <div class="content-area">
 
-    <main class="max-w-7xl mx-auto px-6 py-16">
-        <section id="about" class="mb-16 fade-in">
-            <div class="bg-white rounded-xl shadow-md p-8">
-                <h2 class="text-2xl font-bold text-blue-900 mb-6">Research Focus</h2>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="text-center p-4 bg-blue-50 rounded-lg">
-                        <div class="text-blue-700 mb-3"><i class="fas fa-search-dollar text-3xl"></i></div>
-                        <h3 class="font-bold text-blue-900 mb-2">Financial NLP</h3>
-                        <p class="text-sm text-gray-600">Specialized models for financial text analysis and market prediction</p>
-                    </div>
-                    <div class="text-center p-4 bg-blue-50 rounded-lg">
-                        <div class="text-blue-700 mb-3"><i class="fas fa-robot text-3xl"></i></div>
-                        <h3 class="font-bold text-blue-900 mb-2">Large Language Models</h3>
-                        <p class="text-sm text-gray-600">Domain adaptation and optimization techniques for LLMs</p>
-                    </div>
-                    <div class="text-center p-4 bg-blue-50 rounded-lg">
-                        <div class="text-blue-700 mb-3"><i class="fas fa-database text-3xl"></i></div>
-                        <h3 class="font-bold text-blue-900 mb-2">Embedding Systems</h3>
-                        <p class="text-sm text-gray-600">Advanced text embedding models for domain-specific applications</p>
+            <!-- Publications -->
+            <section id="publications" class="section">
+                <div class="section-title">
+                    <h2 style="font-size: 1.8rem; color: var(--primary-color); margin-bottom: 0.75rem;">Publications</h2>
+                    <p style="font-size: 1.1rem; color: #666;">Research contributions across conferences and journals</p>
+            </div>
+            
+                <!-- Filter Controls -->
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="filter-year">Year:</label>
+                        <select id="filter-year">
+                            <option value="all">All</option>
+                            </select>
+                        </div>
+                    <div class="filter-group">
+                        <label for="filter-type">Type:</label>
+                        <select id="filter-type">
+                            <option value="all">All</option>
+                            <option value="Conference">Conference</option>
+                            <option value="Project">Project</option>
+                            <option value="Preprint">Preprint</option>
+                            </select>
+                        </div>
+                    <div class="filter-group">
+                        <label for="filter-topic">Topic:</label>
+                        <select id="filter-topic">
+                            <option value="all">All</option>
+                            </select>
                     </div>
                 </div>
                 
-                <div class="mt-8 text-center">
-                    <p class="text-gray-700 mb-4">
-                        Supervised by <a href="https://yya518.github.io/index" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline font-medium">Prof. Yi Yang</a> at HKUST
-                    </p>
-                    <div class="flex justify-center space-x-4">
-                        <a href="mailto:ytangch@connect.ust.hk" class="text-blue-700 hover:text-blue-900 transition" title="Email"><i class="fas fa-envelope text-xl"></i></a>
-                        <a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 transition" title="Google Scholar"><i class="fas fa-graduation-cap text-xl"></i></a>
-                        <a href="https://github.com/yixuantt" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 transition" title="GitHub"><i class="fab fa-github text-xl"></i></a>
-                        <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 transition" title="LinkedIn"><i class="fab fa-linkedin-in text-xl"></i></a>
-                    </div>
+                <!-- Publications Gallery -->
+                <div id="publication-list-container" class="publication-gallery">
+                    <div class="loading">Loading publications...</div>
                 </div>
+                
+                <!-- Pagination -->
+                <div class="pagination" id="pagination-controls">
+                    <!-- Pagination buttons will be inserted here -->
             </div>
         </section>
 
-
-        <section id="publications" class="mb-20 fade-in delay-200">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold text-blue-900 mb-6">Publications</h2>
-                <div class="flex justify-center space-x-6 text-sm text-gray-600">
-                    <span><strong id="conference-count">7</strong> Conference Papers</span>
-                    <span><strong id="preprint-count">2</strong> Preprints</span>
-                    <span><strong id="project-count">1</strong> Project</span>
-                    <span><strong id="first-author-count">5</strong> First Author</span>
-                </div>
+            <!-- Featured Research -->
+            <section id="research" class="section">
+                <div class="section-title">
+                    <h2 style="font-size: 1.4rem;">Featured Research</h2>
+                    <p style="font-size: 1rem;">Key contributions to NLP and financial AI</p>
             </div>
             
-            <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                <div class="bg-blue-50 px-6 py-4 border-b border-blue-100">
-                    <div class="flex flex-wrap items-center gap-4">
-                        <div class="flex items-center">
-                            <label for="filter-year" class="mr-2 text-blue-900 font-medium">Year:</label>
-                            <select id="filter-year" class="bg-white border border-blue-200 text-blue-900 rounded px-3 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500">
-                                <option>All</option>
-                            </select>
-                        </div>
-                        <div class="flex items-center">
-                            <label for="filter-type" class="mr-2 text-blue-900 font-medium">Type:</label>
-                            <select id="filter-type" class="bg-white border border-blue-200 text-blue-900 rounded px-3 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500">
-                                <option>All</option>
-                                <option>Conference</option>
-                                <option>Project</option>
-                                <option>Preprint</option>
-                            </select>
-                        </div>
-                        <div class="flex items-center">
-                            <label for="filter-topic" class="mr-2 text-blue-900 font-medium">Topic:</label>
-                            <select id="filter-topic" class="bg-white border border-blue-200 text-blue-900 rounded px-3 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500">
-                                <option>All</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="publication-list-container" class="divide-y divide-blue-100">
-                    <p class="p-6 text-center text-gray-500">Loading publications...</p>
-                </div>
-                
-                <div class="bg-blue-50 px-6 py-4 flex justify-between items-center">
-                    <div id="pagination-info" class="text-blue-900"></div>
-                    <div id="pagination-controls" class="flex space-x-2"></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="research" class="mb-20 fade-in delay-100">
-            <h2 class="text-3xl font-bold text-blue-900 mb-8">Featured Research Projects</h2>
-            
-            <div id="featured-projects-container" class="grid md:grid-cols-2 gap-8">
-                <p class="p-6 text-center text-gray-500">Loading featured projects...</p>
-            </div>
-            
-            <div class="mt-8 text-center">
-                <a href="#publications" class="inline-flex items-center text-blue-700 hover:text-blue-900 font-medium">
-                    View all publications
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+                <div id="featured-projects-container" class="publications-grid">
+                    <div class="loading">Loading featured projects...</div>
             </div>
         </section>
         
-        <section id="education" class="mb-16 fade-in delay-300">
-            <h2 class="text-2xl font-bold text-blue-900 mb-6 text-center">Education</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <div class="text-blue-700 mb-3"><i class="fas fa-graduation-cap text-2xl"></i></div>
-                    <h3 class="font-bold text-blue-900 mb-2">MPhil in Information Systems</h3>
-                    <p class="text-sm text-gray-600 mb-1">HKUST</p>
-                    <p class="text-xs text-blue-700">2024 - Present</p>
+            <!-- Education -->
+            <section id="education" class="section">
+                <div class="section-title">
+                    <h2 style="font-size: 1.4rem;">Education</h2>
+                    <p style="font-size: 1rem;">Academic journey in computer science and information systems</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <div class="text-blue-700 mb-3"><i class="fas fa-user-graduate text-2xl"></i></div>
-                    <h3 class="font-bold text-blue-900 mb-2">Master in Big Data Technology</h3>
-                    <p class="text-sm text-gray-600 mb-1">HKUST</p>
-                    <p class="text-xs text-blue-700">2021 - 2022</p>
+            
+                <div class="education-grid">
+                    <div class="education-card fade-in">
+                        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>MPhil in Information Systems</h3>
+                        <p><strong>The Hong Kong University of Science and Technology</strong></p>
+                        <p style="color: var(--secondary-color); font-weight: 500;">2024 - Present</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <div class="text-blue-700 mb-3"><i class="fas fa-laptop text-2xl"></i></div>
-                    <h3 class="font-bold text-blue-900 mb-2">Bachelor in Computer Science</h3>
-                    <p class="text-sm text-gray-600 mb-1">Chongqing University</p>
-                    <p class="text-xs text-blue-700">2017 - 2021</p>
+                    <div class="education-card fade-in">
+                        <div class="icon"><i class="fas fa-user-graduate"></i></div>
+                        <h3>Master in Big Data Technology</h3>
+                        <p><strong>The Hong Kong University of Science and Technology</strong></p>
+                        <p style="color: var(--secondary-color); font-weight: 500;">2021 - 2022</p>
+                </div>
+                    <div class="education-card fade-in">
+                        <div class="icon"><i class="fas fa-laptop"></i></div>
+                        <h3>Bachelor in Computer Science</h3>
+                        <p><strong>Chongqing University</strong></p>
+                        <p style="color: var(--secondary-color); font-weight: 500;">2017 - 2021</p>
                 </div>
             </div>
         </section>
-
-        <section id="contact" class="fade-in delay-400">
-            <div class="bg-blue-900 rounded-xl shadow-xl overflow-hidden">
-                <div class="md:flex">
-                    <div class="md:w-1/2 p-8 md:p-12 text-white">
-                        <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
-                        <p class="text-blue-100 mb-8">Interested in collaborating or learning more about my research? Feel free to reach out through any of the channels below.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center"><div class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center mr-4"><i class="fas fa-envelope text-xl"></i></div><div><h4 class="font-medium text-blue-200">Email</h4><a href="mailto:ytangch@connect.ust.hk" class="text-white hover:underline">ytangch@connect.ust.hk</a></div></div>
-                            <div class="flex items-center"><div class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center mr-4"><i class="fas fa-map-marker-alt text-xl"></i></div><div><h4 class="font-medium text-blue-200">Location</h4><p class="text-white">HKUST, Clear Water Bay, Hong Kong</p></div></div>
                         </div>
                     </div>
-                    <!-- <div class="md:w-1/2 bg-white p-8 md:p-12">
-                        <h3 class="text-2xl font-bold text-blue-900 mb-6">Send a Message</h3>
-                        <form><div class="mb-4"><label for="name" class="block text-blue-900 font-medium mb-2">Name</label><input type="text" id="name" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></div><div class="mb-4"><label for="email" class="block text-blue-900 font-medium mb-2">Email</label><input type="email" id="email" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></div><div class="mb-6"><label for="message" class="block text-blue-900 font-medium mb-2">Message</label><textarea id="message" rows="4" class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea></div><button type="submit" class="w-full bg-blue-700 text-white py-3 rounded-lg font-medium hover:bg-blue-800 transition shadow-md">Send Message</button></form>
-                    </div> -->
+        </div>
+    </main>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Interested in collaborating or learning more about my research? Feel free to reach out.</p>
+            <div class="contact-links">
+                <a href="mailto:ytangch@connect.ust.hk"><i class="fas fa-envelope"></i> ytangch@connect.ust.hk</a>
+                <a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                <a href="https://github.com/yixuantt" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer class="bg-blue-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-6"><div class="flex flex-col md:flex-row justify-between items-center"><div class="mb-6 md:mb-0"><a href="#" class="text-2xl font-bold flex items-center"><i class="fas fa-atom mr-2"></i> Yixuan Tang</a><p class="mt-2 text-blue-200">PhD Student in NLP & Information Systems</p></div><div class="flex space-x-6"><a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="Google Scholar"><i class="fab fa-graduation-cap"></i></a><a href="https://github.com/yixuantt" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="GitHub"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition" title="Twitter"><i class="fab fa-twitter"></i></a></div></div><div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-300"><p>&copy; 2025 Yixuan Tang. All rights reserved.</p></div></div>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" title="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Yixuan Tang. All rights reserved.</p>
+        </div>
     </footer>
 
-    <div id="cite-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-lg shadow-xl p-6 w-11/12 md:w-1/2 lg:w-1/3 relative">
-            <h3 class="text-xl font-bold text-blue-900 mb-4">BibTeX Citation</h3>
-            <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto text-sm"><code id="bibtex-content"></code></pre>
-            <div class="mt-4 flex justify-end">
-                <button id="copy-bibtex-btn" class="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Copy</button>
+    <!-- Citation Modal -->
+    <div id="cite-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>BibTeX Citation</h3>
+                <button class="modal-close" id="close-modal-btn">&times;</button>
             </div>
-            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
-                <i class="fas fa-times text-2xl"></i>
-            </button>
+            <div class="code-block">
+                <pre><code id="bibtex-content"></code></pre>
+            </div>
+            <div style="text-align: right; margin-top: 1rem;">
+                <button id="copy-bibtex-btn" style="background: var(--secondary-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Copy</button>
+            </div>
         </div>
     </div>
 
     <script>
-        // Performance optimization: Use more efficient selectors and caching
+        // Global variables
         let allPublications = [];
         let filteredPublications = [];
         let currentPage = 1;
-        const itemsPerPage = 5;
+        const itemsPerPage = 8;
         
-        // Cache DOM elements to avoid repeated queries
-        let cachedElements = {};
-        
-        // Debounce function for better performance
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
+        // Function to extract venue abbreviation and CSS class
+        function getVenueAbbreviation(venue) {
+            // Remove year patterns and normalize venue names
+            let normalizedVenue = venue
+                .replace(/\s+\d{4}\s*$/, '')  // Remove trailing year
+                .replace(/\s+Findings\s*$/, '')  // Remove "Findings"
+                .replace(/\s+Proceedings\s*$/, '')  // Remove "Proceedings"
+                .replace(/\s+Conference\s*$/, '')  // Remove "Conference"
+                .replace(/\s+Journal\s*$/, '')  // Remove "Journal"
+                .trim();
+            
+            const venueMap = {
+                // NLP Conferences
+                'The Conference on Empirical Methods in Natural Language Processing': {abbr: 'EMNLP', class: 'emnlp'},
+                'Empirical Methods in Natural Language Processing': {abbr: 'EMNLP', class: 'emnlp'},
+                'Annual Meeting of the Association for Computational Linguistics': {abbr: 'ACL', class: 'acl'},
+                'International Conference on Learning Representations': {abbr: 'ICLR', class: 'iclr'},
+                'Conference on Language Modeling': {abbr: 'COLM', class: 'colm'},
+                'Neural Information Processing Systems': {abbr: 'NeurIPS', class: 'neurips'},
+                'International Conference on Machine Learning': {abbr: 'ICML', class: 'icml'},
+                'AAAI Conference on Artificial Intelligence': {abbr: 'AAAI', class: 'aaai'},
+                'International Joint Conference on Artificial Intelligence': {abbr: 'IJCAI', class: 'ijcai'},
+                
+                // Information Systems Journals
+                'MIS Quarterly': {abbr: 'MISQ', class: 'misq'},
+                'Information Systems Research': {abbr: 'ISR', class: 'isr'},
+                'Journal of Management Information Systems': {abbr: 'JMIS', class: 'jmis'},
+                'Information & Management': {abbr: 'I&M', class: 'i-m'},
+                'Decision Support Systems': {abbr: 'DSS', class: 'dss'},
+                'European Journal of Information Systems': {abbr: 'EJIS', class: 'ejis'},
+                'Journal of the Association for Information Systems': {abbr: 'JAIS', class: 'jais'},
+                'Information Systems Journal': {abbr: 'ISJ', class: 'isj'},
+                'Communications of the ACM': {abbr: 'CACM', class: 'cacm'},
+                'ACM Transactions on Information Systems': {abbr: 'TOIS', class: 'tois'},
+                'IEEE Transactions on Knowledge and Data Engineering': {abbr: 'TKDE', class: 'tkde'},
+                'IEEE Transactions on Information Theory': {abbr: 'TIT', class: 'tit'},
+                
+                // Other
+                'Preprint': {abbr: 'Preprint', class: 'preprint'},
+                'Financial Domain Instruction Tuning': {abbr: 'Project', class: 'project'}
             };
-        }
-        
-        // Optimized DOM element getter
-        function getElement(id) {
-            if (!cachedElements[id]) {
-                cachedElements[id] = document.getElementById(id);
+            
+            // Try exact match first
+            if (venueMap[normalizedVenue]) {
+                return venueMap[normalizedVenue];
             }
-            return cachedElements[id];
+            
+            // Try partial matching for common patterns
+            for (const [key, value] of Object.entries(venueMap)) {
+                if (normalizedVenue.includes(key) || key.includes(normalizedVenue)) {
+                    return value;
+                }
+            }
+            
+            // Fallback: extract first meaningful words
+            const words = normalizedVenue.split(' ').filter(word => 
+                word.length > 2 && 
+                !['the', 'and', 'of', 'for', 'in', 'on', 'at', 'to', 'with'].includes(word.toLowerCase())
+            );
+            
+            let fallbackAbbr;
+            if (words.length >= 2) {
+                fallbackAbbr = words.slice(0, 2).join(' ');
+            } else if (words.length === 1) {
+                fallbackAbbr = words[0];
+            } else {
+                fallbackAbbr = normalizedVenue.split(' ').slice(0, 2).join(' ');
+            }
+            
+            return {abbr: fallbackAbbr, class: 'default'};
         }
         
-        // Font loading detection to prevent layout shift
-        if ('fonts' in document) {
-            Promise.all([
-                document.fonts.load('400 16px Inter'),
-                document.fonts.load('700 16px Inter'),
-                document.fonts.load('400 16px "Noto Serif"'),
-                document.fonts.load('700 16px "Noto Serif"')
-            ]).then(() => {
-                document.body.classList.add('font-loaded');
-                document.body.classList.remove('font-loading');
-            }).catch(() => {
-                // Fallback to system fonts if Google Fonts fail
-                document.body.classList.remove('font-loading');
-            });
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-
+        // DOM elements
             const featuredContainer = document.getElementById('featured-projects-container');
             const listContainer = document.getElementById('publication-list-container');
-            const paginationInfo = document.getElementById('pagination-info');
             const paginationControls = document.getElementById('pagination-controls');
             const yearFilter = document.getElementById('filter-year');
             const typeFilter = document.getElementById('filter-type');
             const topicFilter = document.getElementById('filter-topic');
-            
             const citeModal = document.getElementById('cite-modal');
             const bibtexContent = document.getElementById('bibtex-content');
             const closeModalBtn = document.getElementById('close-modal-btn');
             const copyBibtexBtn = document.getElementById('copy-bibtex-btn');
 
+        // Initialize the application
             async function initialize() {
                 try {
                     const response = await fetch('publications.json');
                     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                     allPublications = await response.json();
                     
+                // Sort publications by year (newest first)
                     allPublications.sort((a, b) => b.year - a.year);
 
-                    updatePublicationStats();
+                updateSidebarStats();
                     renderFeaturedProjects();
                     populateFilters();
                     addEventListeners();
                     applyFiltersAndRender();
                 } catch (error) {
                     console.error("Could not load data:", error);
-                    if(featuredContainer) featuredContainer.innerHTML = `<p class="p-6 text-red-500">Failed to load featured projects.</p>`;
-                    if(listContainer) listContainer.innerHTML = `<p class="p-6 text-red-500">Failed to load publications.</p>`;
-                }
+                if(featuredContainer) featuredContainer.innerHTML = `<div class="loading">Failed to load featured projects.</div>`;
+                if(listContainer) listContainer.innerHTML = `<div class="loading">Failed to load publications.</div>`;
             }
-
-            function updatePublicationStats() {
-                const totalCount = allPublications.length;
-                const conferenceCount = allPublications.filter(p => p.type === 'Conference').length;
-                const preprintCount = allPublications.filter(p => p.type === 'Preprint').length;
-                const projectCount = allPublications.filter(p => p.type === 'Project').length;
-                const firstAuthorCount = allPublications.filter(p => p.authors[0] === 'Yixuan Tang').length;
-
-                // Update header stats
-                const headerCount = document.getElementById('publication-count');
-                if (headerCount) headerCount.textContent = totalCount;
-
-                // Update publications section stats
-                const conferenceEl = document.getElementById('conference-count');
-                const preprintEl = document.getElementById('preprint-count');
-                const projectEl = document.getElementById('project-count');
-                const firstAuthorEl = document.getElementById('first-author-count');
-
-                if (conferenceEl) conferenceEl.textContent = conferenceCount;
-                if (preprintEl) preprintEl.textContent = preprintCount;
-                if (projectEl) projectEl.textContent = projectCount;
-                if (firstAuthorEl) firstAuthorEl.textContent = firstAuthorCount;
-            }
+        }
+        
+        // Update sidebar statistics
+        function updateSidebarStats() {
+            const totalPapers = allPublications.length;
+            const conferencePapers = allPublications.filter(p => p.type === 'Conference').length;
+            const firstAuthorPapers = allPublications.filter(p => p.authors[0] === 'Yixuan Tang').length;
             
+            const totalPapersEl = document.getElementById('total-papers');
+            const conferencePapersEl = document.getElementById('conference-papers');
+            const firstAuthorEl = document.getElementById('first-author');
+            
+            if (totalPapersEl) totalPapersEl.textContent = totalPapers;
+            if (conferencePapersEl) conferencePapersEl.textContent = conferencePapers;
+            if (firstAuthorEl) firstAuthorEl.textContent = firstAuthorPapers;
+        }
+        
+        // Render featured projects
             function renderFeaturedProjects() {
-                const featuredContainer = getElement('featured-projects-container');
                 if (!featuredContainer) return;
                 
                 const featured = allPublications.filter(p => p.featured);
-                if (featured.length === 0) return;
-                
-                // Use DocumentFragment for better performance
-                const fragment = document.createDocumentFragment();
-                
-                featured.forEach(proj => {
-                    const tagsHTML = proj.tags.map(tag => `<span class="bg-blue-50 text-blue-800 text-xs px-3 py-1 rounded-full">${tag}</span>`).join(' ');
-                    
-                    let linksHTML = `<a href="${proj.url}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-medium flex items-center"><i class="fas fa-file-pdf mr-1"></i> ${proj.type === 'Project' ? 'Preprint' : 'Paper'}</a>`;
-                    if (proj.code_url) {
-                        linksHTML += `<a href="${proj.code_url}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-medium flex items-center"><i class="fas fa-code mr-1"></i> Code</a>`;
-                    }
-                    if (proj.project_url) {
-                         linksHTML += `<a href="${proj.project_url}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-medium flex items-center"><i class="fas fa-globe mr-1"></i> Project</a>`;
-                    }
-
-                    const projectDiv = document.createElement('div');
-                    projectDiv.className = 'paper-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300';
-                    projectDiv.innerHTML = `
-                        <div class="h-48 bg-blue-100 overflow-hidden">
-                            <img src="${proj.image_url}" alt="${proj.title}" class="w-full h-full object-cover" loading="lazy">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">${proj.status || proj.type}</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-blue-900 mb-2">${proj.title.split(':')[0]}</h3>
-                            <p class="text-gray-700 mb-4">${proj.venue}</p>
-                            <div class="flex flex-wrap gap-2 mb-4">${tagsHTML}</div>
-                            <div class="mt-4 flex space-x-4">${linksHTML}</div>
-                        </div>`;
-                    
-                    fragment.appendChild(projectDiv);
-                });
-                
-                featuredContainer.innerHTML = '';
-                featuredContainer.appendChild(fragment);
+            if (featured.length === 0) {
+                featuredContainer.innerHTML = '<div class="loading">No featured projects available.</div>';
+                return;
             }
+            
+            featuredContainer.innerHTML = featured.map(proj => {
+                const venueInfo = getVenueAbbreviation(proj.venue);
+                return `
+                <div class="featured-card fade-in">
+                    <div class="publication-image">
+                        <img src="${proj.image_url}" alt="${proj.title}" loading="lazy">
+                        </div>
+                    <div class="publication-content">
+                        <div class="publication-badges">
+                            <span class="venue-label ${venueInfo.class}">${venueInfo.abbr}</span>
+                            <span class="publication-badge">${proj.status || proj.type}</span>
+                            </div>
+                        <h3 class="publication-title">${proj.title.split(':')[0]}</h3>
+                        <p class="publication-authors">${proj.authors.join(', ')}</p>
+                        <p class="publication-venue">${proj.venue}</p>
+                        <div class="publication-tags">
+                            ${proj.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            </div>
+                        <div class="publication-links">
+                            <a href="${proj.url}" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> ${proj.type === 'Project' ? 'Preprint' : 'Paper'}
+                            </a>
+                            ${proj.code_url ? `<a href="${proj.code_url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> Code</a>` : ''}
+                            ${proj.project_url ? `<a href="${proj.project_url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Project</a>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
 
+        // Populate filter options
             function populateFilters() {
-                const years = [...new Set(allPublications.map(p => p.year))].sort((a,b)=>b-a);
+            const years = [...new Set(allPublications.map(p => p.year))].sort((a,b) => b-a);
                 const topics = [...new Set(allPublications.flatMap(p => p.tags))].sort();
 
-                years.forEach(year => yearFilter.add(new Option(year, year)));
-                topics.forEach(topic => topicFilter.add(new Option(topic, topic)));
-            }
+            years.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearFilter.appendChild(option);
+            });
+            
+            topics.forEach(topic => {
+                const option = document.createElement('option');
+                option.value = topic;
+                option.textContent = topic;
+                topicFilter.appendChild(option);
+            });
+        }
 
+        // Apply filters and render
             function applyFiltersAndRender() {
                 const selectedYear = yearFilter.value;
                 const selectedType = typeFilter.value;
                 const selectedTopic = topicFilter.value;
 
                 filteredPublications = allPublications.filter(pub => {
-                    const yearMatch = (selectedYear === 'All') || (pub.year == selectedYear);
-                    const typeMatch = (selectedType === 'All') || (pub.type === selectedType);
-                    const topicMatch = (selectedTopic === 'All') || pub.tags.includes(selectedTopic);
+                const yearMatch = (selectedYear === 'all') || (pub.year == selectedYear);
+                const typeMatch = (selectedType === 'all') || (pub.type === selectedType);
+                const topicMatch = (selectedTopic === 'all') || pub.tags.includes(selectedTopic);
                     return yearMatch && typeMatch && topicMatch;
                 });
 
@@ -532,97 +1583,106 @@
                 renderPage();
             }
 
+        // Render current page
             function renderPage() {
                 if (!listContainer) return;
                 listContainer.innerHTML = '';
                 
                 if (filteredPublications.length === 0) {
-                    listContainer.innerHTML = '<p class="p-6 text-center text-gray-500">No publications match the current filter.</p>';
+                listContainer.innerHTML = '<div class="loading">No publications match the current filter.</div>';
                     renderPagination();
                     return;
                 }
                 
                 const paginatedItems = filteredPublications.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-                paginatedItems.forEach(pub => {
-                    const authorsHTML = pub.authors.map(author => author === 'Yixuan Tang' ? `<strong>${author}</strong>` : author).join(', ');
-                    const tagsHTML = pub.tags.map(tag => `<span class="bg-blue-50 text-blue-800 text-xs px-3 py-1 rounded-full">${tag}</span>`).join(' ');
-                    const codeButtonHTML = pub.code_url ? `<a href="${pub.code_url}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 hover:bg-blue-200 transition" title="Code"><i class="fas fa-code"></i></a>` : `<a class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-400 cursor-not-allowed" title="Code not available"><i class="fas fa-code"></i></a>`;
-                    const citeButtonHTML = pub.bibtex ? 
-                        `<button onclick="showCiteModal(decodeURIComponent('${encodeURIComponent(pub.bibtex)}'))" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 hover:bg-blue-200 transition" title="Cite"><i class="fas fa-quote-right"></i></button>` :
-                        `<button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-400 cursor-not-allowed" title="Citation not available"><i class="fas fa-quote-right"></i></button>`;
+            listContainer.innerHTML = paginatedItems.map(pub => {
+                const authorsHTML = pub.authors.map(author => 
+                    author === 'Yixuan Tang' ? `<strong>${author}</strong>` : author
+                ).join(', ');
+                
+                const linksHTML = `
+                    <a href="${pub.url}" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-file-pdf"></i> PDF
+                    </a>
+                    ${pub.code_url ? `<a href="${pub.code_url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> Code</a>` : ''}
+                    ${pub.bibtex ? `<a href="#" onclick="showCiteModal('${encodeURIComponent(pub.bibtex)}'); return false;"><i class="fas fa-quote-right"></i> Cite</a>` : ''}
+                `;
 
-                    const publicationHTML = `
-                        <div class="p-6 hover:bg-blue-50 transition">
-                            <div class="flex flex-col md:flex-row md:justify-between md:items-start">
-                                <div class="mb-4 md:mb-0 md:w-3/4">
-                                    <h3 class="text-xl font-bold text-blue-900 mb-1"><a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="hover:underline">${pub.title}</a></h3>
-                                    <p class="text-blue-700 mb-2">${authorsHTML}</p>
-                                    <p class="text-gray-700 mb-3">${pub.venue}<span class="ml-3 px-2 py-0.5 bg-blue-100 text-blue-800 text-xs rounded-full">${pub.type}</span></p>
-                                    <div class="flex flex-wrap gap-2 mb-3">${tagsHTML}</div>
+        const venueInfo = getVenueAbbreviation(pub.venue);
+        return `
+            <div class="publication-card">
+                <div class="publication-card-header">
+                    <div class="publication-card-badges">
+                        <span class="venue-label ${venueInfo.class}">${venueInfo.abbr}</span>
+                        <span class="publication-card-badge">${pub.type}</span>
                                 </div>
-                                <div class="flex space-x-3">
-                                    <a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 hover:bg-blue-200 transition" title="PDF"><i class="fas fa-file-pdf"></i></a>
-                                    ${citeButtonHTML}
-                                    ${codeButtonHTML}
+                    <a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="publication-card-title">${pub.title}</a>
+                    <div class="publication-card-meta">
+                        <strong>Authors:</strong> ${authorsHTML}<br>
+                        <strong>Venue:</strong> ${pub.venue} (${pub.year})
                                 </div>
+                    <div class="publication-card-tags">
+                        ${pub.tags.map(tag => `<span class="publication-card-tag">${tag}</span>`).join('')}
                             </div>
-                        </div>`;
-                    listContainer.innerHTML += publicationHTML;
-                });
+                </div>
+                <div class="publication-card-links">
+                    ${linksHTML}
+                </div>
+            </div>
+        `;
+            }).join('');
 
                 renderPagination();
             }
 
+        // Render pagination
             function renderPagination() {
-                if (!paginationControls || !paginationInfo) return;
+            if (!paginationControls) return;
+            
                 const totalItems = filteredPublications.length;
                 const totalPages = Math.ceil(totalItems / itemsPerPage);
                 paginationControls.innerHTML = '';
-                paginationInfo.innerHTML = '';
-
-                if (totalItems === 0) {
-                    paginationInfo.innerText = 'Showing 0-0 of 0 publications';
-                    return;
-                }
-                
-                const startItem = (currentPage - 1) * itemsPerPage + 1;
-                const endItem = Math.min(currentPage * itemsPerPage, totalItems);
-                paginationInfo.innerText = `Showing ${startItem}-${endItem} of ${totalItems} publications`;
 
                 if (totalPages <= 1) return;
 
                 const createButton = (content, page, enabled = true) => {
                     const button = document.createElement('button');
                     button.innerHTML = content;
-                    button.className = "w-10 h-10 rounded flex items-center justify-center transition " + (page === currentPage ? "bg-blue-700 text-white" : "bg-white border border-blue-200 text-blue-700 hover:bg-blue-100");
+                button.className = page === currentPage ? 'active' : '';
                     if (!enabled) {
                         button.disabled = true;
-                        button.classList.add('cursor-not-allowed', 'opacity-50');
                     } else {
-                        button.onclick = () => { currentPage = page; renderPage(); };
+                    button.onclick = () => { 
+                        currentPage = page; 
+                        renderPage(); 
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    };
                     }
                     return button;
                 };
 
-                paginationControls.appendChild(createButton('<i class="fas fa-chevron-left"></i>', currentPage - 1, currentPage > 1));
+            paginationControls.appendChild(createButton('←', currentPage - 1, currentPage > 1));
+            
                 for (let i = 1; i <= totalPages; i++) {
                     paginationControls.appendChild(createButton(i, i));
                 }
-                paginationControls.appendChild(createButton('<i class="fas fa-chevron-right"></i>', currentPage + 1, currentPage < totalPages));
+            
+            paginationControls.appendChild(createButton('→', currentPage + 1, currentPage < totalPages));
             }
 
+        // Show citation modal
             window.showCiteModal = function(bibtex) {
-                bibtexContent.textContent = bibtex;
-                citeModal.classList.remove('hidden');
-                citeModal.classList.add('flex');
+            bibtexContent.textContent = decodeURIComponent(bibtex);
+            citeModal.classList.add('show');
             }
 
+        // Hide citation modal
             function hideCiteModal() {
-                citeModal.classList.add('hidden');
-                citeModal.classList.remove('flex');
+            citeModal.classList.remove('show');
             }
 
+        // Copy BibTeX to clipboard
             function copyBibtex() {
                 navigator.clipboard.writeText(bibtexContent.textContent).then(() => {
                     copyBibtexBtn.textContent = 'Copied!';
@@ -634,6 +1694,7 @@
                 });
             }
             
+        // Add event listeners
             function addEventListeners() {
                 yearFilter.addEventListener('change', applyFiltersAndRender);
                 typeFilter.addEventListener('change', applyFiltersAndRender);
@@ -642,47 +1703,47 @@
                 closeModalBtn.addEventListener('click', hideCiteModal);
                 copyBibtexBtn.addEventListener('click', copyBibtex);
                 citeModal.addEventListener('click', (e) => {
-                    if (e.target.id === 'cite-modal') {
+                if (e.target === citeModal) {
                         hideCiteModal();
                     }
                 });
 
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                const mobileMenu = document.getElementById('mobile-menu');
-                mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-                
+            // Smooth scrolling for navigation links
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function(e) {
                         e.preventDefault();
                         const targetElement = document.querySelector(this.getAttribute('href'));
-                        if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
-                        if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
                     });
                 });
+        }
 
-                const fadeElements = document.querySelectorAll('.fade-in');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('opacity-100');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1 });
-                fadeElements.forEach(element => observer.observe(element));
+        // Back to top functionality
+        function initBackToTop() {
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
 
-                // Optimized scroll handler with throttling
-                const throttledScrollHandler = debounce(() => {
-                    const navbar = document.querySelector('nav');
-                    if (navbar) {
-                        navbar.classList.toggle('shadow-md', window.scrollY > 50);
-                    }
-                }, 16); // ~60fps
-                
-                window.addEventListener('scroll', throttledScrollHandler);
-            }
-
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
             initialize();
+            initBackToTop();
         });
     </script>
 </body>
