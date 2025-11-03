@@ -1247,10 +1247,23 @@
                 <!-- Main Content Area -->
                 <div class="content-area">
 
-            <!-- Publications -->
+            <!-- Business Publications -->
+            <section id="business-publications" class="section">
+                <div class="section-title">
+                    <h2 style="font-size: 1.8rem; color: var(--primary-color); margin-bottom: 0.75rem;">Business Publications</h2>
+                    <p style="font-size: 1.1rem; color: #666;">Research contributions in business and information systems</p>
+                </div>
+            
+                <!-- Business Publications Gallery -->
+                <div id="business-publication-list-container" class="publication-gallery">
+                    <div class="loading">Loading publications...</div>
+            </div>
+        </section>
+
+            <!-- CS Publications -->
             <section id="publications" class="section">
                 <div class="section-title">
-                    <h2 style="font-size: 1.8rem; color: var(--primary-color); margin-bottom: 0.75rem;">Publications</h2>
+                    <h2 style="font-size: 1.8rem; color: var(--primary-color); margin-bottom: 0.75rem;">CS Publications</h2>
                     <p style="font-size: 1.1rem; color: #666;">Research contributions across conferences and journals</p>
             </div>
             
@@ -1267,6 +1280,7 @@
                         <select id="filter-type">
                             <option value="all">All</option>
                             <option value="Conference">Conference</option>
+                            <option value="Journal">Journal</option>
                             <option value="Project">Project</option>
                             <option value="Preprint">Preprint</option>
                             </select>
@@ -1459,6 +1473,7 @@
         // DOM elements
             const featuredContainer = document.getElementById('featured-projects-container');
             const listContainer = document.getElementById('publication-list-container');
+            const businessListContainer = document.getElementById('business-publication-list-container');
             const paginationControls = document.getElementById('pagination-controls');
             const yearFilter = document.getElementById('filter-year');
             const typeFilter = document.getElementById('filter-type');
@@ -1483,6 +1498,7 @@
                     populateFilters();
                     addEventListeners();
                     applyFiltersAndRender();
+                    renderBusinessPublications();
                 } catch (error) {
                     console.error("Could not load data:", error);
                 if(featuredContainer) featuredContainer.innerHTML = `<div class="loading">Failed to load featured projects.</div>`;
@@ -1573,10 +1589,11 @@
                 const selectedTopic = topicFilter.value;
 
                 filteredPublications = allPublications.filter(pub => {
+                const categoryMatch = (pub.category === 'cs' || !pub.category); // Default to cs if no category
                 const yearMatch = (selectedYear === 'all') || (pub.year == selectedYear);
                 const typeMatch = (selectedType === 'all') || (pub.type === selectedType);
                 const topicMatch = (selectedTopic === 'all') || pub.tags.includes(selectedTopic);
-                    return yearMatch && typeMatch && topicMatch;
+                    return categoryMatch && yearMatch && typeMatch && topicMatch;
                 });
 
                 currentPage = 1;
@@ -1670,6 +1687,56 @@
             
             paginationControls.appendChild(createButton('→', currentPage + 1, currentPage < totalPages));
             }
+
+        // Render Business Publications
+        function renderBusinessPublications() {
+            if (!businessListContainer) return;
+            
+            const businessPublications = allPublications.filter(pub => pub.category === 'business');
+            businessPublications.sort((a, b) => b.year - a.year);
+            
+            if (businessPublications.length === 0) {
+                businessListContainer.innerHTML = '<div class="loading">No business publications available.</div>';
+                return;
+            }
+            
+            businessListContainer.innerHTML = businessPublications.map(pub => {
+                const authorsHTML = pub.authors.map(author => 
+                    author === 'Yixuan Tang' ? `<strong>${author}</strong>` : author
+                ).join(', ');
+                
+                const linksHTML = `
+                    ${pub.url ? `<a href="${pub.url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> PDF</a>` : ''}
+                    ${pub.code_url ? `<a href="${pub.code_url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> Code</a>` : ''}
+                `;
+                
+                const venueInfo = getVenueAbbreviation(pub.venue);
+                const statusBadge = pub.status ? `<span class="publication-card-badge">${pub.status}</span>` : '';
+                const journalBadge = '<span class="publication-card-badge">Journal</span>';
+                
+                return `
+                    <div class="publication-card">
+                        <div class="publication-card-header">
+                            <div class="publication-card-badges">
+                                <span class="venue-label ${venueInfo.class}">${venueInfo.abbr}</span>
+                                ${statusBadge ? statusBadge + journalBadge : journalBadge}
+                            </div>
+                            <a href="${pub.url || '#'}" target="_blank" rel="noopener noreferrer" class="publication-card-title">${pub.title}</a>
+                            <div class="publication-card-meta">
+                                <strong>Authors:</strong> ${authorsHTML}<br>
+                                <strong>Venue:</strong> ${pub.venue} (${pub.year})
+                            </div>
+                            <div class="publication-card-tags">
+                                ${pub.tags.map(tag => `<span class="publication-card-tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="publication-card-links">
+                            ${linksHTML}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
 
         // Show citation modal
             window.showCiteModal = function(bibtex) {
