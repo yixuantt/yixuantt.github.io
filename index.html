@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yixuan Tang | NLP & Information Systems Researcher</title>
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Charter:ital,wght@0,400;0,700;1,400&display=swap" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
-    <link rel="preload" href="images/profile.png" as="image">
+    <title>Yixuan Tang | NLP & Information Systems</title>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Charter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+
     <!-- MathJax -->
     <script>
         MathJax = {
@@ -26,1792 +24,454 @@
             }
         };
     </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --text-color: #2c3e50;
-            --light-gray: #f8f9fa;
-            --border-color: #e9ecef;
-            --shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #ffffff;
-            font-size: 16px;
-        }
-        
-        /* Typography System */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Charter', Georgia, serif;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        h1 { font-size: 2.2rem; }
-        h2 { font-size: 1.8rem; }
-        h3 { font-size: 1.4rem; }
-        h4 { font-size: 1.2rem; }
-        h5 { font-size: 1.1rem; }
-        h6 { font-size: 1rem; }
-        
-        p {
-            margin-bottom: 1rem;
-            color: #555;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        
-        /* Text Size Classes */
-        .text-xs { font-size: 0.75rem; }
-        .text-sm { font-size: 0.875rem; }
-        .text-base { font-size: 1rem; }
-        .text-lg { font-size: 1.125rem; }
-        .text-xl { font-size: 1.25rem; }
-        .text-2xl { font-size: 1.5rem; }
-        .text-3xl { font-size: 1.875rem; }
-        
-        /* Container System */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .container-main {
-            max-width: 800px;
-        }
-        
-        .container-large {
-            max-width: 1000px;
-        }
-        
-        .container-extra-large {
-            max-width: 1400px;
-        }
-        
-        
-        /* Navigation */
-        .nav {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-        
-        .nav-brand {
-            flex-shrink: 0;
-        }
-        
-        .brand-link {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .brand-link:hover {
-            color: var(--secondary-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary-color);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Main Content */
-        .main {
-            padding: 2rem 0;
-        }
-        
-        .main-layout {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-        
-        .sidebar {
-            position: sticky;
-            top: 100px;
-            left: 0;
-        }
-        
-        .sidebar-content {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            padding: 2rem;
-        }
-        
-        .sidebar-profile {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .sidebar-profile .profile-image {
-            margin-bottom: 1rem;
-        }
-        
-        .sidebar-profile .profile-image img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: var(--shadow);
-        }
-        
-        .sidebar-profile h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-        
-        .profile-subtitle {
-            font-size: 0.95rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-        
-        .sidebar-profile .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-        
-        .sidebar-profile .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: var(--light-gray);
-            color: var(--primary-color);
-            border-radius: 50%;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-        
-        .sidebar-profile .social-links a:hover {
-            background: var(--secondary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .sidebar-section h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-        
-        .sidebar-section h4 {
-            font-size: 1.1rem;
-            margin: 1.5rem 0 1rem 0;
-            color: var(--primary-color);
-        }
-        
-        .sidebar-section p {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-        
-        .research-areas {
-            margin: 1.5rem 0;
-        }
-        
-        .research-item {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            padding: 0.75rem;
-            background: var(--light-gray);
-            border-radius: 8px;
-        }
-        
-        .research-icon {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            margin-top: 0.25rem;
-        }
-        
-        .research-item strong {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--primary-color);
-            margin-bottom: 0.25rem;
-        }
-        
-        .research-item p {
-            font-size: 0.8rem;
-            color: #666;
-            margin: 0;
-        }
-        
-        .supervisor-info {
-            background: var(--light-gray);
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-        }
-        
-        .supervisor-info p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-        
-        .supervisor-info a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .supervisor-info a:hover {
-            text-decoration: underline;
-        }
-        
-        .sidebar-stats {
-            margin-top: 1.5rem;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.5rem;
-            grid-template-rows: 1fr;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 0.5rem;
-            background: var(--light-gray);
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 60px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .stat-number {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--secondary-color);
-            margin-bottom: 0.2rem;
-            flex-shrink: 0;
-        }
-        
-        .stat-label {
-            font-size: 0.7rem;
-            color: #666;
-            font-weight: 500;
-            line-height: 1.2;
-            word-wrap: break-word;
-            hyphens: auto;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .content-area {
-            min-width: 0; /* Prevent grid overflow */
-        }
-        
-        .section {
-            margin-bottom: 4rem;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .section-title p {
-            font-size: 1.1rem;
-            color: #666;
-        }
-        
-        /* Research Focus Cards */
-        .research-focus {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .focus-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .focus-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .focus-card .icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .focus-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Publications */
-        .publications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .featured-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-        
-        .featured-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .publication-image {
-            height: 200px;
-            background: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        
-        .publication-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .publication-content {
-            padding: 1.2rem;
-        }
-        
-        .publication-badge {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-        
-        /* Featured Research badges container */
-        .publication-badges {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .publication-badges .publication-badge {
-            margin-bottom: 0;
-        }
-        
-        .publication-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            color: var(--primary-color);
-        }
-        
-        .publication-authors {
-            color: #666;
-            margin-bottom: 0.8rem;
-            font-size: 0.85rem;
-        }
-        
-        .publication-venue {
-            color: var(--secondary-color);
-            font-weight: 500;
-            margin-bottom: 0.8rem;
-            font-size: 0.85rem;
-        }
-        
-        .publication-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 0.8rem;
-        }
-        
-        .tag {
-            background: var(--light-gray);
-            color: var(--primary-color);
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 500;
-        }
-        
-        .publication-links {
-            display: flex;
-            gap: 0.8rem;
-        }
-        
-        .publication-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-        
-        .publication-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Compact Publication List */
-        .publication-list {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-        
-        .publication-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .publication-card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .publication-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .publication-card-header {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            flex: 1;
-        }
-        
-        .publication-card-badges {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .publication-card-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            line-height: 1.3;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        .publication-card-title:hover {
-            color: var(--secondary-color);
-        }
-        
-        .publication-card-badge {
-            background: var(--secondary-color);
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            display: inline-block;
-        }
-        
-        .publication-card-meta {
-            color: #666;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-        
-        .publication-card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .publication-card-tag {
-            background: var(--light-gray);
-            color: var(--primary-color);
-            padding: 0.15rem 0.5rem;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            font-weight: 500;
-        }
-        
-        .publication-card-links {
-            display: flex;
-            gap: 0.8rem;
-            padding: 0.8rem 1rem;
-            background: var(--light-gray);
-            margin-top: auto;
-        }
-        
-        .publication-card-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        
-        .publication-card-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Conference/Journal Label */
-        .venue-label {
-            color: white;
-            padding: 0.25rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: inline-block;
-        }
-        
-        /* Venue-specific colors with low saturation */
-        .venue-label.emnlp { background: #6B73FF !important; }
-        .venue-label.acl { background: #4ECDC4 !important; }
-        .venue-label.iclr { background: #45B7D1 !important; }
-        .venue-label.colm { background: #96CEB4 !important; }
-        .venue-label.neurips { background: #FFEAA7 !important; color: #2D3436 !important; }
-        .venue-label.icml { background: #DDA0DD !important; }
-        .venue-label.aaai { background: #98D8C8 !important; }
-        .venue-label.ijcai { background: #F7DC6F !important; color: #2D3436 !important; }
-        .venue-label.misq { background: #A8E6CF !important; color: #2D3436 !important; }
-        .venue-label.isr { background: #B8E6B8 !important; color: #2D3436 !important; }
-        .venue-label.jmis { background: #DDA0DD !important; }
-        .venue-label.i-m { background: #87CEEB !important; color: #2D3436 !important; }
-        .venue-label.dss { background: #E6E6FA !important; color: #2D3436 !important; }
-        .venue-label.ejis { background: #B19CD9 !important; }
-        .venue-label.jais { background: #D2B48C !important; color: #2D3436 !important; }
-        .venue-label.isj { background: #98FB98 !important; color: #2D3436 !important; }
-        .venue-label.cacm { background: #F5DEB3 !important; color: #2D3436 !important; }
-        .venue-label.tois { background: #E6E6FA !important; color: #2D3436 !important; }
-        .venue-label.tkde { background: #D3D3D3 !important; color: #2D3436 !important; }
-        .venue-label.tit { background: #F0F8FF !important; color: #2D3436 !important; }
-        .venue-label.preprint { background: #D3D3D3 !important; color: #2D3436 !important; }
-        .venue-label.project { background: #E6F3FF !important; color: #2D3436 !important; }
-        
-        /* Default fallback color */
-        .venue-label.default { background: var(--primary-color) !important; }
-        
-        /* Updated colors - no red tones */
-        .venue-label.emnlp { background: #6B73FF !important; }
-        .venue-label.acl { background: #4ECDC4 !important; }
-        .venue-label.iclr { background: #45B7D1 !important; }
-        
-        /* Education */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .education-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-        
-        .education-card .icon {
-            font-size: 2rem;
-            color: var(--secondary-color);
-            margin-bottom: 0.75rem;
-        }
-        
-        .education-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .education-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Contact */
-        .contact {
-            background: var(--primary-color);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .contact h2 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-        .contact p {
-            color: #e9ecef;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .contact-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        /* Footer */
-        .footer {
-            background: #2c3e50;
-            color: #e9ecef;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .main-layout {
-                grid-template-columns: 320px 1fr;
-                gap: 2.5rem;
-            }
-        }
-        
-        @media (max-width: 1024px) {
-            .main-layout {
-                grid-template-columns: 300px 1fr;
-                gap: 2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .main-layout {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .sidebar {
-                position: static;
-                order: 2;
-            }
-            
-            .content-area {
-                order: 1;
-            }
-            
-            .sidebar-content {
-                padding: 1.5rem;
-            }
-            
-            .sidebar-profile {
-                margin-bottom: 1.5rem;
-                padding-bottom: 1.5rem;
-            }
-            
-            .sidebar-profile .profile-image img {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.4rem;
-            }
-            
-            .stat-item {
-                padding: 0.4rem;
-                min-height: 50px;
-            }
-            
-            .stat-number {
-                font-size: 1rem;
-            }
-            
-            .stat-label {
-                font-size: 0.65rem;
-                line-height: 1.1;
-            }
-            
-            .publications-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .publication-gallery {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .research-focus {
-                grid-template-columns: 1fr;
-            }
-            
-            .education-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .education-card {
-                padding: 1rem;
-            }
-            
-            .education-card .icon {
-                font-size: 1.8rem;
-                margin-bottom: 0.5rem;
-            }
-            
-            .education-card h3 {
-                font-size: 1.1rem;
-            }
-            
-            .education-card p {
-                font-size: 0.85rem;
-            }
-            
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 0.4rem;
-            }
-            
-            .stat-item {
-                padding: 0.4rem;
-            }
-            
-            .stat-number {
-                font-size: 1.1rem;
-            }
-            
-            .stat-label {
-                font-size: 0.7rem;
-            }
-            
-            .research-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .research-icon {
-                align-self: center;
-            }
-        }
-        
-        /* Code blocks */
-        .code-block {
-            background: #f8f9fa;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1rem;
-            font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
-            font-size: 0.9rem;
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        
-        .code-block pre {
-            margin: 0;
-        }
-        
-        /* Tables */
-        .table-container {
-            overflow-x: auto;
-            margin: 2rem 0;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        th {
-            background: var(--light-gray);
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-        
-        tr:nth-child(even) {
-            background: var(--light-gray);
-        }
-        
-        /* Filter Controls */
-        .filter-controls {
-            background: var(--light-gray);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        
-        .filter-group {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .filter-group label {
-            font-weight: 500;
-            color: var(--primary-color);
-        }
-        
-        .filter-group select {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            background: white;
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-        
-        .filter-group select:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-        }
-        
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-        
-        .pagination button {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border-color);
-            background: white;
-            color: var(--primary-color);
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .pagination button:hover {
-            background: var(--secondary-color);
-            color: white;
-            border-color: var(--secondary-color);
-        }
-        
-        .pagination button.active {
-            background: var(--secondary-color);
-            color: white;
-            border-color: var(--secondary-color);
-        }
-        
-        .pagination button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        /* Modal */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        
-        .modal.show {
-            display: flex;
-        }
-        
-        .modal-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
-        }
-        
-        .modal-close:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Loading states */
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            color: #666;
-        }
-        
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.6s ease forwards;
-        }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-        }
-        }
-        
-        .fade-in:nth-child(2) { animation-delay: 0.1s; }
-        .fade-in:nth-child(3) { animation-delay: 0.2s; }
-        .fade-in:nth-child(4) { animation-delay: 0.3s; }
-        
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .back-to-top:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        
-        .back-to-top.show {
-            display: flex;
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
             <div class="nav-brand">
-                <a href="#" class="brand-link">Yixuan Tang</a>
-                </div>
+                <a href="#">Yixuan Tang</a>
+            </div>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#research">Research</a>
                 <a href="#publications">Publications</a>
                 <a href="#education">Education</a>
                 <a href="#contact">Contact</a>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Main Content -->
-    <main class="main">
-        <div class="container container-extra-large">
-            <div class="main-layout">
-                <!-- Sidebar -->
-                <aside class="sidebar">
-                    <div class="sidebar-content">
-                        <!-- Profile Section -->
-                        <div class="sidebar-profile">
-                            <div class="profile-image">
-                                <img src="images/profile.png" alt="Yixuan Tang">
-                    </div>
-                            <h2>Yixuan Tang</h2>
-                            <p class="profile-subtitle">PhD Student in NLP & Information Systems at HKUST</p>
-                            <div class="social-links">
-                                <a href="mailto:ytangch@connect.ust.hk" title="Email"><i class="fas fa-envelope"></i></a>
-                                <a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                                <a href="https://github.com/yixuantt" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
-                                <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                        </div>
-                        
-                        <div class="sidebar-section">
-                            <h3>About Me</h3>
-                            <p>I'm passionate about advancing natural language processing research to solve complex real-world problems. My work focuses on developing novel methods and models that push the frontiers of what's possible with AI.</p>
-                            
-                            <div class="research-areas">
-                                <h4>Research Focus</h4>
-                                <div class="research-item">
-                                    <div class="research-icon"><i class="fas fa-search-dollar"></i></div>
-                                    <div>
-                                        <strong>Financial NLP</strong>
-                                        <p>Specialized models for financial text analysis and market prediction</p>
-                </div>
-            </div>
-                                <div class="research-item">
-                                    <div class="research-icon"><i class="fas fa-robot"></i></div>
-                                    <div>
-                                        <strong>Large Language Models</strong>
-                                        <p>Domain adaptation and optimization techniques for LLMs</p>
-                    </div>
-                    </div>
-                                <div class="research-item">
-                                    <div class="research-icon"><i class="fas fa-database"></i></div>
-                                    <div>
-                                        <strong>Embedding Systems</strong>
-                                        <p>Advanced text embedding models for domain-specific applications</p>
-                </div>
-            </div>
-        </div>
-                            
-                            <div class="supervisor-info">
-                                <p><strong>Supervisor:</strong><br>
-                                <a href="https://yya518.github.io/index" target="_blank" rel="noopener noreferrer">Prof. Yi Yang</a><br>
-                                HKUST</p>
-                    </div>
-                            
-                            <div class="sidebar-stats">
-                                <h4>Research Stats</h4>
-                                <div class="stats-grid">
-                                    <div class="stat-item">
-                                        <div class="stat-number" id="total-papers">10</div>
-                                        <div class="stat-label">Publications</div>
-                    </div>
-                                    <div class="stat-item">
-                                        <div class="stat-number" id="conference-papers">7</div>
-                                        <div class="stat-label">Conference</div>
-                    </div>
-                                    <div class="stat-item">
-                                        <div class="stat-number" id="first-author">5</div>
-                                        <div class="stat-label">First Author</div>
-                </div>
+        <!-- About / Profile Section -->
+        <section id="about" class="header-section">
+            <!-- Profile Sidebar (Right) -->
+            <div class="profile-card">
+                <img src="images/emnlp.png" alt="Yixuan Tang">
+                <div class="contact-info">
+                    <p>PhD Student</p>
+                    <p>HKUST</p>
+                    <div class="social-icons">
+                        <a href="mailto:ytangch@connect.ust.hk" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://scholar.google.com/citations?hl=en&user=4Q9Gje0AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://github.com/yixuantt" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
-                    </div>
-                </aside>
+
+            <!-- Bio Text (Left) -->
+            <div class="bio-text">
+                <h1>Yixuan Tang</h1>
+                <p class="subtitle">PhD Student in NLP & Information Systems at HKUST</p>
                 
-                <!-- Main Content Area -->
-                <div class="content-area">
-
-            <!-- Business Publications -->
-            <section id="business-publications" class="section">
-                <div class="section-title">
-                    <h2 style="font-size: 1.8rem; color: var(--primary-color); margin-bottom: 0.75rem;">Business Publications</h2>
-                    <p style="font-size: 1.1rem; color: #666;">Research contributions in business and information systems</p>
-                </div>
-            
-                <!-- Business Publications Gallery -->
-                <div id="business-publication-list-container" class="publication-gallery">
-                    <div class="loading">Loading publications...</div>
-            </div>
-        </section>
-
-            <!-- CS Publications -->
-            <section id="publications" class="section">
-                <div class="section-title">
-                    <h2 style="font-size: 1.8rem; color: var(--primary-color); margin-bottom: 0.75rem;">AI/NLP Publications</h2>
-                    <p style="font-size: 1.1rem; color: #666;">Research contributions across conferences and journals</p>
-            </div>
-            
-                <!-- Filter Controls -->
-                <div class="filter-controls">
-                    <div class="filter-group">
-                        <label for="filter-year">Year:</label>
-                        <select id="filter-year">
-                            <option value="all">All</option>
-                            </select>
-                        </div>
-                    <div class="filter-group">
-                        <label for="filter-type">Type:</label>
-                        <select id="filter-type">
-                            <option value="all">All</option>
-                            <option value="Conference">Conference</option>
-                            <option value="Journal">Journal</option>
-                            <option value="Project">Project</option>
-                            <option value="Preprint">Preprint</option>
-                            </select>
-                        </div>
-                    <div class="filter-group">
-                        <label for="filter-topic">Topic:</label>
-                        <select id="filter-topic">
-                            <option value="all">All</option>
-                            </select>
+                <p>I am a PhD student at <a href="https://hkust.edu.hk/" target="_blank">The Hong Kong University of Science and Technology (HKUST)</a>, advised by <a href="https://yya518.github.io/index" target="_blank">Prof. Yi Yang</a>. </p>
+                
+                <p>My research interests lie at the intersection of <strong>Natural Language Processing (NLP)</strong> and <strong>Information Systems</strong>, with a focus on developing efficient and reliable AI systems for specialized domains, particularly finance.</p>
+                
+                <p>Currently, my research centers on:</p>
+                <ul>
+                    <li><strong>Financial Intelligence:</strong> Building domain-specific LLMs (e.g., <em>InvestLM</em>) and benchmarks (e.g., <em>FinMTEB</em>) to enhance financial text analysis and decision-making.</li>
+                    <li><strong>LLM Alignment & Adaptation:</strong> Exploring instruction tuning, uncertainty quantification, and alignment techniques to make LLMs more robust and human-centric.</li>
+                    <li><strong>Retrieval & Embeddings:</strong> Designing advanced embedding models and RAG systems to improve information retrieval in complex scenarios.</li>
+                </ul>
+                
+                <!-- News Section -->
+                <div class="news-wrapper">
+                    <h2>📢 News</h2>
+                    <div id="news-table" class="news-table">
+                        <div class="loading">Loading news...</div>
                     </div>
                 </div>
-                
-                <!-- Publications Gallery -->
-                <div id="publication-list-container" class="publication-gallery">
-                    <div class="loading">Loading publications...</div>
-                </div>
-                
-                <!-- Pagination -->
-                <div class="pagination" id="pagination-controls">
-                    <!-- Pagination buttons will be inserted here -->
             </div>
         </section>
 
-            <!-- Featured Research -->
-            <section id="research" class="section">
-                <div class="section-title">
-                    <h2 style="font-size: 1.4rem;">Featured Research</h2>
-                    <p style="font-size: 1rem;">Key contributions to NLP and financial AI</p>
-            </div>
-            
-                <div id="featured-projects-container" class="publications-grid">
-                    <div class="loading">Loading featured projects...</div>
+        <!-- Featured Research -->
+        <section id="featured">
+            <h2>🌟 Featured Research</h2>
+            <div id="featured-projects-container" class="publication-list">
+                <div class="loading">Loading featured projects...</div>
             </div>
         </section>
-        
-            <!-- Education -->
-            <section id="education" class="section">
-                <div class="section-title">
-                    <h2 style="font-size: 1.4rem;">Education</h2>
-                    <p style="font-size: 1rem;">Academic journey in computer science and information systems</p>
-                </div>
-            
-                <div class="education-grid">
-                    <div class="education-card fade-in">
-                        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3>MPhil in Information Systems</h3>
-                        <p><strong>The Hong Kong University of Science and Technology</strong></p>
-                        <p style="color: var(--secondary-color); font-weight: 500;">2024 - Present</p>
-                </div>
-                    <div class="education-card fade-in">
-                        <div class="icon"><i class="fas fa-user-graduate"></i></div>
-                        <h3>Master in Big Data Technology</h3>
-                        <p><strong>The Hong Kong University of Science and Technology</strong></p>
-                        <p style="color: var(--secondary-color); font-weight: 500;">2021 - 2022</p>
-                </div>
-                    <div class="education-card fade-in">
-                        <div class="icon"><i class="fas fa-laptop"></i></div>
-                        <h3>Bachelor in Computer Science</h3>
-                        <p><strong>Chongqing University</strong></p>
-                        <p style="color: var(--secondary-color); font-weight: 500;">2017 - 2021</p>
-                </div>
+
+        <!-- Business Publications (Separate Section as per original) -->
+        <section id="business-publications">
+            <h2>Business & IS Publications</h2>
+            <div id="business-publication-list-container" class="publication-list">
+                <div class="loading">Loading publications...</div>
             </div>
         </section>
-                        </div>
+
+        <!-- Publications -->
+        <section id="publications">
+            <h2>AI/NLP Publications</h2>
+            
+            <!-- Filters -->
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <select id="filter-year">
+                        <option value="all">Year: All</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="filter-type">
+                        <option value="all">Type: All</option>
+                        <option value="Conference">Conference</option>
+                        <option value="Journal">Journal</option>
+                        <option value="Project">Project</option>
+                        <option value="Preprint">Preprint</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select id="filter-topic">
+                        <option value="all">Topic: All</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- List Container -->
+            <div id="publication-list-container" class="publication-list">
+                <div class="loading">Loading publications...</div>
+            </div>
+
+            <!-- Pagination -->
+            <div id="pagination-controls" class="pagination"></div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="section">
+            <h2>🎓 Education</h2>
+            <ul class="education-list">
+                <li class="education-item">
+                    <div class="edu-details">
+                        <h4>MPhil in Information Systems</h4>
+                        <p>The Hong Kong University of Science and Technology (HKUST)</p>
                     </div>
-        </div>
-    </main>
-
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <p>Interested in collaborating or learning more about my research? Feel free to reach out.</p>
-            <div class="contact-links">
-                <a href="mailto:ytangch@connect.ust.hk"><i class="fas fa-envelope"></i> ytangch@connect.ust.hk</a>
-                <a href="https://scholar.google.com/citations?hl=zh-CN&user=4Q9Gje0AAAAJ" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                <a href="https://github.com/yixuantt" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-                </div>
-            </div>
+                    <div class="edu-year">2024 - Present</div>
+                </li>
+                <li class="education-item">
+                    <div class="edu-details">
+                        <h4>Master in Big Data Technology</h4>
+                        <p>The Hong Kong University of Science and Technology (HKUST)</p>
+                    </div>
+                    <div class="edu-year">2021 - 2022</div>
+                </li>
+                <li class="education-item">
+                    <div class="edu-details">
+                        <h4>Bachelor in Computer Science</h4>
+                        <p>Chongqing University</p>
+                    </div>
+                    <div class="edu-year">2017 - 2021</div>
+                </li>
+            </ul>
         </section>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top" title="Back to Top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+        <!-- Contact Footer -->
+        <section id="contact" class="section" style="text-align: center; margin-top: 80px; color: #666;">
+            <p>Copyright &copy; 2025 Yixuan Tang.</p>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Yixuan Tang. All rights reserved.</p>
-        </div>
-    </footer>
+    </div>
+
+    <!-- Back to top -->
+    <div id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <!-- Citation Modal -->
     <div id="cite-modal" class="modal">
         <div class="modal-content">
-            <div class="modal-header">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                 <h3>BibTeX Citation</h3>
-                <button class="modal-close" id="close-modal-btn">&times;</button>
+                <button id="close-modal-btn" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
             </div>
             <div class="code-block">
                 <pre><code id="bibtex-content"></code></pre>
             </div>
             <div style="text-align: right; margin-top: 1rem;">
-                <button id="copy-bibtex-btn" style="background: var(--secondary-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Copy</button>
+                <button id="copy-bibtex-btn" style="background: var(--text-color); color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer;">Copy</button>
             </div>
         </div>
     </div>
 
+    <!-- Scripts -->
     <script>
         // Global variables
         let allPublications = [];
+        let allNews = []; // Add news variable
         let filteredPublications = [];
         let currentPage = 1;
-        const itemsPerPage = 8;
-        
-        // Function to extract venue abbreviation and CSS class
-        function getVenueAbbreviation(venue) {
-            // Remove year patterns and normalize venue names
-            let normalizedVenue = venue
-                .replace(/\s+\d{4}\s*$/, '')  // Remove trailing year
-                .replace(/\s+Findings\s*$/, '')  // Remove "Findings"
-                .replace(/\s+Proceedings\s*$/, '')  // Remove "Proceedings"
-                .replace(/\s+Conference\s*$/, '')  // Remove "Conference"
-                .replace(/\s+Journal\s*$/, '')  // Remove "Journal"
-                .trim();
-            
-            const venueMap = {
-                // NLP Conferences
-                'The Conference on Empirical Methods in Natural Language Processing': {abbr: 'EMNLP', class: 'emnlp'},
-                'Empirical Methods in Natural Language Processing': {abbr: 'EMNLP', class: 'emnlp'},
-                'Annual Meeting of the Association for Computational Linguistics': {abbr: 'ACL', class: 'acl'},
-                'International Conference on Learning Representations': {abbr: 'ICLR', class: 'iclr'},
-                'Conference on Language Modeling': {abbr: 'COLM', class: 'colm'},
-                'Neural Information Processing Systems': {abbr: 'NeurIPS', class: 'neurips'},
-                'International Conference on Machine Learning': {abbr: 'ICML', class: 'icml'},
-                'AAAI Conference on Artificial Intelligence': {abbr: 'AAAI', class: 'aaai'},
-                'International Joint Conference on Artificial Intelligence': {abbr: 'IJCAI', class: 'ijcai'},
-                
-                // Information Systems Journals
-                'MIS Quarterly': {abbr: 'MISQ', class: 'misq'},
-                'Information Systems Research': {abbr: 'ISR', class: 'isr'},
-                'Journal of Management Information Systems': {abbr: 'JMIS', class: 'jmis'},
-                'Information & Management': {abbr: 'I&M', class: 'i-m'},
-                'Decision Support Systems': {abbr: 'DSS', class: 'dss'},
-                'European Journal of Information Systems': {abbr: 'EJIS', class: 'ejis'},
-                'Journal of the Association for Information Systems': {abbr: 'JAIS', class: 'jais'},
-                'Information Systems Journal': {abbr: 'ISJ', class: 'isj'},
-                'Communications of the ACM': {abbr: 'CACM', class: 'cacm'},
-                'ACM Transactions on Information Systems': {abbr: 'TOIS', class: 'tois'},
-                'IEEE Transactions on Knowledge and Data Engineering': {abbr: 'TKDE', class: 'tkde'},
-                'IEEE Transactions on Information Theory': {abbr: 'TIT', class: 'tit'},
-                
-                // Other
-                'Preprint': {abbr: 'Preprint', class: 'preprint'},
-                'Financial Domain Instruction Tuning': {abbr: 'Project', class: 'project'}
-            };
-            
-            // Try exact match first
-            if (venueMap[normalizedVenue]) {
-                return venueMap[normalizedVenue];
-            }
-            
-            // Try partial matching for common patterns
-            for (const [key, value] of Object.entries(venueMap)) {
-                if (normalizedVenue.includes(key) || key.includes(normalizedVenue)) {
-                    return value;
-                }
-            }
-            
-            // Fallback: extract first meaningful words
-            const words = normalizedVenue.split(' ').filter(word => 
-                word.length > 2 && 
-                !['the', 'and', 'of', 'for', 'in', 'on', 'at', 'to', 'with'].includes(word.toLowerCase())
-            );
-            
-            let fallbackAbbr;
-            if (words.length >= 2) {
-                fallbackAbbr = words.slice(0, 2).join(' ');
-            } else if (words.length === 1) {
-                fallbackAbbr = words[0];
-            } else {
-                fallbackAbbr = normalizedVenue.split(' ').slice(0, 2).join(' ');
-            }
-            
-            return {abbr: fallbackAbbr, class: 'default'};
-        }
-        
+        const itemsPerPage = 10; // Increased for list view
+
         // DOM elements
-            const featuredContainer = document.getElementById('featured-projects-container');
-            const listContainer = document.getElementById('publication-list-container');
-            const businessListContainer = document.getElementById('business-publication-list-container');
-            const paginationControls = document.getElementById('pagination-controls');
-            const yearFilter = document.getElementById('filter-year');
-            const typeFilter = document.getElementById('filter-type');
-            const topicFilter = document.getElementById('filter-topic');
-            const citeModal = document.getElementById('cite-modal');
-            const bibtexContent = document.getElementById('bibtex-content');
-            const closeModalBtn = document.getElementById('close-modal-btn');
-            const copyBibtexBtn = document.getElementById('copy-bibtex-btn');
+        const newsContainer = document.getElementById('news-table'); // News container
+        const featuredContainer = document.getElementById('featured-projects-container');
+        const listContainer = document.getElementById('publication-list-container');
+        const businessListContainer = document.getElementById('business-publication-list-container');
+        const paginationControls = document.getElementById('pagination-controls');
+        const yearFilter = document.getElementById('filter-year');
+        const typeFilter = document.getElementById('filter-type');
+        const topicFilter = document.getElementById('filter-topic');
+        const citeModal = document.getElementById('cite-modal');
+        const bibtexContent = document.getElementById('bibtex-content');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const copyBibtexBtn = document.getElementById('copy-bibtex-btn');
 
-        // Initialize the application
-            async function initialize() {
-                try {
-                    const response = await fetch('publications.json');
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                    allPublications = await response.json();
-                    
-                // Sort publications by year (newest first)
-                    allPublications.sort((a, b) => b.year - a.year);
+        // Helper: Get HTML for authors (bolding own name)
+        function getAuthorsHTML(authors) {
+            return authors.map(author => 
+                author === 'Yixuan Tang' ? `<strong>${author}</strong>` : author
+            ).join(', ');
+        }
 
-                updateSidebarStats();
-                    renderFeaturedProjects();
-                    populateFilters();
-                    addEventListeners();
-                    applyFiltersAndRender();
-                    renderBusinessPublications();
-                } catch (error) {
-                    console.error("Could not load data:", error);
+        // Helper: Get HTML for links
+        function getLinksHTML(pub) {
+            let html = '';
+            if (pub.url) html += `<a href="${pub.url}" target="_blank" class="btn-link">📄 PDF</a>`;
+            if (pub.code_url) html += `<a href="${pub.code_url}" target="_blank" class="btn-link">💻 Code</a>`;
+            if (pub.project_url) html += `<a href="${pub.project_url}" target="_blank" class="btn-link">🔗 Project</a>`;
+            if (pub.bibtex) html += `<a href="#" onclick="showCiteModal('${encodeURIComponent(pub.bibtex)}'); return false;" class="btn-link">❞ BibTeX</a>`;
+            return html;
+        }
+
+        // Helper: Create publication item HTML
+        function createPublicationItem(pub, showImage = false) {
+            const authorsHTML = getAuthorsHTML(pub.authors);
+            const linksHTML = getLinksHTML(pub);
+            
+            // Only show image for featured research
+            if (showImage && pub.image_url) {
+                return `
+                    <div class="publication-item publication-item-with-image fade-in" data-title="${pub.title.replace(/"/g, '&quot;')}">
+                        <div class="pub-media">
+                            <img src="${pub.image_url}" alt="${pub.title}">
+                        </div>
+                        <div class="pub-content">
+                            <a href="${pub.url || '#'}" class="pub-title" target="_blank">${pub.title}</a>
+                            <div class="pub-authors">${authorsHTML}</div>
+                            <div class="pub-venue">${pub.venue} (${pub.year})</div>
+                            <div class="pub-links">
+                                ${linksHTML}
+                                <span class="citation-badge" style="display:none;"></span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // No image - simple list style
+                return `
+                    <div class="publication-item publication-item-no-image fade-in" data-title="${pub.title.replace(/"/g, '&quot;')}">
+                        <div class="pub-content">
+                            <a href="${pub.url || '#'}" class="pub-title" target="_blank">${pub.title}</a>
+                            <div class="pub-authors">${authorsHTML}</div>
+                            <div class="pub-venue">${pub.venue} (${pub.year})</div>
+                            <div class="pub-links">
+                                ${linksHTML}
+                                <span class="citation-badge" style="display:none;"></span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize
+        async function initialize() {
+            try {
+                // Load Publications
+                const pubResponse = await fetch('publications.json');
+                if (!pubResponse.ok) throw new Error(`HTTP error! status: ${pubResponse.status}`);
+                allPublications = await pubResponse.json();
+                
+                // Sort by year
+                allPublications.sort((a, b) => {
+                    const yearA = parseInt(a.year) || 9999;
+                    const yearB = parseInt(b.year) || 9999;
+                    return yearB - yearA;
+                });
+
+                renderFeaturedProjects();
+                populateFilters();
+                addEventListeners();
+                applyFiltersAndRender();
+                renderBusinessPublications();
+
+                // Load News
+                const newsResponse = await fetch('news.json');
+                if (!newsResponse.ok) throw new Error(`HTTP error! status: ${newsResponse.status}`);
+                allNews = await newsResponse.json();
+                renderNews();
+
+            } catch (error) {
+                console.error("Could not load data:", error);
                 if(featuredContainer) featuredContainer.innerHTML = `<div class="loading">Failed to load featured projects.</div>`;
                 if(listContainer) listContainer.innerHTML = `<div class="loading">Failed to load publications.</div>`;
+                if(newsContainer) newsContainer.innerHTML = `<div class="loading">Failed to load news.</div>`;
             }
         }
-        
-        // Update sidebar statistics
-        function updateSidebarStats() {
-            const totalPapers = allPublications.length;
-            const conferencePapers = allPublications.filter(p => p.type === 'Conference').length;
-            const firstAuthorPapers = allPublications.filter(p => p.authors[0] === 'Yixuan Tang').length;
-            
-            const totalPapersEl = document.getElementById('total-papers');
-            const conferencePapersEl = document.getElementById('conference-papers');
-            const firstAuthorEl = document.getElementById('first-author');
-            
-            if (totalPapersEl) totalPapersEl.textContent = totalPapers;
-            if (conferencePapersEl) conferencePapersEl.textContent = conferencePapers;
-            if (firstAuthorEl) firstAuthorEl.textContent = firstAuthorPapers;
-        }
-        
-        // Render featured projects
-            function renderFeaturedProjects() {
-                if (!featuredContainer) return;
-                
-                const featured = allPublications.filter(p => p.featured);
-            if (featured.length === 0) {
-                featuredContainer.innerHTML = '<div class="loading">No featured projects available.</div>';
+
+        function renderNews() {
+            if (!newsContainer) return;
+            if (allNews.length === 0) {
+                newsContainer.innerHTML = '<p>No news yet.</p>';
                 return;
             }
             
-            featuredContainer.innerHTML = featured.map(proj => {
-                const venueInfo = getVenueAbbreviation(proj.venue);
-                return `
-                <div class="featured-card fade-in">
-                    <div class="publication-image">
-                        <img src="${proj.image_url}" alt="${proj.title}" loading="lazy">
-                        </div>
-                    <div class="publication-content">
-                        <div class="publication-badges">
-                            <span class="venue-label ${venueInfo.class}">${venueInfo.abbr}</span>
-                            <span class="publication-badge">${proj.status || proj.type}</span>
-                            </div>
-                        <h3 class="publication-title">${proj.title.split(':')[0]}</h3>
-                        <p class="publication-authors">${proj.authors.join(', ')}</p>
-                        <p class="publication-venue">${proj.venue}</p>
-                        <div class="publication-tags">
-                            ${proj.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                            </div>
-                        <div class="publication-links">
-                            <a href="${proj.url}" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-file-pdf"></i> ${proj.type === 'Project' ? 'Preprint' : 'Paper'}
-                            </a>
-                            ${proj.code_url ? `<a href="${proj.code_url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> Code</a>` : ''}
-                            ${proj.project_url ? `<a href="${proj.project_url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> Project</a>` : ''}
-                        </div>
-                    </div>
-                </div>
+            // Take top 5 news or all
+            const newsToShow = allNews.slice(0, 5);
+            
+            const tableHtml = `
+                <table class="table">
+                    <tbody>
+                        ${newsToShow.map(item => `
+                            <tr>
+                                <td class="date-col">${item.date}</td>
+                                <td>${item.content}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
             `;
-            }).join('');
+            newsContainer.innerHTML = tableHtml;
         }
 
-        // Populate filter options
-            function populateFilters() {
+        function renderFeaturedProjects() {
+            if (!featuredContainer) return;
+            const featured = allPublications.filter(p => p.featured);
+            if (featured.length === 0) {
+                featuredContainer.style.display = 'none'; // Hide section if none
+                return;
+            }
+            featuredContainer.innerHTML = featured.map(pub => createPublicationItem(pub, true)).join('');
+        }
+
+        function renderBusinessPublications() {
+            if (!businessListContainer) return;
+            const businessPubs = allPublications.filter(p => p.category === 'business');
+            if (businessPubs.length === 0) {
+                 document.getElementById('business-publications').style.display = 'none';
+                 return;
+            }
+            businessListContainer.innerHTML = businessPubs.map(pub => createPublicationItem(pub, false)).join('');
+        }
+
+        function populateFilters() {
             const years = [...new Set(allPublications.map(p => p.year))].sort((a,b) => b-a);
-                const topics = [...new Set(allPublications.flatMap(p => p.tags))].sort();
+            const topics = [...new Set(allPublications.flatMap(p => p.tags))].sort();
 
             years.forEach(year => {
+                if(!year || year==='-') return;
                 const option = document.createElement('option');
                 option.value = year;
-                option.textContent = year;
+                option.textContent = `Year: ${year}`;
                 yearFilter.appendChild(option);
             });
             
             topics.forEach(topic => {
                 const option = document.createElement('option');
                 option.value = topic;
-                option.textContent = topic;
+                option.textContent = `Topic: ${topic}`;
                 topicFilter.appendChild(option);
             });
         }
 
-        // Apply filters and render
-            function applyFiltersAndRender() {
-                const selectedYear = yearFilter.value;
-                const selectedType = typeFilter.value;
-                const selectedTopic = topicFilter.value;
+        function applyFiltersAndRender() {
+            const selectedYear = yearFilter.value;
+            const selectedType = typeFilter.value;
+            const selectedTopic = topicFilter.value;
 
-                filteredPublications = allPublications.filter(pub => {
-                const categoryMatch = (pub.category === 'cs' || !pub.category); // Default to cs if no category
+            filteredPublications = allPublications.filter(pub => {
+                const categoryMatch = (pub.category === 'cs' || !pub.category);
                 const yearMatch = (selectedYear === 'all') || (pub.year == selectedYear);
                 const typeMatch = (selectedType === 'all') || (pub.type === selectedType);
                 const topicMatch = (selectedTopic === 'all') || pub.tags.includes(selectedTopic);
-                    return categoryMatch && yearMatch && typeMatch && topicMatch;
-                });
+                return categoryMatch && yearMatch && typeMatch && topicMatch;
+            });
 
-                currentPage = 1;
-                renderPage();
-            }
+            currentPage = 1;
+            renderPage();
+        }
 
-        // Render current page
-            function renderPage() {
-                if (!listContainer) return;
-                listContainer.innerHTML = '';
-                
-                if (filteredPublications.length === 0) {
+        function renderPage() {
+            if (!listContainer) return;
+            listContainer.innerHTML = '';
+            
+            if (filteredPublications.length === 0) {
                 listContainer.innerHTML = '<div class="loading">No publications match the current filter.</div>';
-                    renderPagination();
-                    return;
-                }
-                
-                const paginatedItems = filteredPublications.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-
-            listContainer.innerHTML = paginatedItems.map(pub => {
-                const authorsHTML = pub.authors.map(author => 
-                    author === 'Yixuan Tang' ? `<strong>${author}</strong>` : author
-                ).join(', ');
-                
-                const linksHTML = `
-                    <a href="${pub.url}" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-file-pdf"></i> PDF
-                    </a>
-                    ${pub.code_url ? `<a href="${pub.code_url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> Code</a>` : ''}
-                    ${pub.bibtex ? `<a href="#" onclick="showCiteModal('${encodeURIComponent(pub.bibtex)}'); return false;"><i class="fas fa-quote-right"></i> Cite</a>` : ''}
-                `;
-
-        const venueInfo = getVenueAbbreviation(pub.venue);
-        return `
-            <div class="publication-card">
-                <div class="publication-card-header">
-                    <div class="publication-card-badges">
-                        <span class="venue-label ${venueInfo.class}">${venueInfo.abbr}</span>
-                        <span class="publication-card-badge">${pub.type}</span>
-                                </div>
-                    <a href="${pub.url}" target="_blank" rel="noopener noreferrer" class="publication-card-title">${pub.title}</a>
-                    <div class="publication-card-meta">
-                        <strong>Authors:</strong> ${authorsHTML}<br>
-                        <strong>Venue:</strong> ${pub.venue} (${pub.year})
-                                </div>
-                    <div class="publication-card-tags">
-                        ${pub.tags.map(tag => `<span class="publication-card-tag">${tag}</span>`).join('')}
-                            </div>
-                </div>
-                <div class="publication-card-links">
-                    ${linksHTML}
-                </div>
-            </div>
-        `;
-            }).join('');
-
                 renderPagination();
-            }
-
-        // Render pagination
-            function renderPagination() {
-            if (!paginationControls) return;
-            
-                const totalItems = filteredPublications.length;
-                const totalPages = Math.ceil(totalItems / itemsPerPage);
-                paginationControls.innerHTML = '';
-
-                if (totalPages <= 1) return;
-
-                const createButton = (content, page, enabled = true) => {
-                    const button = document.createElement('button');
-                    button.innerHTML = content;
-                button.className = page === currentPage ? 'active' : '';
-                    if (!enabled) {
-                        button.disabled = true;
-                    } else {
-                    button.onclick = () => { 
-                        currentPage = page; 
-                        renderPage(); 
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    };
-                    }
-                    return button;
-                };
-
-            paginationControls.appendChild(createButton('←', currentPage - 1, currentPage > 1));
-            
-                for (let i = 1; i <= totalPages; i++) {
-                    paginationControls.appendChild(createButton(i, i));
-                }
-            
-            paginationControls.appendChild(createButton('→', currentPage + 1, currentPage < totalPages));
-            }
-
-        // Render Business Publications
-        function renderBusinessPublications() {
-            if (!businessListContainer) return;
-            
-            const businessPublications = allPublications.filter(pub => pub.category === 'business');
-            businessPublications.sort((a, b) => b.year - a.year);
-            
-            if (businessPublications.length === 0) {
-                businessListContainer.innerHTML = '<div class="loading">No business publications available.</div>';
                 return;
             }
             
-            businessListContainer.innerHTML = businessPublications.map(pub => {
-                const authorsHTML = pub.authors.map(author => 
-                    author === 'Yixuan Tang' ? `<strong>${author}</strong>` : author
-                ).join(', ');
-                
-                const linksHTML = `
-                    ${pub.url ? `<a href="${pub.url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> PDF</a>` : ''}
-                    ${pub.code_url ? `<a href="${pub.code_url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> Code</a>` : ''}
-                `;
-                
-                const venueInfo = getVenueAbbreviation(pub.venue);
-                const statusBadge = pub.status ? `<span class="publication-card-badge">${pub.status}</span>` : '';
-                const journalBadge = '<span class="publication-card-badge">Journal</span>';
-                
-                return `
-                    <div class="publication-card">
-                        <div class="publication-card-header">
-                            <div class="publication-card-badges">
-                                <span class="venue-label ${venueInfo.class}">${venueInfo.abbr}</span>
-                                ${statusBadge ? statusBadge + journalBadge : journalBadge}
-                            </div>
-                            <a href="${pub.url || '#'}" target="_blank" rel="noopener noreferrer" class="publication-card-title">${pub.title}</a>
-                            <div class="publication-card-meta">
-                                <strong>Authors:</strong> ${authorsHTML}<br>
-                                <strong>Venue:</strong> ${pub.venue} (${pub.year})
-                            </div>
-                            <div class="publication-card-tags">
-                                ${pub.tags.map(tag => `<span class="publication-card-tag">${tag}</span>`).join('')}
-                            </div>
-                        </div>
-                        <div class="publication-card-links">
-                            ${linksHTML}
-                        </div>
-                    </div>
-                `;
-            }).join('');
+            const paginatedItems = filteredPublications.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+            listContainer.innerHTML = paginatedItems.map(pub => createPublicationItem(pub, false)).join('');
+            renderPagination();
         }
 
-        // Show citation modal
-            window.showCiteModal = function(bibtex) {
+        function renderPagination() {
+            if (!paginationControls) return;
+            const totalItems = filteredPublications.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            paginationControls.innerHTML = '';
+            if (totalPages <= 1) return;
+
+            const createButton = (content, page, enabled = true) => {
+                const button = document.createElement('button');
+                button.innerHTML = content;
+                button.className = page === currentPage ? 'active' : '';
+                if (!enabled) button.disabled = true;
+                else button.onclick = () => { 
+                    currentPage = page; 
+                    renderPage(); 
+                    document.getElementById('publications').scrollIntoView({behavior: 'smooth'});
+                };
+                return button;
+            };
+
+            paginationControls.appendChild(createButton('←', currentPage - 1, currentPage > 1));
+            for (let i = 1; i <= totalPages; i++) {
+                paginationControls.appendChild(createButton(i, i));
+            }
+            paginationControls.appendChild(createButton('→', currentPage + 1, currentPage < totalPages));
+        }
+
+        // Citation Modal Logic
+        window.showCiteModal = function(bibtex) {
             bibtexContent.textContent = decodeURIComponent(bibtex);
             citeModal.classList.add('show');
-            }
+        }
+        
+        closeModalBtn.onclick = () => citeModal.classList.remove('show');
+        
+        copyBibtexBtn.onclick = () => {
+            navigator.clipboard.writeText(bibtexContent.textContent);
+            const originalText = copyBibtexBtn.textContent;
+            copyBibtexBtn.textContent = 'Copied!';
+            setTimeout(() => copyBibtexBtn.textContent = originalText, 2000);
+        };
+        
+        window.onclick = (e) => {
+            if (e.target == citeModal) citeModal.classList.remove('show');
+        };
 
-        // Hide citation modal
-            function hideCiteModal() {
-            citeModal.classList.remove('show');
+        // Back to Top
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.onscroll = () => {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
             }
+        };
+        backToTopBtn.onclick = () => {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
 
-        // Copy BibTeX to clipboard
-            function copyBibtex() {
-                navigator.clipboard.writeText(bibtexContent.textContent).then(() => {
-                    copyBibtexBtn.textContent = 'Copied!';
-                    setTimeout(() => {
-                        copyBibtexBtn.textContent = 'Copy';
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Failed to copy: ', err);
-                });
-            }
-            
-        // Add event listeners
-            function addEventListeners() {
-                yearFilter.addEventListener('change', applyFiltersAndRender);
-                typeFilter.addEventListener('change', applyFiltersAndRender);
-                topicFilter.addEventListener('change', applyFiltersAndRender);
-                
-                closeModalBtn.addEventListener('click', hideCiteModal);
-                copyBibtexBtn.addEventListener('click', copyBibtex);
-                citeModal.addEventListener('click', (e) => {
-                if (e.target === citeModal) {
-                        hideCiteModal();
-                    }
-                });
-
-            // Smooth scrolling for navigation links
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const targetElement = document.querySelector(this.getAttribute('href'));
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                    });
-                });
+        function addEventListeners() {
+            yearFilter.addEventListener('change', applyFiltersAndRender);
+            typeFilter.addEventListener('change', applyFiltersAndRender);
+            topicFilter.addEventListener('change', applyFiltersAndRender);
         }
 
-        // Back to top functionality
-        function initBackToTop() {
-            const backToTopBtn = document.getElementById('back-to-top');
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTopBtn.classList.add('show');
-                } else {
-                    backToTopBtn.classList.remove('show');
-                }
-            });
-            
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        }
-
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            initialize();
-            initBackToTop();
-        });
+        document.addEventListener('DOMContentLoaded', initialize);
     </script>
 </body>
 </html>
