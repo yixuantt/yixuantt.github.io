@@ -233,10 +233,36 @@
             return html;
         }
 
+        // Helper: Get status badge HTML for business publications
+        function getStatusBadgeHTML(status) {
+            if (!status) return '';
+            
+            // Normalize status text for CSS class matching
+            const statusLower = status.toLowerCase();
+            let statusClass = 'status-default';
+            
+            if (statusLower.includes('published') || statusLower.includes('published')) {
+                statusClass = 'status-published';
+            } else if (statusLower.includes('accepted') || statusLower.includes('accept')) {
+                statusClass = 'status-accepted';
+            } else if (statusLower.includes('minor')) {
+                statusClass = 'status-minor';
+            } else if (statusLower.includes('major')) {
+                statusClass = 'status-major';
+            } else if (statusLower.includes('revision') || statusLower.includes('revise')) {
+                statusClass = 'status-revision';
+            } else if (statusLower.includes('under review') || statusLower.includes('review')) {
+                statusClass = 'status-review';
+            }
+            
+            return `<span class="status-badge ${statusClass}">${status}</span>`;
+        }
+
         // Helper: Create publication item HTML
-        function createPublicationItem(pub, showImage = false) {
+        function createPublicationItem(pub, showImage = false, showStatus = false) {
             const authorsHTML = getAuthorsHTML(pub.authors);
             const linksHTML = getLinksHTML(pub);
+            const statusBadge = showStatus ? getStatusBadgeHTML(pub.status) : '';
             
             // Only show image for featured research
             if (showImage && pub.image_url) {
@@ -246,12 +272,14 @@
                             <img src="${pub.image_url}" alt="${pub.title}">
                         </div>
                         <div class="pub-content">
-                            <a href="${pub.url || '#'}" class="pub-title" target="_blank">${pub.title}</a>
+                            <div class="pub-header">
+                                <a href="${pub.url || '#'}" class="pub-title" target="_blank">${pub.title}</a>
+                                ${statusBadge}
+                            </div>
                             <div class="pub-authors">${authorsHTML}</div>
                             <div class="pub-venue">${pub.venue} (${pub.year})</div>
                             <div class="pub-links">
                                 ${linksHTML}
-                                <span class="citation-badge" style="display:none;"></span>
                             </div>
                         </div>
                     </div>
@@ -261,12 +289,14 @@
                 return `
                     <div class="publication-item publication-item-no-image fade-in" data-title="${pub.title.replace(/"/g, '&quot;')}">
                         <div class="pub-content">
-                            <a href="${pub.url || '#'}" class="pub-title" target="_blank">${pub.title}</a>
+                            <div class="pub-header">
+                                <a href="${pub.url || '#'}" class="pub-title" target="_blank">${pub.title}</a>
+                                ${statusBadge}
+                            </div>
                             <div class="pub-authors">${authorsHTML}</div>
                             <div class="pub-venue">${pub.venue} (${pub.year})</div>
                             <div class="pub-links">
                                 ${linksHTML}
-                                <span class="citation-badge" style="display:none;"></span>
                             </div>
                         </div>
                     </div>
@@ -351,7 +381,7 @@
                  document.getElementById('business-publications').style.display = 'none';
                  return;
             }
-            businessListContainer.innerHTML = businessPubs.map(pub => createPublicationItem(pub, false)).join('');
+            businessListContainer.innerHTML = businessPubs.map(pub => createPublicationItem(pub, false, true)).join('');
         }
 
         function populateFilters() {
