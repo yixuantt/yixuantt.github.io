@@ -114,29 +114,5 @@
     "tags": ["NLP", "Finance", "Sentiment Analysis"],
     "category": "cs",
     "bibtex": "@inproceedings{tang2023finentity,\n  title={FinEntity: Entity-level Sentiment Classification for Financial Texts},\n  author={Yixuan Tang and Yi Yang},\n  booktitle={Empirical Methods in Natural Language Processing (EMNLP)},\n  year={2023}\n}"
-  },
-  {
-    "title": "Do We Need Domain-Specific Embedding Models? An Empirical Investigation",
-    "authors": ["Yixuan Tang", "Yi Yang"],
-    "venue": "Preprint",
-    "type": "Preprint",
-    "year": 2024,
-    "url": "https://arxiv.org/abs/2409.18511",
-    "code_url": "https://github.com/yixuantt/FinMTEB",
-    "tags": ["NLP", "Embeddings", "Domain Adaptation"],
-    "category": "cs",
-    "bibtex": "@article{tang2024domain,\n  title={Do We Need Domain-Specific Embedding Models? An Empirical Investigation},\n  author={Yixuan Tang and Yi Yang},\n  journal={arXiv preprint arXiv:2409.18511},\n  year={2024}\n}"
-  },
-  {
-    "title": "Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?",
-    "authors": ["Yixuan Tang", "Yi Yang"],
-    "venue": "Preprint",
-    "type": "Preprint",
-    "year": 2024,
-    "url": "https://arxiv.org/abs/2409.02727",
-    "code_url": "https://github.com/yixuantt/PoolingAndAttn",
-    "tags": ["NLP", "Embeddings", "LLM"],
-    "category": "cs",
-    "bibtex": "@article{tang2024pooling,\n  title={Pooling And Attention: What Are Effective Designs For LLM-Based Embedding Models?},\n  author={Yixuan Tang and Yi Yang},\n  journal={arXiv preprint arXiv:2409.02727},\n  year={2024}\n}"
   }
 ]
