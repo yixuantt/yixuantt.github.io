@@ -1,5 +1,21 @@
 [
   {
+    "title": "Revealing the Numeracy Gap: An Empirical Investigation of Text Embedding Models",
+    "authors": ["Ningyuan Deng",
+    "Hanyu Duan",
+    "Yixuan Tang",
+    "Yi Yang"],
+    "venue": "EACL 2026",
+    "type": "Conference",
+    "year": 2026,
+    "url": "",
+    "code_url": "",
+    "tags": ["NLP", "Embeddings", "LLM"],
+    "category": "cs",
+    "status": "Accepted",
+    "bibtex": "@inproceedings{deng2026revealing,\n  title={Revealing the Numeracy Gap: An Empirical Investigation of Text Embedding Models},\n  author={Deng, Ningyuan and Duan, Hanyu and Tang, Yixuan and Yang, Yi},\n  booktitle={Findings of European Chapter of the Association for Computational Linguistics: EACL 2026},\n  year={2026}\n}"
+  },
+  {
     "title": "Learning from Earnings Calls: Graph-Based Conversational Modeling for Financial Prediction",
     "authors": ["Yi Yang", "Yixuan Tang", "Yangyang Fan", "Kunpeng Zhang"],
     "venue": "Information Systems Research",
