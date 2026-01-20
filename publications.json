@@ -1,11 +1,8 @@
 [
   {
     "title": "Revealing the Numeracy Gap: An Empirical Investigation of Text Embedding Models",
-    "authors": ["Ningyuan Deng",
-    "Hanyu Duan",
-    "Yixuan Tang",
-    "Yi Yang"],
-    "venue": "European Chapter of the Association for Computational Linguistics 2026 Findings",
+    "authors": ["Ningyuan Deng", "Hanyu Duan", "Yixuan Tang", "Yi Yang"],
+    "venue": "European Chapter of the Association for Computational Linguistics (EACL) 2026 Findings",
     "type": "Conference",
     "year": 2026,
     "url": "https://arxiv.org/pdf/2509.05691?",
@@ -31,7 +28,7 @@
   {
     "title": "Evaluating and Aligning Human Economic Risk Preferences in LLMs",
     "authors": ["Jiaxin Liu", "Yixuan Tang", "Yi Yang", "Kar Yan Tam"],
-    "venue": "The 2025 Conference on Empirical Methods in Natural Language Processing",
+    "venue": "Empirical Methods in Natural Language Processing (EMNLP) 2025",
     "type": "Conference",
     "year": 2025,
     "url": "https://openreview.net/forum?id=xHSVEC7D4n",
@@ -43,7 +40,7 @@
   {
     "title": "FinMTEB: Finance Massive Text Embedding Benchmark",
     "authors": ["Yixuan Tang", "Yi Yang"],
-    "venue": "The 2025 Conference on Empirical Methods in Natural Language Processing",
+    "venue": "Empirical Methods in Natural Language Processing (EMNLP) 2025",
     "type": "Conference",
     "year": 2025,
     "url": "https://arxiv.org/pdf/2502.10990",
