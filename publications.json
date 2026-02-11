@@ -6,7 +6,7 @@
     "type": "Conference",
     "year": 2026,
     "url": "https://openreview.net/pdf?id=GLELajHnCo",
-    "code_url": "",
+    "code_url": "https://github.com/yixuantt/GAPrune",
     "tags": ["NLP", "Embeddings", "Pruning", "Domain Adaptation"],
     "category": "cs",
     "bibtex": "@inproceedings{anonymous2026gaprune,\n  title={{GAP}rune: Gradient-Alignment Pruning for Domain-Aware Embeddings},\n  author={Anonymous},\n  booktitle={The Fourteenth International Conference on Learning Representations},\n  year={2026},\n  url={https://openreview.net/pdf?id=GLELajHnCo}\n}"
