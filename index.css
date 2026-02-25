@@ -223,6 +223,11 @@ h3 {
     margin-top: 0;
 }
 
+.news-table {
+    max-height: 280px;
+    overflow-y: auto;
+}
+
 .news-table table {
     width: 100%;
     border-collapse: collapse;
