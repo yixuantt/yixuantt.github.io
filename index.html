@@ -153,12 +153,7 @@ function getAuthorsHTML(authors) {
 }
 
 function getLinksHTML(pub) {
-    let html = '';
-    if (pub.url) html += `<a href="${pub.url}" target="_blank" class="pub-link">PDF</a>`;
-    if (pub.code_url) html += `<a href="${pub.code_url}" target="_blank" class="pub-link">Code</a>`;
-    if (pub.project_url) html += `<a href="${pub.project_url}" target="_blank" class="pub-link">Project</a>`;
-    if (pub.bibtex) html += `<a href="#" onclick="showCiteModal('${encodeURIComponent(pub.bibtex)}'); return false;" class="pub-link">BibTeX</a>`;
-    return html ? `<div class="pub-links">${html}</div>` : '';
+    return '';
 }
 
 function getStatusBadge(status) {
