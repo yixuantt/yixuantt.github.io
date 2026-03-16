@@ -4,502 +4,295 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yixuan Tang | NLP & Information Systems</title>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="index.css">
-
-    <!-- MathJax -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
         MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-            }
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Navigation -->
-        <nav class="nav">
-            <div class="nav-brand">
-                <a href="#">Home</a>
-            </div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#publications">Publications</a>
-                <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
-            </div>
+<div class="page">
+    <aside class="sidebar">
+        <img class="avatar" src="images/profile.jpg" alt="Yixuan Tang" loading="lazy">
+        <h1>Yixuan Tang</h1>
+        <p class="tagline">PhD Student in NLP & Information Systems</p>
+        <p class="affiliation"><a href="https://hkust.edu.hk/" target="_blank">HKUST</a></p>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#business-publications">Publications</a>
+            <a href="#education">Education</a>
+            <a href="mailto:ytangch@connect.ust.hk" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&user=4Q9Gje0AAAAJ" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://github.com/yixuantt" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </nav>
+    </aside>
 
-        <!-- About / Profile Section -->
-        <section id="about" class="header-section">
-            <!-- Profile Sidebar (Right) -->
-            <div class="profile-card">
-                <img src="images/profile.jpg" alt="Yixuan Tang">
-                <div class="contact-info">
-                    <p>PhD Student</p>
-                    <p>HKUST</p>
-                    <div class="social-icons">
-                        <a href="mailto:ytangch@connect.ust.hk" title="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="https://scholar.google.com/citations?hl=en&user=4Q9Gje0AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="https://github.com/yixuantt" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
+    <div class="main-wrap">
+    <main>
+        <section id="about" class="section">
+            <h2>About</h2>
+            <p>I am a PhD student at <a href="https://hkust.edu.hk/" target="_blank">HKUST</a>, advised by <a href="https://yya518.github.io/index" target="_blank">Prof. Yi Yang</a>. My work lies at the intersection of <strong>NLP</strong> and <strong>Information Systems</strong>.</p>
+            <p>My research spans:</p>
+            <ul>
+                <li><strong>Financial Intelligence:</strong> Specialized LLMs and benchmarks for financial text analysis.</li>
+                <li><strong>LLM Alignment & Adaptation:</strong> Developing and evaluating language models for reliability, controllability, and human-centered behavior.</li>
+                <li><strong>Representation Learning & Embeddings:</strong> Embedding models for complex scenarios.</li>
+            </ul>
+        </section>
 
-            <!-- Bio Text (Left) -->
-            <div class="bio-text">
-                <h1>Yixuan Tang</h1>
-                <p class="subtitle">PhD Student in NLP & Information Systems at HKUST</p>
-                
-                <p>I am a PhD student at <a href="https://hkust.edu.hk/" target="_blank">HKUST</a>, advised by <a href="https://yya518.github.io/index" target="_blank">Prof. Yi Yang</a>. My work lies at the intersection of <strong>NLP</strong> and <strong>Information Systems</strong>.</p>
-                
-                <p>My work spans:</p>
-                <ul>
-                    <li><strong>Financial Intelligence:</strong> Specialized LLMs and benchmarks for financial text analysis.</li>
-                    <li><strong>LLM Alignment & Adaptation:</strong> Instruction tuning and alignment for robust, human-centric models.</li>
-                    <li><strong>Representation Learning & Embeddings:</strong> Embedding models for complex scenarios.</li>
-                </ul>
-                
-                <!-- News Section -->
-                <div class="news-wrapper">
-                    <h2>📢 News</h2>
-                    <div id="news-table" class="news-table">
-                        <div class="loading">Loading news...</div>
-                    </div>
-                </div>
+        <section id="news" class="section">
+            <h2>News</h2>
+            <div id="news-table" class="news-table">
+                <div class="loading">Loading news...</div>
             </div>
         </section>
 
-        <!-- Featured Research -->
-        <section id="featured">
-            <h2>🌟 Featured Research</h2>
-            <div id="featured-projects-container" class="publication-list">
+        <section id="featured" class="section">
+            <h2>Featured Research</h2>
+            <div id="featured-projects-container" class="pub-list">
                 <div class="loading">Loading featured projects...</div>
             </div>
         </section>
 
-        <!-- Business Publications (Separate Section as per original) -->
-        <section id="business-publications">
+        <section id="business-publications" class="section">
             <h2>Business & IS Publications</h2>
-            <div id="business-publication-list-container" class="publication-list">
+            <div id="business-publication-list-container" class="pub-list">
                 <div class="loading">Loading publications...</div>
             </div>
         </section>
 
-        <!-- Publications -->
-        <section id="publications">
+        <section id="publications" class="section">
             <h2>AI & NLP Publications</h2>
-            
-            <!-- Filters -->
             <div class="filter-controls">
-                <div class="filter-group">
-                    <select id="filter-year">
-                        <option value="all">Year: All</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <select id="filter-type">
-                        <option value="all">Type: All</option>
-                        <option value="Conference">Conference</option>
-                        <option value="Journal">Journal</option>
-                        <option value="Project">Project</option>
-                        <option value="Preprint">Preprint</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <select id="filter-topic">
-                        <option value="all">Topic: All</option>
-                    </select>
-                </div>
+                <select id="filter-year"><option value="all">All years</option></select>
+                <select id="filter-type">
+                    <option value="all">All types</option>
+                    <option value="Conference">Conference</option>
+                    <option value="Journal">Journal</option>
+                    <option value="Project">Project</option>
+                    <option value="Preprint">Preprint</option>
+                </select>
+                <select id="filter-topic"><option value="all">All topics</option></select>
             </div>
-
-            <!-- List Container -->
-            <div id="publication-list-container" class="publication-list">
+            <div id="publication-list-container" class="pub-list">
                 <div class="loading">Loading publications...</div>
             </div>
-
-            <!-- Pagination -->
             <div id="pagination-controls" class="pagination"></div>
         </section>
 
-        <!-- Education -->
         <section id="education" class="section">
-            <h2>🎓 Education</h2>
-            <ul class="education-list">
-                <li class="education-item">
-                    <div class="edu-details">
-                        <h4>MPhil in Information Systems</h4>
-                        <p>The Hong Kong University of Science and Technology (HKUST)</p>
-                    </div>
-                    <div class="edu-year">2024 - Present</div>
+            <h2>Education</h2>
+            <ul class="edu-list">
+                <li>
+                    <span class="edu-title">MPhil in Information Systems</span>
+                    <span class="edu-school">The Hong Kong University of Science and Technology</span>
+                    <span class="edu-year">2024 – Present</span>
                 </li>
-                <li class="education-item">
-                    <div class="edu-details">
-                        <h4>Master in Big Data Technology</h4>
-                        <p>The Hong Kong University of Science and Technology (HKUST)</p>
-                    </div>
-                    <div class="edu-year">2021 - 2022</div>
+                <li>
+                    <span class="edu-title">Master in Big Data Technology</span>
+                    <span class="edu-school">The Hong Kong University of Science and Technology</span>
+                    <span class="edu-year">2021 – 2022</span>
                 </li>
-                <li class="education-item">
-                    <div class="edu-details">
-                        <h4>Bachelor in Computer Science</h4>
-                        <p>Chongqing University</p>
-                    </div>
-                    <div class="edu-year">2017 - 2021</div>
+                <li>
+                    <span class="edu-title">Bachelor in Computer Science</span>
+                    <span class="edu-school">Chongqing University</span>
+                    <span class="edu-year">2017 – 2021</span>
                 </li>
             </ul>
         </section>
+    </main>
 
-        <!-- Contact Footer -->
-        <section id="contact" class="section contact-footer">
-            <p>Copyright &copy; 2025 Yixuan Tang.</p>
-        </section>
+    <footer id="contact">
+        <p>&copy; 2025 Yixuan Tang</p>
+    </footer>
+</div>
 
-    </div>
+<div id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</div>
 
-    <!-- Back to top -->
-    <div id="back-to-top" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
-    <!-- Citation Modal -->
-    <div id="cite-modal" class="modal">
-        <div class="modal-content">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                <h3>BibTeX Citation</h3>
-                <button id="close-modal-btn" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
-            </div>
-            <div class="code-block">
-                <pre><code id="bibtex-content"></code></pre>
-            </div>
-            <div style="text-align: right; margin-top: 1rem;">
-                <button id="copy-bibtex-btn" style="background: var(--text-color); color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer;">Copy</button>
-            </div>
+<div id="cite-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>BibTeX</h3>
+            <button id="close-modal-btn" class="modal-close-btn">&times;</button>
+        </div>
+        <div class="code-block"><pre><code id="bibtex-content"></code></pre></div>
+        <div class="modal-footer">
+            <button id="copy-bibtex-btn" class="modal-primary-btn">Copy</button>
         </div>
     </div>
+</div>
 
-    <!-- Scripts -->
-    <script>
-        // Global variables
-        let allPublications = [];
-        let allNews = []; // Add news variable
-        let filteredPublications = [];
-        let currentPage = 1;
-        const itemsPerPage = 10; // Increased for list view
+<script>
+let allPublications = [], allNews = [], filteredPublications = [], currentPage = 1;
+const itemsPerPage = 10;
 
-        // DOM elements
-        const newsContainer = document.getElementById('news-table'); // News container
-        const featuredContainer = document.getElementById('featured-projects-container');
-        const listContainer = document.getElementById('publication-list-container');
-        const businessListContainer = document.getElementById('business-publication-list-container');
-        const paginationControls = document.getElementById('pagination-controls');
-        const yearFilter = document.getElementById('filter-year');
-        const typeFilter = document.getElementById('filter-type');
-        const topicFilter = document.getElementById('filter-topic');
-        const citeModal = document.getElementById('cite-modal');
-        const bibtexContent = document.getElementById('bibtex-content');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-        const copyBibtexBtn = document.getElementById('copy-bibtex-btn');
+const newsContainer = document.getElementById('news-table');
+const featuredContainer = document.getElementById('featured-projects-container');
+const listContainer = document.getElementById('publication-list-container');
+const businessListContainer = document.getElementById('business-publication-list-container');
+const paginationControls = document.getElementById('pagination-controls');
+const yearFilter = document.getElementById('filter-year');
+const typeFilter = document.getElementById('filter-type');
+const topicFilter = document.getElementById('filter-topic');
+const citeModal = document.getElementById('cite-modal');
+const bibtexContent = document.getElementById('bibtex-content');
+const closeModalBtn = document.getElementById('close-modal-btn');
+const copyBibtexBtn = document.getElementById('copy-bibtex-btn');
 
-        // Helper: Get HTML for authors (bolding own name)
-        function getAuthorsHTML(authors) {
-            return authors.map(author => 
-                author === 'Yixuan Tang' ? `<strong>${author}</strong>` : author
-            ).join(', ');
-        }
+function getAuthorsHTML(authors) {
+    return authors.map(a => a === 'Yixuan Tang' ? `<strong>${a}</strong>` : a).join(', ');
+}
 
-        // Helper: Get HTML for links
-        function getLinksHTML(pub) {
-            let html = '';
-            if (pub.url) html += `<a href="${pub.url}" target="_blank" class="btn-link">📄 PDF</a>`;
-            if (pub.code_url) html += `<a href="${pub.code_url}" target="_blank" class="btn-link">💻 Code</a>`;
-            if (pub.project_url) html += `<a href="${pub.project_url}" target="_blank" class="btn-link">🔗 Project</a>`;
-            if (pub.bibtex) html += `<a href="#" onclick="showCiteModal('${encodeURIComponent(pub.bibtex)}'); return false;" class="btn-link">❞ BibTeX</a>`;
-            return html;
-        }
+function getLinksHTML(pub) {
+    let html = '';
+    if (pub.url) html += `<a href="${pub.url}" target="_blank" class="pub-link">PDF</a>`;
+    if (pub.code_url) html += `<a href="${pub.code_url}" target="_blank" class="pub-link">Code</a>`;
+    if (pub.project_url) html += `<a href="${pub.project_url}" target="_blank" class="pub-link">Project</a>`;
+    if (pub.bibtex) html += `<a href="#" onclick="showCiteModal('${encodeURIComponent(pub.bibtex)}'); return false;" class="pub-link">BibTeX</a>`;
+    return html ? `<div class="pub-links">${html}</div>` : '';
+}
 
-        // Helper: Get status badge HTML for business publications
-        function getStatusBadgeHTML(status) {
-            if (!status) return '';
-            
-            // Normalize status text for CSS class matching
-            const statusLower = status.toLowerCase();
-            let statusClass = 'status-default';
-            
-            if (statusLower.includes('published') || statusLower.includes('published')) {
-                statusClass = 'status-published';
-            } else if (statusLower.includes('accepted') || statusLower.includes('accept')) {
-                statusClass = 'status-accepted';
-            } else if (statusLower.includes('minor')) {
-                statusClass = 'status-minor';
-            } else if (statusLower.includes('major')) {
-                statusClass = 'status-major';
-            } else if (statusLower.includes('revision') || statusLower.includes('revise')) {
-                statusClass = 'status-revision';
-            } else if (statusLower.includes('under review') || statusLower.includes('review')) {
-                statusClass = 'status-review';
-            }
-            
-            return `<span class="status-badge ${statusClass}">${status}</span>`;
-        }
+function getStatusBadge(status) {
+    if (!status) return '';
+    const c = status.toLowerCase();
+    let cls = 'status-default';
+    if (c.includes('published')) cls = 'status-published';
+    else if (c.includes('accepted')) cls = 'status-accepted';
+    else if (c.includes('minor') || c.includes('revision')) cls = 'status-revision';
+    else if (c.includes('major')) cls = 'status-major';
+    else if (c.includes('review')) cls = 'status-review';
+    return `<span class="badge ${cls}">${status}</span>`;
+}
 
-        // Helper: Create publication item HTML
-        function createPublicationItem(pub, showImage = false, showStatus = false) {
-            const authorsHTML = getAuthorsHTML(pub.authors);
-            const linksHTML = getLinksHTML(pub);
-            const statusBadge = showStatus ? getStatusBadgeHTML(pub.status) : '';
-            
-            // Only show image for featured research
-            if (showImage && pub.image_url) {
-                return `
-                    <div class="publication-item publication-item-with-image fade-in" data-title="${pub.title.replace(/"/g, '&quot;')}">
-                        <div class="pub-media">
-                            <img src="${pub.image_url}" alt="${pub.title}">
-                        </div>
-                        <div class="pub-content">
-                            <div class="pub-header">
-                                <a href="${pub.url || '#'}" class="pub-title" target="_blank">${pub.title}</a>
-                                ${statusBadge}
-                            </div>
-                            <div class="pub-authors">${authorsHTML}</div>
-                            <div class="pub-venue">${pub.venue} (${pub.year})</div>
-                            <div class="pub-links">
-                                ${linksHTML}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            } else {
-                // No image - simple list style
-                return `
-                    <div class="publication-item publication-item-no-image fade-in" data-title="${pub.title.replace(/"/g, '&quot;')}">
-                        <div class="pub-content">
-                            <div class="pub-header">
-                                <a href="${pub.url || '#'}" class="pub-title" target="_blank">${pub.title}</a>
-                                ${statusBadge}
-                            </div>
-                            <div class="pub-authors">${authorsHTML}</div>
-                            <div class="pub-venue">${pub.venue} (${pub.year})</div>
-                            <div class="pub-links">
-                                ${linksHTML}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-        }
+function createPubItem(pub, showImage, showStatus) {
+    const badge = showStatus ? getStatusBadge(pub.status) : '';
+    const links = getLinksHTML(pub);
+    const img = showImage && pub.image_url
+        ? `<div class="pub-img"><img src="${pub.image_url}" alt="" loading="lazy"></div>` : '';
+    return `
+        <article class="pub-item ${img ? 'pub-item-img' : ''}">
+            ${img}
+            <div class="pub-body">
+                <div class="pub-title-row">
+                    <h3 class="pub-title"><a href="${pub.url || '#'}" target="_blank">${pub.title}</a></h3>
+                    ${badge}
+                </div>
+                <div class="pub-authors">${getAuthorsHTML(pub.authors)}</div>
+                <div class="pub-venue-row">
+                    <span class="pub-venue">${pub.venue}</span>
+                    <span class="pub-year">${pub.year}</span>
+                </div>
+                ${links}
+            </div>
+        </article>
+    `;
+}
 
-        // Initialize
-        async function initialize() {
-            try {
-                // Load Publications
-                const pubResponse = await fetch('publications.json');
-                if (!pubResponse.ok) throw new Error(`HTTP error! status: ${pubResponse.status}`);
-                allPublications = await pubResponse.json();
-                
-                // Sort by year
-                allPublications.sort((a, b) => {
-                    const yearA = parseInt(a.year) || 9999;
-                    const yearB = parseInt(b.year) || 9999;
-                    return yearB - yearA;
-                });
+async function init() {
+    try {
+        const [pubRes, newsRes] = await Promise.all([
+            fetch('publications.json'),
+            fetch('news.json')
+        ]);
+        if (!pubRes.ok || !newsRes.ok) throw new Error('Failed to load data');
+        allPublications = (await pubRes.json()).sort((a, b) => (b.year || 0) - (a.year || 0));
+        allNews = await newsRes.json();
 
-                renderFeaturedProjects();
-                populateFilters();
-                addEventListeners();
-                applyFiltersAndRender();
-                renderBusinessPublications();
+        renderNews();
+        renderFeatured();
+        renderBusiness();
+        populateFilters();
+        applyFilters();
 
-                // Load News
-                const newsResponse = await fetch('news.json');
-                if (!newsResponse.ok) throw new Error(`HTTP error! status: ${newsResponse.status}`);
-                allNews = await newsResponse.json();
-                renderNews();
+        [yearFilter, typeFilter, topicFilter].forEach(el => el?.addEventListener('change', applyFilters));
+    } catch (e) {
+        console.error(e);
+        if (newsContainer) newsContainer.innerHTML = '<p>Failed to load news.</p>';
+        if (featuredContainer) featuredContainer.innerHTML = '<p>Failed to load.</p>';
+        if (listContainer) listContainer.innerHTML = '<p>Failed to load.</p>';
+    }
+}
 
-            } catch (error) {
-                console.error("Could not load data:", error);
-                if(featuredContainer) featuredContainer.innerHTML = `<div class="loading">Failed to load featured projects.</div>`;
-                if(listContainer) listContainer.innerHTML = `<div class="loading">Failed to load publications.</div>`;
-                if(newsContainer) newsContainer.innerHTML = `<div class="loading">Failed to load news.</div>`;
-            }
-        }
+function renderNews() {
+    if (!newsContainer) return;
+    if (!allNews.length) { newsContainer.innerHTML = '<p>No news yet.</p>'; return; }
+    newsContainer.innerHTML = `<table><tbody>${
+        allNews.slice(0, 5).map(n => `<tr><td class="date">${n.date}</td><td>${n.content}</td></tr>`).join('')
+    }</tbody></table>`;
+}
 
-        function renderNews() {
-            if (!newsContainer) return;
-            if (allNews.length === 0) {
-                newsContainer.innerHTML = '<p>No news yet.</p>';
-                return;
-            }
-            
-            // Take top 5 news or all
-            const newsToShow = allNews.slice(0, 5);
-            
-            const tableHtml = `
-                <table class="table">
-                    <tbody>
-                        ${newsToShow.map(item => `
-                            <tr>
-                                <td class="date-col">${item.date}</td>
-                                <td>${item.content}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            `;
-            newsContainer.innerHTML = tableHtml;
-        }
+function renderFeatured() {
+    if (!featuredContainer) return;
+    const f = allPublications.filter(p => p.featured);
+    if (!f.length) { featuredContainer.closest('section').style.display = 'none'; return; }
+    featuredContainer.innerHTML = f.map(p => createPubItem(p, true, false)).join('');
+}
 
-        function renderFeaturedProjects() {
-            if (!featuredContainer) return;
-            const featured = allPublications.filter(p => p.featured);
-            if (featured.length === 0) {
-                featuredContainer.style.display = 'none'; // Hide section if none
-                return;
-            }
-            featuredContainer.innerHTML = featured.map(pub => createPublicationItem(pub, true)).join('');
-        }
+function renderBusiness() {
+    if (!businessListContainer) return;
+    const b = allPublications.filter(p => p.category === 'business');
+    if (!b.length) { document.getElementById('business-publications').style.display = 'none'; return; }
+    businessListContainer.innerHTML = b.map(p => createPubItem(p, false, true)).join('');
+}
 
-        function renderBusinessPublications() {
-            if (!businessListContainer) return;
-            const businessPubs = allPublications.filter(p => p.category === 'business');
-            if (businessPubs.length === 0) {
-                 document.getElementById('business-publications').style.display = 'none';
-                 return;
-            }
-            businessListContainer.innerHTML = businessPubs.map(pub => createPublicationItem(pub, false, true)).join('');
-        }
+function populateFilters() {
+    const years = [...new Set(allPublications.map(p => p.year).filter(Boolean))].sort((a, b) => b - a);
+    const topics = [...new Set(allPublications.flatMap(p => p.tags || []))].sort();
+    years.forEach(y => { const o = document.createElement('option'); o.value = y; o.textContent = y; yearFilter.appendChild(o); });
+    topics.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; topicFilter.appendChild(o); });
+}
 
-        function populateFilters() {
-            const years = [...new Set(allPublications.map(p => p.year))].sort((a,b) => b-a);
-            const topics = [...new Set(allPublications.flatMap(p => p.tags))].sort();
+function applyFilters() {
+    const y = yearFilter.value, ty = typeFilter.value, to = topicFilter.value;
+    filteredPublications = allPublications.filter(p => {
+        if (p.category === 'business') return false;
+        if (y !== 'all' && p.year != y) return false;
+        if (ty !== 'all' && p.type !== ty) return false;
+        if (to !== 'all' && !(p.tags || []).includes(to)) return false;
+        return true;
+    });
+    currentPage = 1;
+    renderPage();
+}
 
-            years.forEach(year => {
-                if(!year || year==='-') return;
-                const option = document.createElement('option');
-                option.value = year;
-                option.textContent = `Year: ${year}`;
-                yearFilter.appendChild(option);
-            });
-            
-            topics.forEach(topic => {
-                const option = document.createElement('option');
-                option.value = topic;
-                option.textContent = `Topic: ${topic}`;
-                topicFilter.appendChild(option);
-            });
-        }
+function renderPage() {
+    if (!listContainer) return;
+    const items = filteredPublications.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    listContainer.innerHTML = items.length ? items.map(p => createPubItem(p, false, false)).join('') : '<p>No publications match.</p>';
+    renderPagination();
+}
 
-        function applyFiltersAndRender() {
-            const selectedYear = yearFilter.value;
-            const selectedType = typeFilter.value;
-            const selectedTopic = topicFilter.value;
+function renderPagination() {
+    if (!paginationControls) return;
+    const total = Math.ceil(filteredPublications.length / itemsPerPage);
+    if (total <= 1) { paginationControls.innerHTML = ''; return; }
+    let html = `<button ${currentPage === 1 ? 'disabled' : ''} onclick="goPage(${currentPage - 1})">Previous</button>`;
+    for (let i = 1; i <= total; i++) html += `<button class="${i === currentPage ? 'active' : ''}" onclick="goPage(${i})">${i}</button>`;
+    html += `<button ${currentPage === total ? 'disabled' : ''} onclick="goPage(${currentPage + 1})">Next</button>`;
+    paginationControls.innerHTML = html;
+}
 
-            filteredPublications = allPublications.filter(pub => {
-                const categoryMatch = (pub.category === 'cs' || !pub.category);
-                const yearMatch = (selectedYear === 'all') || (pub.year == selectedYear);
-                const typeMatch = (selectedType === 'all') || (pub.type === selectedType);
-                const topicMatch = (selectedTopic === 'all') || pub.tags.includes(selectedTopic);
-                return categoryMatch && yearMatch && typeMatch && topicMatch;
-            });
+function goPage(p) { currentPage = p; renderPage(); document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' }); }
 
-            currentPage = 1;
-            renderPage();
-        }
+window.showCiteModal = function(b) { bibtexContent.textContent = decodeURIComponent(b); citeModal.classList.add('show'); };
+closeModalBtn.onclick = () => citeModal.classList.remove('show');
+copyBibtexBtn.onclick = () => { navigator.clipboard.writeText(bibtexContent.textContent); copyBibtexBtn.textContent = 'Copied!'; setTimeout(() => copyBibtexBtn.textContent = 'Copy', 2000); };
+citeModal.onclick = e => { if (e.target === citeModal) citeModal.classList.remove('show'); };
 
-        function renderPage() {
-            if (!listContainer) return;
-            listContainer.innerHTML = '';
-            
-            if (filteredPublications.length === 0) {
-                listContainer.innerHTML = '<div class="loading">No publications match the current filter.</div>';
-                renderPagination();
-                return;
-            }
-            
-            const paginatedItems = filteredPublications.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-            listContainer.innerHTML = paginatedItems.map(pub => createPublicationItem(pub, false)).join('');
-            renderPagination();
-        }
+const backBtn = document.getElementById('back-to-top');
+window.onscroll = () => backBtn.classList.toggle('show', window.scrollY > 300);
+backBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        function renderPagination() {
-            if (!paginationControls) return;
-            const totalItems = filteredPublications.length;
-            const totalPages = Math.ceil(totalItems / itemsPerPage);
-            paginationControls.innerHTML = '';
-            if (totalPages <= 1) return;
-
-            const createButton = (content, page, enabled = true) => {
-                const button = document.createElement('button');
-                button.innerHTML = content;
-                button.className = page === currentPage ? 'active' : '';
-                if (!enabled) button.disabled = true;
-                else button.onclick = () => { 
-                    currentPage = page; 
-                    renderPage(); 
-                    document.getElementById('publications').scrollIntoView({behavior: 'smooth'});
-                };
-                return button;
-            };
-
-            paginationControls.appendChild(createButton('←', currentPage - 1, currentPage > 1));
-            for (let i = 1; i <= totalPages; i++) {
-                paginationControls.appendChild(createButton(i, i));
-            }
-            paginationControls.appendChild(createButton('→', currentPage + 1, currentPage < totalPages));
-        }
-
-        // Citation Modal Logic
-        window.showCiteModal = function(bibtex) {
-            bibtexContent.textContent = decodeURIComponent(bibtex);
-            citeModal.classList.add('show');
-        }
-        
-        closeModalBtn.onclick = () => citeModal.classList.remove('show');
-        
-        copyBibtexBtn.onclick = () => {
-            navigator.clipboard.writeText(bibtexContent.textContent);
-            const originalText = copyBibtexBtn.textContent;
-            copyBibtexBtn.textContent = 'Copied!';
-            setTimeout(() => copyBibtexBtn.textContent = originalText, 2000);
-        };
-        
-        window.onclick = (e) => {
-            if (e.target == citeModal) citeModal.classList.remove('show');
-        };
-
-        // Back to Top
-        const backToTopBtn = document.getElementById('back-to-top');
-        window.onscroll = () => {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        };
-        backToTopBtn.onclick = () => {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        };
-
-        function addEventListeners() {
-            yearFilter.addEventListener('change', applyFiltersAndRender);
-            typeFilter.addEventListener('change', applyFiltersAndRender);
-            topicFilter.addEventListener('change', applyFiltersAndRender);
-        }
-
-        document.addEventListener('DOMContentLoaded', initialize);
-    </script>
+document.addEventListener('DOMContentLoaded', init);
+</script>
 </body>
 </html>
