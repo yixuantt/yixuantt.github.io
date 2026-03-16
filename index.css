@@ -342,7 +342,7 @@ section + section h2 {
 
 /* Pub item - card-style separation */
 .pub-item {
-    padding: 16px 18px;
+    padding: 14px 16px;
     border: 1px solid var(--border);
     border-radius: 12px;
     background: var(--bg);
@@ -360,7 +360,7 @@ section + section h2 {
 .pub-item-img {
     display: grid;
     grid-template-columns: 56px minmax(0, 1fr);
-    gap: 20px;
+    gap: 16px;
     align-items: start;
 }
 
@@ -390,7 +390,7 @@ section + section h2 {
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .pub-body h3 {
@@ -448,7 +448,7 @@ section + section h2 {
 .pub-authors {
     font-size: 0.9rem;
     color: var(--text-muted);
-    margin: 0 0 6px;
+    margin: 0 0 4px;
     line-height: 1.6;
     word-break: break-word;
     overflow-wrap: anywhere;
@@ -459,7 +459,7 @@ section + section h2 {
     flex-wrap: wrap;
     gap: 10px;
     align-items: baseline;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .pub-venue {
@@ -482,6 +482,11 @@ section + section h2 {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+}
+
+/* Prevent trailing whitespace inside paper cards */
+.pub-body > *:last-child {
+    margin-bottom: 0;
 }
 
 .btn-link {
@@ -841,7 +846,7 @@ section + section h2 {
     }
 
     .pub-item {
-        padding: 20px 18px;
+        padding: 16px 16px;
     }
 
     .pub-item-img {
