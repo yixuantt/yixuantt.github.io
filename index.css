@@ -102,8 +102,8 @@ main a:focus-visible {
 }
 
 .sidebar .avatar {
-    width: 112px;
-    height: 112px;
+    width: 136px;
+    height: 136px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
@@ -850,8 +850,8 @@ section + section h2 {
     }
 
     .avatar {
-        width: 96px;
-        height: 96px;
+        width: 112px;
+        height: 112px;
     }
 
     #about p {
