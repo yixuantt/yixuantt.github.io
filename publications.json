@@ -1,5 +1,29 @@
 [
   {
+    "title": "KV-Embedding: Training-free Text Embedding via Internal KV Re-routing in Decoder-only LLMs",
+    "authors": ["Yixuan Tang", "Yi Yang"],
+    "venue": "Annual Meeting of the Association for Computational Linguistics (ACL) 2026",
+    "type": "Conference",
+    "year": 2026,
+    "url": "https://arxiv.org/pdf/2601.01046",
+    "code_url": "",
+    "tags": ["NLP", "Embeddings", "LLM"],
+    "category": "cs",
+    "bibtex": "@inproceedings{tang2026kvembedding,\n  title={{KV}-Embedding: Training-free Text Embedding via Internal {KV} Re-routing in Decoder-only {LLM}s},\n  author={Yixuan Tang and Yi Yang},\n  booktitle={The 64th Annual Meeting of the Association for Computational Linguistics},\n  year={2026},\n  url={https://openreview.net/forum?id=rYltOoxqux}\n}"
+  },
+  {
+    "title": "FLARE: Task-Agnostic Embedding Model Evaluation via Normalizing Flows",
+    "authors": ["Jingzhou Jiang", "Yixuan Tang", "Yi Yang", "Kar Yan Tam"],
+    "venue": "Annual Meeting of the Association for Computational Linguistics (ACL) 2026 Findings",
+    "type": "Conference",
+    "year": 2026,
+    "url": "https://openreview.net/forum?id=xa2kPwQWRH",
+    "code_url": "",
+    "tags": ["NLP", "Embeddings", "Evaluation"],
+    "category": "cs",
+    "bibtex": "@inproceedings{jiang2026flare,\n  title={{FLARE}: Task-Agnostic Embedding Model Evaluation via Normalizing Flows},\n  author={Jingzhou Jiang and Yixuan Tang and Yi Yang and Kar Yan Tam},\n  booktitle={Findings of the Association for Computational Linguistics: ACL 2026},\n  year={2026},\n  url={https://openreview.net/forum?id=xa2kPwQWRH}\n}"
+  },
+  {
     "title": "GAPrune: Gradient-Alignment Pruning for Domain-Aware Embeddings",
     "authors": ["Yixuan Tang", "Yi Yang"],
     "venue": "International Conference on Learning Representations (ICLR) 2026",

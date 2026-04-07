@@ -1,6 +1,10 @@
 [
     {
         "date": "Jan 2026",
+        "content": "Two papers accepted to <strong>ACL 2026</strong>: 'KV-Embedding' and 'FLARE'."
+    },
+    {
+        "date": "Jan 2026",
         "content": "One paper accepted to <strong>ICLR 2026</strong>: 'GAPrune'."
     },
     {
@@ -18,9 +22,5 @@
     {
         "date": "May 2024",
         "content": "Presented 'MultiHop-RAG' at <strong>COLM 2024</strong>."
-    },
-    {
-        "date": "Sep 2023",
-        "content": "Released <strong>InvestLM</strong>, a large language model for investment."
     }
 ]
