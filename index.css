@@ -6,9 +6,9 @@
     --text: #0f172a;
     /* Slightly darker for readability */
     --text-muted: #475569;
-    --bg: #ffffff;
-    --bg-subtle: #f8fafc;
-    --border: #e2e8f0;
+    --bg: #fffdf8;
+    --bg-subtle: #fff9f0;
+    --border: #ebe8df;
     --accent: #2563eb;
     --accent-soft: #dbeafe;
     --radius: 4px;
@@ -44,8 +44,8 @@ body::before {
     inset: 0;
     pointer-events: none;
     background:
-        radial-gradient(circle at 10% 20%, rgba(37,99,235,0.08) 0, transparent 55%),
-        radial-gradient(circle at 85% 80%, rgba(129,140,248,0.07) 0, transparent 55%);
+        radial-gradient(circle at 10% 20%, rgba(251,191,36,0.05) 0, transparent 55%),
+        radial-gradient(circle at 85% 80%, rgba(252,211,77,0.04) 0, transparent 55%);
     z-index: -1;
 }
 
@@ -81,7 +81,7 @@ main a:focus-visible {
 /* Page - horizontal two-column, wide layout */
 .page {
     display: grid;
-    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-columns: 280px minmax(0, 1fr);
     gap: 48px;
     max-width: 1120px;
     margin: 0 auto;
@@ -102,8 +102,8 @@ main a:focus-visible {
 }
 
 .sidebar .avatar {
-    width: 136px;
-    height: 136px;
+    width: 168px;
+    height: 168px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
@@ -244,12 +244,12 @@ section + section h2 {
     padding: 20px 24px;
     border: 1px solid var(--border);
     border-radius: 14px;
-    background: linear-gradient(180deg, #ffffff 0%, #fcfcfb 100%);
+    background: linear-gradient(180deg, #fffefb 0%, #fffaf3 100%);
     transition: border-color 0.2s ease;
 }
 
 .section:hover {
-    border-color: #d6d3d1;
+    border-color: #ddd6c8;
 }
 
 /* Simple fade-in animation on load */
@@ -850,8 +850,8 @@ section + section h2 {
     }
 
     .avatar {
-        width: 112px;
-        height: 112px;
+        width: 140px;
+        height: 140px;
     }
 
     #about p {
