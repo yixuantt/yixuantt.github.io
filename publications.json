@@ -53,13 +53,13 @@
     "authors": ["Yi Yang", "Yixuan Tang", "Yangyang Fan", "Kunpeng Zhang"],
     "venue": "Information Systems Research",
     "type": "Journal",
-    "year": "-",
+    "year": "2026",
     "url": "https://pubsonline.informs.org/doi/abs/10.1287/isre.2023.0519?mi=bpk24t&af=R&content=articlesChapters&field1=AllField&field2=AllField&field3=AllField&target=default&text1=Artificial+Intelligence&text2=AI&text3=A.I",
     "code_url": "",
     "tags": ["Finance", "Graph Neural Networks", "Financial Prediction"],
     "category": "business",
     "status": "",
-    "bibtex": "@article{yang2025learning,\n  title={Learning from Earnings Calls: Graph-Based Conversational Modeling for Financial Prediction},\n  author={Yang, Yi and Tang, Yixuan and Fan, Yangyang and Zhang, Kunpeng},\n  journal={Information Systems Research},\n  year={2025},\n  status={Accepted}\n}"
+    "bibtex": ""
   },
   {
     "title": "Evaluating and Aligning Human Economic Risk Preferences in LLMs",
