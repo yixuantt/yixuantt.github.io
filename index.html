@@ -4,118 +4,1116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yixuan Tang | NLP & Information Systems</title>
-    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
     <script>
-        MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
-            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
-        };
+        MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] } };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --text:        #18160f;
+            --text-muted:  #6b6455;
+            --bg:          #f9f7f2;
+            --bg-card:     #ffffff;
+            --bg-subtle:   #f2ede3;
+            --border:      #e6e0d0;
+            --accent:      #2952a3;
+            --accent-soft: rgba(41,82,163,0.08);
+            --accent-warm: #b84e0a;
+            --serif:  'DM Serif Display', Georgia, serif;
+            --sans:   'DM Sans', -apple-system, sans-serif;
+            --sidebar-w: 256px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            font-size: 15.5px;
+            line-height: 1.75;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* subtle dot grid */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background-image: radial-gradient(circle, rgba(0,0,0,0.055) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        a { color: inherit; text-decoration: none; transition: color .15s; }
+
+        /* ── SCROLL PROGRESS ─────────────────────────────── */
+        #scroll-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), oklch(0.62 0.18 200));
+            z-index: 999;
+            transition: width .1s linear;
+        }
+
+        /* ── AMBIENT BACKGROUND ──────────────────────────── */
+        .ambient { display: none; }
+
+        /* ── LAYOUT ──────────────────────────────────────── */
+        .page {
+            display: grid;
+            grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 36px 100px;
+            gap: 56px;
+            align-items: start;
+        }
+
+        /* ── SIDEBAR ─────────────────────────────────────── */
+        .sidebar {
+            position: sticky;
+            top: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-right: 16px;
+            border-right: 1px solid var(--border);
+        }
+
+        .sidebar-top-bar { display: none; }
+
+        .sidebar-social-divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+            margin: 16px 0 14px;
+        }
+
+        /* Avatar with animated ring */
+        .avatar-wrap {
+            position: relative;
+            margin-bottom: 22px;
+        }
+
+        .avatar-ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent) 0%, var(--border) 60%, var(--accent) 100%);
+            animation: spin-ring 12s linear infinite;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        @keyframes spin-ring {
+            to { transform: rotate(360deg); }
+        }
+
+        .avatar-bg {
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: var(--bg);
+            z-index: 1;
+        }
+
+        .avatar {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sidebar h1 {
+            font-family: var(--serif);
+            font-size: 1.55rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 6px;
+            animation: fadeDown 0.7s ease both;
+        }
+
+        .tagline {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            padding: 0 6px;
+            animation: fadeDown 0.7s 0.1s ease both;
+        }
+
+        .affiliation {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 6px;
+            color: var(--accent);
+            animation: fadeDown 0.7s 0.15s ease both;
+        }
+
+        .affiliation a:hover { text-decoration: underline; }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+
+
+        /* Nav */
+        .nav-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .nav-indicator {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background: var(--accent-soft);
+            border-radius: 8px;
+            transition: top 0.3s cubic-bezier(0.34, 1.4, 0.64, 1), height 0.2s;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            width: 100%;
+            position: relative;
+        }
+
+        .nav-links a {
+            font-size: 0.86rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            padding: 7px 13px;
+            border-radius: 8px;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-links a i {
+            width: 14px;
+            text-align: center;
+            font-size: 0.75rem;
+        }
+
+        .nav-links a.active { color: var(--accent); font-weight: 600; }
+        .nav-links a:hover  { color: var(--accent); }
+
+        /* Socials */
+        .socials {
+            display: flex;
+            gap: 6px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .socials a {
+            width: 33px; height: 33px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            transition: color .15s, border-color .15s, transform .15s, background .15s;
+        }
+
+        .socials a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-soft);
+            transform: translateY(-2px);
+        }
+
+        /* ── MAIN ────────────────────────────────────────── */
+        .main-wrap { min-width: 0; }
+
+        .section {
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: nowrap;
+        }
+
+        h2 .h2-icons { margin-left: 0; }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+
+        /* ── DECO STRIP ──────────────────────────────────── */
+        .deco-strip { display: none; }
+
+        .h2-icons {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .h2-icons svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent);
+            opacity: 0.5;
+            transition: opacity .2s, transform .2s;
+            flex-shrink: 0;
+        }
+
+        .h2-icons svg:hover {
+            opacity: 1;
+            transform: translateY(-2px) rotate(-5deg);
+        }
+
+        /* ── ABOUT ───────────────────────────────────────── */
+        #about p { margin-bottom: 11px; }
+        #about p:last-child { margin-bottom: 0; }
+        #about ul { margin: 10px 0 14px 0; padding-left: 20px; }
+        #about li { margin-bottom: 6px; line-height: 1.6; }
+        #about a { color: var(--accent); }
+        #about a:hover { text-decoration: underline; }
+
+        .research-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 14px;
+        }
+
+        .research-pill {
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: var(--bg-subtle);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            transition: background .15s, color .15s, border-color .15s, transform .15s;
+            cursor: default;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .research-pill:hover {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .research-pill i {
+            font-size: 0.68rem;
+            opacity: 0.7;
+        }
+
+        /* ── NEWS TIMELINE ───────────────────────────────── */
+        .news-list {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .news-list::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 6px;
+            bottom: 6px;
+            width: 1px;
+            background: linear-gradient(180deg, var(--accent), var(--border));
+        }
+
+        .news-item {
+            display: grid;
+            grid-template-columns: 76px 1fr;
+            gap: 14px;
+            padding: 8px 0;
+            font-size: 0.88rem;
+            align-items: baseline;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            position: relative;
+        }
+
+        .news-item::before {
+            content: '';
+            position: absolute;
+            left: -17px;
+            top: 14px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 0 2px var(--bg);
+        }
+
+        .news-item.visible { opacity: 1; transform: translateX(0); }
+
+        .news-date {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.77rem;
+            white-space: nowrap;
+        }
+
+        .news-content strong { color: var(--accent); font-weight: 600; }
+
+        /* ── FEATURED ────────────────────────────────────── */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 16px;
+        }
+
+        .featured-card {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+            transition: opacity 0.5s ease, transform 0.5s ease, box-shadow .25s, border-color .25s;
+            position: relative;
+        }
+
+        .featured-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), oklch(0.62 0.14 200));
+            opacity: 0;
+            transition: opacity .25s;
+            z-index: 1;
+        }
+
+        .featured-card:hover::before { opacity: 1; }
+
+        .featured-card.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .featured-card:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+            border-color: #ccc5b5;
+            transform: translateY(-4px) scale(1.01);
+        }
+
+        .featured-img {
+            width: 100%; height: 155px;
+            object-fit: cover;
+            display: block;
+            background: var(--bg-subtle);
+        }
+
+        .featured-body {
+            padding: 16px 18px 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .featured-body h3 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+
+        .featured-body h3 a:hover { color: var(--accent); }
+
+        .featured-venue {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+
+        .featured-authors {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-top: auto;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+        }
+
+        .featured-authors strong { color: var(--text); font-weight: 600; }
+
+        /* ── PUB CARDS ───────────────────────────────────── */
+        .pub-list { display: flex; flex-direction: column; gap: 0; }
+
+        .pub-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            border-left: none;
+            border-radius: 0;
+            background: transparent;
+            transition: opacity 0.45s ease, transform 0.45s ease;
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        .pub-item:first-child { padding-top: 0; }
+
+        .pub-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pub-item:hover { background: transparent; transform: none; box-shadow: none; }
+
+        .pub-title {
+            font-size: 0.93rem;
+            font-weight: 600;
+            line-height: 1.45;
+            margin-bottom: 4px;
+        }
+
+        .pub-title a:hover { color: var(--accent); }
+
+        .pub-authors {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            margin-bottom: 3px;
+            line-height: 1.55;
+        }
+
+        .pub-authors strong { color: var(--text); font-weight: 600; }
+
+        .pub-venue-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .pub-venue {
+            font-size: 0.81rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .pub-year {
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 1px 6px;
+            line-height: 1.6;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 6px;
+            line-height: 1.6;
+        }
+
+        .pub-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+
+        .tag {
+            font-size: 0.68rem;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: var(--bg-subtle);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            transition: background .15s, color .15s;
+        }
+
+        .tag:hover { background: var(--accent-soft); color: var(--accent); }
+
+        .status-published { background: #d1fae5; color: #065f46; }
+        .status-accepted  { background: #dbeafe; color: #1e40af; }
+        .status-revision  { background: #fef3c7; color: #92400e; }
+        .status-major     { background: #fee2e2; color: #991b1b; }
+        .status-review    { background: #f1f5f9; color: #475569; }
+        .status-default   { background: #f1f5f9; color: #64748b; }
+
+        /* ── FILTERS ─────────────────────────────────────── */
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .filter-controls select {
+            padding: 6px 12px;
+            font-size: 0.83rem;
+            font-family: var(--sans);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text);
+            cursor: pointer;
+            outline: none;
+            transition: border-color .15s;
+        }
+
+        .filter-controls select:focus { border-color: var(--accent); }
+
+        /* ── PAGINATION ──────────────────────────────────── */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .pagination button {
+            padding: 6px 12px;
+            font-size: 0.83rem;
+            font-family: var(--sans);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text);
+            cursor: pointer;
+            transition: all .15s;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .pagination button.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        .pagination button:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        /* ── EDUCATION ───────────────────────────────────── */
+        .edu-list { list-style: none; }
+
+        .edu-list li {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto auto;
+            gap: 0 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .edu-list li.visible { opacity: 1; transform: translateX(0); }
+        .edu-list li:last-child { border-bottom: none; }
+
+        .edu-title { font-weight: 600; font-size: 0.93rem; grid-column: 1; grid-row: 1; }
+        .edu-school { font-size: 0.85rem; color: var(--text-muted); grid-column: 1; grid-row: 2; }
+        .edu-year {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            grid-column: 2;
+            grid-row: 1 / 3;
+            align-self: center;
+            white-space: nowrap;
+        }
+
+        /* ── FOOTER ──────────────────────────────────────── */
+        footer {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-dots {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .footer-dots span {
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        .footer-dots span:nth-child(2) {
+            width: 6px; height: 6px;
+            background: color-mix(in srgb, var(--accent) 40%, var(--border));
+        }
+
+        /* ── BACK TO TOP ─────────────────────────────────── */
+        #back-to-top {
+            position: fixed;
+            bottom: 28px; right: 28px;
+            width: 38px; height: 38px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+            z-index: 50;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity .25s, transform .25s, color .15s, border-color .15s;
+            pointer-events: none;
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        #back-to-top:hover { color: var(--accent); border-color: var(--accent); }
+
+        /* ── MODAL ───────────────────────────────────────── */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+            pointer-events: none;
+            transition: background .2s;
+        }
+
+        .modal.show {
+            background: rgba(0,0,0,0.45);
+            pointer-events: auto;
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            max-width: 540px; width: 100%;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.15);
+            transform: translateY(16px) scale(0.97);
+            opacity: 0;
+            transition: transform .25s ease, opacity .25s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .modal-header h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; }
+
+        .modal-close-btn {
+            background: none; border: none;
+            font-size: 1.4rem; cursor: pointer;
+            color: var(--text-muted); line-height: 1;
+        }
+
+        .modal-close-btn:hover { color: var(--text); }
+
+        .code-block {
+            background: var(--bg-subtle);
+            padding: 14px 16px;
+            border-radius: 8px;
+            font-family: 'SF Mono', Consolas, monospace;
+            font-size: 0.77rem;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .modal-footer { margin-top: 14px; text-align: right; }
+
+        .modal-primary-btn {
+            padding: 8px 18px;
+            font-size: 0.88rem;
+            font-family: var(--sans);
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: opacity .15s;
+        }
+
+        .modal-primary-btn:hover { opacity: 0.88; }
+
+        /* ── SKELETON ────────────────────────────────────── */
+        .skel {
+            background: linear-gradient(90deg, var(--bg-subtle) 25%, var(--border) 50%, var(--bg-subtle) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.4s infinite;
+            border-radius: 6px;
+            height: 14px;
+        }
+
+        @keyframes shimmer {
+            to { background-position: -200% 0; }
+        }
+
+        .skel-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 15px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* ── TWEAKS ──────────────────────────────────────── */
+        #tweaks-panel {
+            position: fixed;
+            bottom: 28px; left: 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            z-index: 200;
+            width: 230px;
+            display: none;
+            flex-direction: column;
+            gap: 14px;
+            font-size: 0.84rem;
+        }
+
+        #tweaks-panel.show { display: flex; }
+
+        .tweaks-title {
+            font-weight: 600;
+            font-size: 0.86rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tweaks-close {
+            background: none; border: none;
+            cursor: pointer; color: var(--text-muted);
+            font-size: 1rem; line-height: 1;
+        }
+
+        .tweak-row label {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.76rem;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .tweak-row select, .tweak-row input[type="color"] {
+            width: 100%;
+            padding: 6px 10px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            font-size: 0.81rem;
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .tweak-row input[type="color"] { height: 34px; padding: 3px 6px; }
+
+        /* ── RESPONSIVE ──────────────────────────────────── */
+        @media (max-width: 760px) {
+            .page {
+                grid-template-columns: 1fr;
+                padding: 24px 18px 60px;
+                gap: 28px;
+            }
+
+            .sidebar {
+                position: static;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 24px;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                border: 1px solid var(--border);
+                padding: 5px 12px;
+                border-radius: 999px;
+            }
+
+            .nav-indicator { display: none; }
+            .featured-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .page { padding: 16px 14px 60px; }
+            .edu-list li { grid-template-columns: 1fr; }
+            .edu-year { grid-row: auto; }
+        }
+    </style>
 </head>
 <body>
 
+<div id="scroll-bar"></div>
+
+<div class="ambient">
+    <div class="ambient-blob"></div>
+    <div class="ambient-blob"></div>
+    <div class="ambient-blob"></div>
+</div>
+
 <div class="page">
+
+    <!-- ──── SIDEBAR ──────────────────────────────────── -->
     <aside class="sidebar">
-        <img class="avatar" src="images/profile.jpg" alt="Yixuan Tang" loading="lazy">
+        <div class="avatar-wrap">
+            <div class="avatar-ring"></div>
+            <div class="avatar-bg"></div>
+            <img class="avatar" src="images/profile.jpg" alt="Yixuan Tang" loading="lazy">
+        </div>
         <h1>Yixuan Tang</h1>
-        <p class="tagline">PhD Student in NLP & Information Systems</p>
+        <p class="tagline">PhD Student in NLP &amp;<br>Information Systems</p>
         <p class="affiliation"><a href="https://hkust.edu.hk/" target="_blank">HKUST</a></p>
-        <nav class="nav-links">
-            <a href="#about">About</a>
-            <a href="#business-publications">Publications</a>
-            <a href="#education">Education</a>
+
+        <div class="nav-wrap">
+            <div class="nav-indicator" id="nav-indicator"></div>
+            <nav class="nav-links" id="nav-links">
+                <a href="#about"                ><i class="fas fa-user"></i> About</a>
+                <a href="#news"                 ><i class="fas fa-newspaper"></i> News</a>
+                <a href="#featured"             ><i class="fas fa-star"></i> Featured</a>
+                <a href="#business-publications"><i class="fas fa-briefcase"></i> IS Pubs</a>
+                <a href="#publications"         ><i class="fas fa-file-alt"></i> AI &amp; NLP</a>
+                <a href="#education"            ><i class="fas fa-graduation-cap"></i> Education</a>
+            </nav>
+        </div>
+
+        <div class="sidebar-social-divider"></div>
+        <div class="socials">
             <a href="mailto:ytangch@connect.ust.hk" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://scholar.google.com/citations?hl=en&user=4Q9Gje0AAAAJ" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
             <a href="https://github.com/yixuantt" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/yixuan-tang-2023yixuan/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        </nav>
+        </div>
     </aside>
 
+    <!-- ──── MAIN ─────────────────────────────────────── -->
     <div class="main-wrap">
-    <main>
-        <section id="about" class="section">
-            <h2>About</h2>
-            <p>I am a PhD student at <a href="https://hkust.edu.hk/" target="_blank">HKUST</a>, advised by <a href="https://yya518.github.io/index" target="_blank">Prof. Yi Yang</a>. My work lies at the intersection of <strong>NLP</strong> and <strong>Information Systems</strong>.</p>
-            <p>My research spans:</p>
-            <ul>
-                <li><strong>Financial Intelligence:</strong> Specialized LLMs and benchmarks for financial text analysis.</li>
-                <li><strong>LLM Alignment & Adaptation:</strong> Developing and evaluating language models for reliability, controllability, and human-centered behavior.</li>
-                <li><strong>Representation Learning & Embeddings:</strong> Embedding models for complex scenarios.</li>
-            </ul>
-        </section>
+        <main>
 
-        <section id="news" class="section">
-            <h2>News</h2>
-            <div id="news-table" class="news-table">
-                <div class="loading">Loading news...</div>
+            <section id="about" class="section">
+                <h2>About <span class="h2-icons">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 5c-2.5 0-4.5 1.75-4.5 4 0 1 .4 1.9 1 2.6-.6.7-1 1.6-1 2.6 0 2.2 2 4 4.5 4s4.5-1.8 4.5-4c0-.95-.4-1.8-1-2.6.6-.7 1-1.6 1-2.6 0-2.25-2-4-4.5-4z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5v14M9 8.5H7.5M9 12H7M9 15.5H7.5M15 8.5h1.5M15 12h2M15 15.5h1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="11" height="15" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M7 8h5M7 11h5M7 14h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="17.5" cy="18.5" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M20 21l1.5 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M6 20v-6M10 20v-9M14 20v-7M18 20V7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M6 11l4-4 4 3 4-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3a7 7 0 0 1 4 12.6c-.8.7-1.3 1.6-1.3 2.5v.9H9.3v-.9c0-.9-.5-1.8-1.3-2.5A7 7 0 0 1 12 3z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M9.3 19v1.2a2.7 2.7 0 0 0 5.4 0V19" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M12 3V2M7 5L6 4M17 5l1-1M5 12H4M19 12h1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                </span></h2>
+                <p>I am a PhD student at <a href="https://hkust.edu.hk/" target="_blank">HKUST</a>, advised by <a href="https://yya518.github.io/index" target="_blank">Prof. Yi Yang</a>. My work lies at the intersection of <strong>NLP</strong> and <strong>Information Systems</strong>.</p>
+                <p>My research spans:</p>
+                <ul>
+                    <li><strong>Financial Intelligence:</strong> Specialized LLMs and benchmarks for financial text analysis.</li>
+                    <li><strong>LLM Alignment &amp; Adaptation:</strong> Developing and evaluating language models for reliability, controllability, and human-centered behavior.</li>
+                    <li><strong>Representation Learning &amp; Embeddings:</strong> Embedding models for complex scenarios.</li>
+                </ul>
+
+            </section>
+
+            <!-- Decorative icon strip -->
+            <div class="deco-strip">
+                <!-- Brain / NLP -->
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 10c-5 0-9 3.5-9 8 0 2 .8 3.8 2 5.2C15.8 24.4 15 26.1 15 28c0 4.4 4 8 9 8s9-3.6 9-8c0-1.9-.8-3.6-2-4.8 1.2-1.4 2-3.2 2-5.2 0-4.5-4-8-9-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 10v26M18 17h-3M18 24h-4M18 31h-3M30 17h3M30 24h4M30 31h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <!-- Document + magnifier (RAG) -->
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="8" width="20" height="26" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M15 15h10M15 20h10M15 25h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="33" cy="35" r="5" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M37 39l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <!-- Chart / Finance -->
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 38h28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M14 38V28M20 38V20M26 38V25M32 38V14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M14 24l6-6 6 4 8-10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="34" cy="12" r="2" fill="currentColor"/>
+                </svg>
+                <!-- Vector grid (Embeddings) -->
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="14" cy="14" r="3" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="34" cy="14" r="3" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="14" cy="34" r="3" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="34" cy="34" r="3" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="24" cy="24" r="3.5" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M17 14h14M14 17v14M34 17v14M17 34h14M20 21l-4-4M28 21l4-4M20 27l-4 4M28 27l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+                </svg>
+                <!-- Lightbulb / LLM Alignment -->
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 10a10 10 0 0 1 6 18c-1.2 1-2 2.4-2 3.8V33h-8v-1.2c0-1.4-.8-2.8-2-3.8A10 10 0 0 1 24 10z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M20 33v2a4 4 0 0 0 8 0v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M24 10V8M14 14l-1.5-1.5M34 14l1.5-1.5M11 24H9M37 24h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
             </div>
-        </section>
 
-        <section id="featured" class="section">
-            <h2>Featured Research</h2>
-            <div id="featured-projects-container" class="pub-list">
-                <div class="loading">Loading featured projects...</div>
-            </div>
-        </section>
+            <section id="news" class="section">
+                <h2>News</h2>
+                <div id="news-container">
+                    <div class="skel-card">
+                        <div class="skel" style="width:60%"></div>
+                        <div class="skel" style="width:80%"></div>
+                        <div class="skel" style="width:70%"></div>
+                    </div>
+                </div>
+            </section>
 
-        <section id="business-publications" class="section">
-            <h2>Business & IS Publications</h2>
-            <div id="business-publication-list-container" class="pub-list">
-                <div class="loading">Loading publications...</div>
-            </div>
-        </section>
+            <section id="featured" class="section">
+                <h2>Featured Research</h2>
+                <div id="featured-container" class="featured-grid">
+                    <div class="skel-card"><div class="skel" style="height:155px;border-radius:8px;margin-bottom:8px"></div><div class="skel" style="width:80%"></div><div class="skel" style="width:55%"></div></div>
+                    <div class="skel-card"><div class="skel" style="height:155px;border-radius:8px;margin-bottom:8px"></div><div class="skel" style="width:75%"></div><div class="skel" style="width:60%"></div></div>
+                </div>
+            </section>
 
-        <section id="publications" class="section">
-            <h2>AI & NLP Publications</h2>
-            <div class="filter-controls">
-                <select id="filter-year"><option value="all">All years</option></select>
-                <select id="filter-type">
-                    <option value="all">All types</option>
-                    <option value="Conference">Conference</option>
-                    <option value="Journal">Journal</option>
-                    <option value="Project">Project</option>
-                    <option value="Preprint">Preprint</option>
-                </select>
-                <select id="filter-topic"><option value="all">All topics</option></select>
-            </div>
-            <div id="publication-list-container" class="pub-list">
-                <div class="loading">Loading publications...</div>
-            </div>
-            <div id="pagination-controls" class="pagination"></div>
-        </section>
+            <section id="business-publications" class="section">
+                <h2>Business &amp; IS Publications</h2>
+                <div id="business-list" class="pub-list">
+                    <div class="skel-card"><div class="skel" style="width:75%"></div><div class="skel" style="width:55%"></div></div>
+                </div>
+            </section>
 
-        <section id="education" class="section">
-            <h2>Education</h2>
-            <ul class="edu-list">
-                <li>
-                    <span class="edu-title">MPhil in Information Systems</span>
-                    <span class="edu-school">The Hong Kong University of Science and Technology</span>
-                    <span class="edu-year">2024 – Present</span>
-                </li>
-                <li>
-                    <span class="edu-title">Master in Big Data Technology</span>
-                    <span class="edu-school">The Hong Kong University of Science and Technology</span>
-                    <span class="edu-year">2021 – 2022</span>
-                </li>
-                <li>
-                    <span class="edu-title">Bachelor in Computer Science</span>
-                    <span class="edu-school">Chongqing University</span>
-                    <span class="edu-year">2017 – 2021</span>
-                </li>
-            </ul>
-        </section>
-    </main>
+            <section id="publications" class="section">
+                <h2>AI &amp; NLP Publications</h2>
+                <div class="filter-controls">
+                    <select id="filter-year"><option value="all">All years</option></select>
+                    <select id="filter-type">
+                        <option value="all">All types</option>
+                        <option value="Conference">Conference</option>
+                        <option value="Journal">Journal</option>
+                        <option value="Project">Project</option>
+                        <option value="Preprint">Preprint</option>
+                    </select>
+                    <select id="filter-topic"><option value="all">All topics</option></select>
+                </div>
+                <div id="pub-list" class="pub-list">
+                    <div class="skel-card"><div class="skel" style="width:80%"></div><div class="skel" style="width:60%"></div></div>
+                    <div class="skel-card"><div class="skel" style="width:70%"></div><div class="skel" style="width:50%"></div></div>
+                    <div class="skel-card"><div class="skel" style="width:75%"></div><div class="skel" style="width:55%"></div></div>
+                </div>
+                <div id="pagination" class="pagination"></div>
+            </section>
 
-    <footer id="contact">
-        <p>&copy; 2025 Yixuan Tang</p>
-    </footer>
+            <section id="education" class="section">
+                <h2>Education</h2>
+                <ul class="edu-list">
+                    <li>
+                        <span class="edu-title">MPhil in Information Systems</span>
+                        <span class="edu-school">The Hong Kong University of Science and Technology</span>
+                        <span class="edu-year">2024 – Present</span>
+                    </li>
+                    <li>
+                        <span class="edu-title">Master in Big Data Technology</span>
+                        <span class="edu-school">The Hong Kong University of Science and Technology</span>
+                        <span class="edu-year">2021 – 2022</span>
+                    </li>
+                    <li>
+                        <span class="edu-title">Bachelor in Computer Science</span>
+                        <span class="edu-school">Chongqing University</span>
+                        <span class="edu-year">2017 – 2021</span>
+                    </li>
+                </ul>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="footer-dots"><span></span><span></span><span></span></div>
+            <p>&copy; 2025 Yixuan Tang &middot; HKUST</p>
+        </footer>
+    </div>
 </div>
 
-<div id="back-to-top" class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
+<div id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up" style="font-size:.75rem"></i>
 </div>
 
 <div id="cite-modal" class="modal">
@@ -131,161 +1129,338 @@
     </div>
 </div>
 
+<div id="tweaks-panel">
+    <div class="tweaks-title">
+        Tweaks
+        <button class="tweaks-close" id="tweaks-close-btn">&times;</button>
+    </div>
+    <div class="tweak-row">
+        <label>Accent color</label>
+        <input type="color" id="tweak-accent" value="#2952a3">
+    </div>
+    <div class="tweak-row">
+        <label>Font pairing</label>
+        <select id="tweak-font">
+            <option value="dm">DM Sans / DM Serif</option>
+            <option value="source">Source Sans / Source Serif</option>
+            <option value="system">System UI</option>
+        </select>
+    </div>
+    <div class="tweak-row">
+        <label>Background tone</label>
+        <select id="tweak-bg">
+            <option value="warm">Warm cream</option>
+            <option value="white">Crisp white</option>
+            <option value="cool">Cool grey</option>
+        </select>
+    </div>
+    <div class="tweak-row">
+        <label>Ambient blobs</label>
+        <select id="tweak-blobs">
+            <option value="on">On</option>
+            <option value="off">Off</option>
+        </select>
+    </div>
+</div>
+
 <script>
-let allPublications = [], allNews = [], filteredPublications = [], currentPage = 1;
-const itemsPerPage = 10;
+/* ─── Data ──────────────────────────────────────── */
+let allPubs = [], allNews = [], filtered = [], page = 1;
+const PER_PAGE = 10;
 
-const newsContainer = document.getElementById('news-table');
-const featuredContainer = document.getElementById('featured-projects-container');
-const listContainer = document.getElementById('publication-list-container');
-const businessListContainer = document.getElementById('business-publication-list-container');
-const paginationControls = document.getElementById('pagination-controls');
-const yearFilter = document.getElementById('filter-year');
-const typeFilter = document.getElementById('filter-type');
-const topicFilter = document.getElementById('filter-topic');
-const citeModal = document.getElementById('cite-modal');
-const bibtexContent = document.getElementById('bibtex-content');
-const closeModalBtn = document.getElementById('close-modal-btn');
-const copyBibtexBtn = document.getElementById('copy-bibtex-btn');
+/* ─── DOM refs ──────────────────────────────────── */
+const $ = id => document.getElementById(id);
+const newsEl      = $('news-container');
+const featuredEl  = $('featured-container');
+const businessEl  = $('business-list');
+const pubListEl   = $('pub-list');
+const paginationEl= $('pagination');
+const yearSel     = $('filter-year');
+const typeSel     = $('filter-type');
+const topicSel    = $('filter-topic');
+const citeModal   = $('cite-modal');
+const bibtexEl    = $('bibtex-content');
+const scrollBar   = $('scroll-bar');
+const backBtn     = $('back-to-top');
 
-function getAuthorsHTML(authors) {
-    return authors.map(a => a === 'Yixuan Tang' ? `<strong>${a}</strong>` : a).join(', ');
+/* ─── Scroll progress ───────────────────────────── */
+window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    scrollBar.style.width = (window.scrollY / h * 100) + '%';
+    backBtn.classList.toggle('show', window.scrollY > 300);
+    updateNav();
+}, { passive: true });
+
+backBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+/* ─── IntersectionObserver for sections ─────────── */
+const sectionObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            sectionObs.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.06 });
+
+document.querySelectorAll('.section').forEach(s => sectionObs.observe(s));
+
+/* ─── Staggered child observer ──────────────────── */
+function observeChildren(parent, selector) {
+    const childObs = new IntersectionObserver(entries => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('visible'), i * 60);
+                childObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.05 });
+    parent.querySelectorAll(selector).forEach(el => childObs.observe(el));
 }
 
-function getLinksHTML(pub) {
-    return '';
+/* ─── Active nav + indicator ────────────────────── */
+const sections   = ['about','news','featured','business-publications','publications','education'];
+const navLinks   = document.querySelectorAll('.nav-links a');
+const indicator  = $('nav-indicator');
+
+function updateNav() {
+    let current = sections[0];
+    sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY + 120 >= el.offsetTop) current = id;
+    });
+    navLinks.forEach(a => {
+        const active = a.getAttribute('href').slice(1) === current;
+        a.classList.toggle('active', active);
+        if (active && indicator) {
+            indicator.style.top  = a.offsetTop + 'px';
+            indicator.style.height = a.offsetHeight + 'px';
+        }
+    });
 }
 
-function getStatusBadge(status) {
-    if (!status) return '';
-    const c = status.toLowerCase();
+window.addEventListener('load', updateNav);
+
+/* ─── Helpers ───────────────────────────────────── */
+function authorHTML(list) {
+    return list.map(a => a === 'Yixuan Tang' ? `<strong>${a}</strong>` : a).join(', ');
+}
+
+function statusBadge(s) {
+    if (!s) return '';
+    const c = s.toLowerCase();
     let cls = 'status-default';
-    if (c.includes('published')) cls = 'status-published';
-    else if (c.includes('accepted')) cls = 'status-accepted';
-    else if (c.includes('minor') || c.includes('revision')) cls = 'status-revision';
-    else if (c.includes('major')) cls = 'status-major';
-    else if (c.includes('review')) cls = 'status-review';
-    return `<span class="badge ${cls}">${status}</span>`;
+    if (c.includes('published'))                  cls = 'status-published';
+    else if (c.includes('accepted'))              cls = 'status-accepted';
+    else if (c.includes('minor')||c.includes('revision')) cls = 'status-revision';
+    else if (c.includes('major'))                 cls = 'status-major';
+    else if (c.includes('review'))                cls = 'status-review';
+    return `<span class="badge ${cls}">${s}</span>`;
 }
 
-function createPubItem(pub, showImage, showStatus) {
-    const badge = showStatus ? getStatusBadge(pub.status) : '';
-    const links = getLinksHTML(pub);
-    const img = showImage && pub.image_url
-        ? `<div class="pub-img"><img src="${pub.image_url}" alt="" loading="lazy"></div>` : '';
+function tagsHTML(tags) {
+    if (!tags?.length) return '';
+    return `<div class="pub-tags">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`;
+}
+
+function pubCard(pub, showStatus) {
     return `
-        <article class="pub-item ${img ? 'pub-item-img' : ''}">
-            ${img}
-            <div class="pub-body">
-                <div class="pub-title-row">
-                    <h3 class="pub-title"><a href="${pub.url || '#'}" target="_blank">${pub.title}</a></h3>
-                    ${badge}
-                </div>
-                <div class="pub-authors">${getAuthorsHTML(pub.authors)}</div>
-                <div class="pub-venue-row">
-                    <span class="pub-venue">${pub.venue}</span>
-                    <span class="pub-year">${pub.year}</span>
-                </div>
-                ${links}
+    <article class="pub-item">
+        <div class="pub-title" style="display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+            <h3 style="font-size:0.93rem;font-weight:600;flex:1 1 280px;line-height:1.45">
+                <a href="${pub.url||'#'}" target="_blank">${pub.title}</a>
+            </h3>
+            ${showStatus ? statusBadge(pub.status) : ''}
+        </div>
+        <div class="pub-authors">${authorHTML(pub.authors)}</div>
+        <div class="pub-venue-row">
+            <span class="pub-venue">${pub.venue}</span>
+            <span class="pub-year">${pub.year}</span>
+        </div>
+    </article>`;
+}
+
+/* ─── Render ────────────────────────────────────── */
+function renderNews() {
+    if (!allNews.length) { newsEl.innerHTML = '<p style="color:var(--text-muted)">No news yet.</p>'; return; }
+    newsEl.innerHTML = `<div class="news-list">${allNews.slice(0,5).map(n =>
+        `<div class="news-item">
+            <span class="news-date">${n.date}</span>
+            <span class="news-content">${n.content}</span>
+        </div>`
+    ).join('')}</div>`;
+    observeChildren(newsEl, '.news-item');}
+
+function renderFeatured() {
+    const f = allPubs.filter(p => p.featured);
+    if (!f.length) { $('featured').style.display='none'; return; }
+    featuredEl.innerHTML = f.map(pub => `
+        <article class="featured-card">
+            ${pub.image_url
+                ? `<img class="featured-img" src="${pub.image_url}" alt="${pub.title}" loading="lazy">`
+                : `<div class="featured-img" style="background:var(--bg-subtle);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:.8rem">Research image</div>`}
+            <div class="featured-body">
+                <h3><a href="${pub.url||'#'}" target="_blank">${pub.title}</a></h3>
+                <p class="featured-venue">${pub.venue}</p>
+                <p class="featured-authors">${authorHTML(pub.authors)}</p>
             </div>
         </article>
-    `;
+    `).join('');
+    observeChildren(featuredEl, '.featured-card');
 }
 
+function renderBusiness() {
+    const b = allPubs.filter(p => p.category === 'business');
+    if (!b.length) { $('business-publications').style.display='none'; return; }
+    businessEl.innerHTML = b.map(p => pubCard(p, true)).join('');
+    observeChildren(businessEl, '.pub-item');
+}
+
+function populateFilters() {
+    const years  = [...new Set(allPubs.map(p=>p.year).filter(Boolean))].sort((a,b)=>b-a);
+    const topics = [...new Set(allPubs.flatMap(p=>p.tags||[]))].sort();
+    years.forEach(y  => { const o=document.createElement('option'); o.value=y; o.textContent=y; yearSel.appendChild(o); });
+    topics.forEach(t => { const o=document.createElement('option'); o.value=t; o.textContent=t; topicSel.appendChild(o); });
+}
+
+function applyFilters() {
+    const y=yearSel.value, ty=typeSel.value, to=topicSel.value;
+    filtered = allPubs.filter(p => {
+        if (p.category==='business') return false;
+        if (y!=='all' && p.year!=y) return false;
+        if (ty!=='all' && p.type!==ty) return false;
+        if (to!=='all' && !(p.tags||[]).includes(to)) return false;
+        return true;
+    });
+    page = 1;
+    renderPage();
+}
+
+function renderPage() {
+    const items = filtered.slice((page-1)*PER_PAGE, page*PER_PAGE);
+    pubListEl.innerHTML = items.length
+        ? items.map(p=>pubCard(p,false)).join('')
+        : '<p style="color:var(--text-muted)">No publications match.</p>';
+    observeChildren(pubListEl, '.pub-item');
+    renderPagination();
+}
+
+function renderPagination() {
+    const total = Math.ceil(filtered.length/PER_PAGE);
+    if (total<=1) { paginationEl.innerHTML=''; return; }
+    let html = `<button ${page===1?'disabled':''} onclick="goPage(${page-1})">&#8592;</button>`;
+    for (let i=1;i<=total;i++) html+=`<button class="${i===page?'active':''}" onclick="goPage(${i})">${i}</button>`;
+    html += `<button ${page===total?'disabled':''} onclick="goPage(${page+1})">&#8594;</button>`;
+    paginationEl.innerHTML = html;
+}
+
+window.goPage = function(p) {
+    page = p;
+    renderPage();
+    const el = $('publications');
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 28, behavior: 'smooth' });
+};
+
+/* ─── Modal ─────────────────────────────────────── */
+window.showCite = enc => { bibtexEl.textContent = decodeURIComponent(enc); citeModal.classList.add('show'); };
+$('close-modal-btn').onclick = () => citeModal.classList.remove('show');
+$('copy-bibtex-btn').onclick = () => {
+    navigator.clipboard.writeText(bibtexEl.textContent);
+    $('copy-bibtex-btn').textContent = 'Copied!';
+    setTimeout(() => $('copy-bibtex-btn').textContent = 'Copy', 2000);
+};
+citeModal.onclick = e => { if (e.target===citeModal) citeModal.classList.remove('show'); };
+
+/* ─── Education stagger ─────────────────────────── */
+const eduObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            document.querySelectorAll('.edu-list li').forEach((li, i) => {
+                setTimeout(() => li.classList.add('visible'), i * 80);
+            });
+            eduObs.disconnect();
+        }
+    });
+}, { threshold: 0.1 });
+
+eduObs.observe(document.getElementById('education'));
+
+/* ─── Tweaks ────────────────────────────────────── */
+const tweaksPanel = $('tweaks-panel');
+
+window.addEventListener('message', e => {
+    if (e.data?.type === '__activate_edit_mode')   tweaksPanel.classList.add('show');
+    if (e.data?.type === '__deactivate_edit_mode') tweaksPanel.classList.remove('show');
+});
+window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+$('tweaks-close-btn').onclick = () => {
+    tweaksPanel.classList.remove('show');
+    window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
+};
+
+$('tweak-accent').addEventListener('input', e => {
+    document.documentElement.style.setProperty('--accent', e.target.value);
+    const r = parseInt(e.target.value.slice(1,3),16);
+    const g = parseInt(e.target.value.slice(3,5),16);
+    const b = parseInt(e.target.value.slice(5,7),16);
+    document.documentElement.style.setProperty('--accent-soft', `rgba(${r},${g},${b},0.08)`);
+});
+
+$('tweak-font').addEventListener('change', e => {
+    const v = e.target.value;
+    if (v === 'source') {
+        document.documentElement.style.setProperty('--sans', "'Source Sans 3', sans-serif");
+        document.documentElement.style.setProperty('--serif', "'Source Serif 4', Georgia, serif");
+    } else if (v === 'system') {
+        document.documentElement.style.setProperty('--sans', "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif");
+        document.documentElement.style.setProperty('--serif', "Georgia, serif");
+    } else {
+        document.documentElement.style.setProperty('--sans', "'DM Sans', sans-serif");
+        document.documentElement.style.setProperty('--serif', "'DM Serif Display', Georgia, serif");
+    }
+});
+
+$('tweak-bg').addEventListener('change', e => {
+    const v = e.target.value;
+    if (v === 'white') {
+        document.documentElement.style.setProperty('--bg', '#ffffff');
+        document.documentElement.style.setProperty('--bg-subtle', '#f5f5f5');
+        document.documentElement.style.setProperty('--border', '#e5e5e5');
+    } else if (v === 'cool') {
+        document.documentElement.style.setProperty('--bg', '#f4f6f8');
+        document.documentElement.style.setProperty('--bg-subtle', '#eceef2');
+        document.documentElement.style.setProperty('--border', '#dde0e8');
+    } else {
+        document.documentElement.style.setProperty('--bg', '#f9f7f2');
+        document.documentElement.style.setProperty('--bg-subtle', '#f2ede3');
+        document.documentElement.style.setProperty('--border', '#e6e0d0');
+    }
+});
+
+$('tweak-blobs').addEventListener('change', e => {
+    document.querySelector('.ambient').style.display = e.target.value === 'off' ? 'none' : '';
+});
+
+/* ─── Init ──────────────────────────────────────── */
 async function init() {
     try {
-        const [pubRes, newsRes] = await Promise.all([
-            fetch('publications.json'),
-            fetch('news.json')
-        ]);
-        if (!pubRes.ok || !newsRes.ok) throw new Error('Failed to load data');
-        allPublications = (await pubRes.json()).sort((a, b) => (b.year || 0) - (a.year || 0));
-        allNews = await newsRes.json();
-
+        const [pRes, nRes] = await Promise.all([fetch('publications.json'), fetch('news.json')]);
+        allPubs  = (await pRes.json()).sort((a,b)=>(b.year||0)-(a.year||0));
+        allNews  = await nRes.json();
         renderNews();
         renderFeatured();
         renderBusiness();
         populateFilters();
         applyFilters();
-
-        [yearFilter, typeFilter, topicFilter].forEach(el => el?.addEventListener('change', applyFilters));
-    } catch (e) {
-        console.error(e);
-        if (newsContainer) newsContainer.innerHTML = '<p>Failed to load news.</p>';
-        if (featuredContainer) featuredContainer.innerHTML = '<p>Failed to load.</p>';
-        if (listContainer) listContainer.innerHTML = '<p>Failed to load.</p>';
+        [yearSel, typeSel, topicSel].forEach(el => el.addEventListener('change', applyFilters));
+    } catch(err) {
+        console.error(err);
+        [newsEl, featuredEl, businessEl, pubListEl].forEach(el => {
+            if (el) el.innerHTML = '<p style="color:var(--text-muted)">Failed to load data.</p>';
+        });
     }
 }
-
-function renderNews() {
-    if (!newsContainer) return;
-    if (!allNews.length) { newsContainer.innerHTML = '<p>No news yet.</p>'; return; }
-    newsContainer.innerHTML = `<table><tbody>${
-        allNews.slice(0, 5).map(n => `<tr><td class="date">${n.date}</td><td>${n.content}</td></tr>`).join('')
-    }</tbody></table>`;
-}
-
-function renderFeatured() {
-    if (!featuredContainer) return;
-    const f = allPublications.filter(p => p.featured);
-    if (!f.length) { featuredContainer.closest('section').style.display = 'none'; return; }
-    featuredContainer.innerHTML = f.map(p => createPubItem(p, true, false)).join('');
-}
-
-function renderBusiness() {
-    if (!businessListContainer) return;
-    const b = allPublications.filter(p => p.category === 'business');
-    if (!b.length) { document.getElementById('business-publications').style.display = 'none'; return; }
-    businessListContainer.innerHTML = b.map(p => createPubItem(p, false, true)).join('');
-}
-
-function populateFilters() {
-    const years = [...new Set(allPublications.map(p => p.year).filter(Boolean))].sort((a, b) => b - a);
-    const topics = [...new Set(allPublications.flatMap(p => p.tags || []))].sort();
-    years.forEach(y => { const o = document.createElement('option'); o.value = y; o.textContent = y; yearFilter.appendChild(o); });
-    topics.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; topicFilter.appendChild(o); });
-}
-
-function applyFilters() {
-    const y = yearFilter.value, ty = typeFilter.value, to = topicFilter.value;
-    filteredPublications = allPublications.filter(p => {
-        if (p.category === 'business') return false;
-        if (y !== 'all' && p.year != y) return false;
-        if (ty !== 'all' && p.type !== ty) return false;
-        if (to !== 'all' && !(p.tags || []).includes(to)) return false;
-        return true;
-    });
-    currentPage = 1;
-    renderPage();
-}
-
-function renderPage() {
-    if (!listContainer) return;
-    const items = filteredPublications.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-    listContainer.innerHTML = items.length ? items.map(p => createPubItem(p, false, false)).join('') : '<p>No publications match.</p>';
-    renderPagination();
-}
-
-function renderPagination() {
-    if (!paginationControls) return;
-    const total = Math.ceil(filteredPublications.length / itemsPerPage);
-    if (total <= 1) { paginationControls.innerHTML = ''; return; }
-    let html = `<button ${currentPage === 1 ? 'disabled' : ''} onclick="goPage(${currentPage - 1})">Previous</button>`;
-    for (let i = 1; i <= total; i++) html += `<button class="${i === currentPage ? 'active' : ''}" onclick="goPage(${i})">${i}</button>`;
-    html += `<button ${currentPage === total ? 'disabled' : ''} onclick="goPage(${currentPage + 1})">Next</button>`;
-    paginationControls.innerHTML = html;
-}
-
-function goPage(p) { currentPage = p; renderPage(); document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' }); }
-
-window.showCiteModal = function(b) { bibtexContent.textContent = decodeURIComponent(b); citeModal.classList.add('show'); };
-closeModalBtn.onclick = () => citeModal.classList.remove('show');
-copyBibtexBtn.onclick = () => { navigator.clipboard.writeText(bibtexContent.textContent); copyBibtexBtn.textContent = 'Copied!'; setTimeout(() => copyBibtexBtn.textContent = 'Copy', 2000); };
-citeModal.onclick = e => { if (e.target === citeModal) citeModal.classList.remove('show'); };
-
-const backBtn = document.getElementById('back-to-top');
-window.onscroll = () => backBtn.classList.toggle('show', window.scrollY > 300);
-backBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
 document.addEventListener('DOMContentLoaded', init);
 </script>
