@@ -1,5 +1,29 @@
 [
   {
+    "title": "Crowded in B-Space: Calibrating Shared Directions for LoRA Merging",
+    "authors": ["Yixuan Tang", "Yi Yang"],
+    "venue": "Conference on Neural Information Processing Systems (NeurIPS) 2026",
+    "type": "Conference",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2604.16826",
+    "code_url": "",
+    "tags": ["LLM", "Model Merging", "LoRA"],
+    "category": "cs",
+    "bibtex": "@inproceedings{tang2026crowded,\n  title={Crowded in {B}-Space: Calibrating Shared Directions for {LoRA} Merging},\n  author={Yixuan Tang and Yi Yang},\n  booktitle={The 40th Annual Conference on Neural Information Processing Systems},\n  year={2026},\n  url={https://arxiv.org/abs/2604.16826}\n}"
+  },
+  {
+    "title": "SR-GRPO: Stable Rank as an Intrinsic Geometric Reward for Large Language Model Alignment",
+    "authors": ["Yixuan Tang", "Yi Yang"],
+    "venue": "Conference on Neural Information Processing Systems (NeurIPS) 2026",
+    "type": "Conference",
+    "year": 2026,
+    "url": "https://arxiv.org/abs/2512.02807",
+    "code_url": "",
+    "tags": ["LLM", "Alignment", "Reinforcement Learning"],
+    "category": "cs",
+    "bibtex": "@inproceedings{tang2026srgrpo,\n  title={{SR}-{GRPO}: Stable Rank as an Intrinsic Geometric Reward for Large Language Model Alignment},\n  author={Yixuan Tang and Yi Yang},\n  booktitle={The 40th Annual Conference on Neural Information Processing Systems},\n  year={2026},\n  url={https://arxiv.org/abs/2512.02807}\n}"
+  },
+  {
     "title": "KV-Embedding: Training-free Text Embedding via Internal KV Re-routing in Decoder-only LLMs",
     "authors": ["Yixuan Tang", "Yi Yang"],
     "venue": "Annual Meeting of the Association for Computational Linguistics (ACL) 2026",
