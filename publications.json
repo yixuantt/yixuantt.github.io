@@ -1,5 +1,17 @@
 [
   {
+    "title": "Mind the Shift: Decoding Monetary Policy Stance from FOMC Statements with Large Language Models",
+    "authors": ["Yixuan Tang", "Yi Yang"],
+    "venue": "ACM International Conference on AI in Finance (ICAIF) 2026",
+    "type": "Conference",
+    "year": 2026,
+    "url": "https://arxiv.org/pdf/2603.14313",
+    "code_url": "",
+    "tags": ["Finance", "LLM", "Monetary Policy"],
+    "category": "cs",
+    "bibtex": "@inproceedings{tang2026mind,\n  title={Mind the Shift: Decoding Monetary Policy Stance from {FOMC} Statements with Large Language Models},\n  author={Yixuan Tang and Yi Yang},\n  booktitle={The 7th ACM International Conference on AI in Finance},\n  year={2026},\n  url={https://arxiv.org/pdf/2603.14313}\n}"
+  },
+  {
     "title": "Crowded in B-Space: Calibrating Shared Directions for LoRA Merging",
     "authors": ["Yixuan Tang", "Yi Yang"],
     "venue": "Conference on Neural Information Processing Systems (NeurIPS) 2026",
