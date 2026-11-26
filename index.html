@@ -499,6 +499,45 @@
             border-radius: 2px;
         }
 
+        /* ── PAGINATION ──────────────────────────────────── */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pagination button {
+            padding: 5px 11px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            font-family: var(--sans);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all .15s ease;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .pagination button.active {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        .pagination button:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
         /* ── FEATURED RESEARCH ───────────────────────────── */
         .featured-grid {
             display: grid;
@@ -792,6 +831,7 @@
                 <h2>Conference Publications</h2>
                 <div id="year-tabs" class="year-tabs"></div>
                 <div id="conference-list" class="pub-list"></div>
+                <div id="conference-pagination" class="pagination"></div>
             </section>
 
             <section id="featured" class="section">
@@ -845,12 +885,15 @@ let allPubs = [];
 let allNews = [];
 let newsExpanded = false;
 let activeYear = 'all';
+let confPage = 1;
+const CONF_PER_PAGE = 8;
 
 const newsEl      = $('news-container');
 const journalEl   = $('journal-list');
 const workingEl   = $('working-list');
 const yearTabsEl  = $('year-tabs');
 const confEl      = $('conference-list');
+const confPagEl   = $('conference-pagination');
 const featuredEl  = $('featured-container');
 const scrollBar   = $('scroll-bar');
 const backBtn     = $('back-to-top');
@@ -1039,13 +1082,17 @@ function renderConferences() {
     const confs = allPubs.filter(p => p.category === 'conference');
     const years = [...new Set(confs.map(p => p.year).filter(Boolean))].sort((a, b) => b - a);
     const filtered = activeYear === 'all' ? confs : confs.filter(p => String(p.year) === String(activeYear));
+    const totalPages = Math.max(1, Math.ceil(filtered.length / CONF_PER_PAGE));
+    if (confPage > totalPages) confPage = totalPages;
 
     yearTabsEl.innerHTML = ['all', ...years].map(y => `
         <button class="year-tab ${String(activeYear) === String(y) ? 'active' : ''}" type="button" data-year="${y}">
             ${y === 'all' ? 'All' : y}
         </button>`).join('');
 
-    confEl.innerHTML = filtered.map(pub => `
+    const pageItems = filtered.slice((confPage - 1) * CONF_PER_PAGE, confPage * CONF_PER_PAGE);
+
+    confEl.innerHTML = pageItems.map(pub => `
         <article class="pub-item">
             <div class="pub-title">
                 <h3>${titleHTML(pub)}</h3>
@@ -1057,6 +1104,19 @@ function renderConferences() {
             </div>
         </article>`).join('');
     observeChildren(confEl, '.pub-item');
+    revealPassedElements();
+
+    if (totalPages <= 1) {
+        confPagEl.innerHTML = '';
+        return;
+    }
+
+    let pagHtml = `<button type="button" ${confPage === 1 ? 'disabled' : ''} data-page="${confPage - 1}" aria-label="Previous page">&#8592;</button>`;
+    for (let i = 1; i <= totalPages; i++) {
+        pagHtml += `<button type="button" class="${i === confPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+    }
+    pagHtml += `<button type="button" ${confPage === totalPages ? 'disabled' : ''} data-page="${confPage + 1}" aria-label="Next page">&#8594;</button>`;
+    confPagEl.innerHTML = pagHtml;
 }
 
 function renderFeatured() {
@@ -1082,7 +1142,19 @@ yearTabsEl.addEventListener('click', e => {
     const btn = e.target.closest('.year-tab');
     if (!btn) return;
     activeYear = btn.dataset.year;
+    confPage = 1;
     renderConferences();
+});
+
+confPagEl.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-page]');
+    if (!btn || btn.disabled) return;
+    confPage = Number(btn.dataset.page);
+    renderConferences();
+    const sec = $('conference-publications');
+    if (sec) {
+        window.scrollTo({ top: sec.getBoundingClientRect().top + window.scrollY - 24, behavior: 'smooth' });
+    }
 });
 
 /* ─── Education stagger ─────────────────────────── */
